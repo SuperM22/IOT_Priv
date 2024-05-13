@@ -1,1 +1,2 @@
-idf_component_register(SRCS "dsps_fft_main.c")
+idf_component_register(SRCS "dsps_fft_main.c"
+                         INCLUDE_DIRS ".")

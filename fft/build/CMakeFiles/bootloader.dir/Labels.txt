@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/Users/mimmo/UniProjects/IOT_Priv/fft/build/CMakeFiles/bootloader
+/Users/mimmo/UniProjects/IOT_Priv/fft/build/CMakeFiles/bootloader.rule
+/Users/mimmo/UniProjects/IOT_Priv/fft/build/CMakeFiles/bootloader-complete.rule
+/Users/mimmo/UniProjects/IOT_Priv/fft/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/Users/mimmo/UniProjects/IOT_Priv/fft/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/Users/mimmo/UniProjects/IOT_Priv/fft/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/Users/mimmo/UniProjects/IOT_Priv/fft/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/Users/mimmo/UniProjects/IOT_Priv/fft/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/Users/mimmo/UniProjects/IOT_Priv/fft/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/Users/mimmo/UniProjects/IOT_Priv/fft/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
