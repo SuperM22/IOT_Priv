@@ -1,0 +1,17 @@
+[0;33m--- esp-idf-monitor 1.4.0 on /dev/cu.usbserial-0001 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+[0;33m0x42008a11: app_main at /Users/mimmo/UniProjects/IOT_Priv/fft/main/dsps_fft_main.c:197 (discriminator 1)
+[0m
+[0;33m0x4037bfbb: _esp_error_check_failed at /Users/mimmo/esp/esp-idf/components/esp_system/esp_err.c:50
+[0m
+[0;33m0x40375a26: panic_abort at /Users/mimmo/esp/esp-idf/components/esp_system/panic.c:472
+0x4037bfc5: esp_system_abort at /Users/mimmo/esp/esp-idf/components/esp_system/port/esp_system_chip.c:93
+0x40383fdd: abort at /Users/mimmo/esp/esp-idf/components/newlib/abort.c:38
+0x4037bfbb: _esp_error_check_failed at /Users/mimmo/esp/esp-idf/components/esp_system/esp_err.c:50
+0x42008a11: app_main at /Users/mimmo/UniProjects/IOT_Priv/fft/main/dsps_fft_main.c:197 (discriminator 1)
+0x42081a07: main_task at /Users/mimmo/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037cad1: vPortTaskWrapper at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x4037599c: esp_restart_noos at /Users/mimmo/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0m

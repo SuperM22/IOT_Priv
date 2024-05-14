@@ -45,7 +45,6 @@
 static const char *TAG = "main";
 static esp_adc_cal_characteristics_t adc1_chars;
 
-static const char *TAG = "mqtts_example";
 
 
 #if CONFIG_BROKER_CERTIFICATE_OVERRIDDEN == 1
@@ -62,28 +61,30 @@ extern const uint8_t mqtt_eclipseprojects_io_pem_end[]   asm("_binary_mqtt_eclip
 int N = N_SAMPLES;
 
 //SIGNAL DEFINES
-#define SAMPLE_RATE 2000 //samples per second (Hz)
-#define FREQUENCY_SIN 15
+#define SAMPLE_RATE 1000 //samples per second (Hz)
+#define FREQUENCY_SIN 25
 #define FREQUENCY_COS 15
-#define DURATION 5 //seconds
-
+#define DURATION 3 //seconds
+#define TH 10 //threshold for amplitude we consider the max frequence of the fft
+#define NUMSAMPLES 3000
 
 // Input test array
-__attribute__((aligned(16)))
-float x1[N_SAMPLES];
-__attribute__((aligned(16)))
-float x2[N_SAMPLES];
+int num_samples = SAMPLE_RATE * DURATION;
+float wave[NUMSAMPLES];
+// __attribute__((aligned(16)))
+// float x1[N_SAMPLES];
+// __attribute__((aligned(16)))
+// float x2[N_SAMPLES];
 // Window coefficients
 __attribute__((aligned(16)))
-float wind[N_SAMPLES];
+float wind[NUMSAMPLES];
 // working complex array
 __attribute__((aligned(16)))
-float y_cf[N_SAMPLES * 2];
+float y_cf[NUMSAMPLES * 2];
 // Pointers to result arrays
 float *y1_cf = &y_cf[0];
 //float *y2_cf = &y_cf[N_SAMPLES];
 
-float sig[N_SAMPLES];
 
 // Sum of y1 and y2
 __attribute__((aligned(16)))
@@ -117,11 +118,11 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
         msg_id = esp_mqtt_client_subscribe(client, "/topic/qos0", 0);
         ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
-        msg_id = esp_mqtt_client_subscribe(client, "/topic/qos1", 1);
-        ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+        //msg_id = esp_mqtt_client_subscribe(client, "/topic/qos1", 1);
+        //ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
-        msg_id = esp_mqtt_client_unsubscribe(client, "/topic/qos1");
-        ESP_LOGI(TAG, "sent unsubscribe successful, msg_id=%d", msg_id);
+        //msg_id = esp_mqtt_client_unsubscribe(client, "/topic/qos1");
+        //ESP_LOGI(TAG, "sent unsubscribe successful, msg_id=%d", msg_id);
         break;
     case MQTT_EVENT_DISCONNECTED:
         ESP_LOGI(TAG, "MQTT_EVENT_DISCONNECTED");
@@ -186,7 +187,15 @@ static void mqtt_app_start(void)
 
 void app_main()
 {
+    ESP_ERROR_CHECK(nvs_flash_init());
+    ESP_ERROR_CHECK(esp_netif_init());
+    ESP_ERROR_CHECK(esp_event_loop_create_default());
 
+    /* This helper function configures Wi-Fi or Ethernet, as selected in menuconfig.
+     * Read "Establishing Wi-Fi or Ethernet Connection" section in
+     * examples/protocols/README.md for more information about this function.
+     */
+    ESP_ERROR_CHECK(example_connect());
 
     // //code to take the voltage as the potentiometre
     // //uint32_t voltage;
@@ -212,8 +221,7 @@ void app_main()
         return;
     }
 
-    int num_samples = SAMPLE_RATE * DURATION;
-    double wave[num_samples];
+    
     double increment_sin = 2.0 * M_PI * FREQUENCY_SIN / SAMPLE_RATE;
     double increment_cos = 2.0 * M_PI * FREQUENCY_COS / SAMPLE_RATE;
     double phase_sin = 0.0;
@@ -234,46 +242,62 @@ void app_main()
     }
 
 
+
     // Generate hann window
-    dsps_wind_hann_f32(wind, N);
+    dsps_wind_hann_f32(wind, num_samples);
     // Generate input signal for x1 A=1 , F=0.1
-    dsps_tone_gen_f32(x1, N, 1.0, 0.16,  0);
+    //dsps_tone_gen_f32(x1, N, 1.0, 1.0,  0);
     // Generate input signal for x2 A=0.1,F=0.2
-    dsps_tone_gen_f32(x2, N, 0.1, 0.2, 0);
+    //dsps_tone_gen_f32(x2, N, 0.1, 0.2, 0);
 
     // Convert two input vectors to one complex vector
-    for (int i = 0 ; i < N ; i++) {
-        y_cf[i * 2 + 0] = x1[i] * wind[i];
+    for (int i = 0 ; i < num_samples ; i++) {
+        y_cf[i * 2 + 0] = wave[i] * wind[i];
         y_cf[i * 2 + 1] = 0;
     }
     // FFT
     unsigned int start_b = dsp_get_cpu_cycle_count();
-    dsps_fft2r_fc32(y_cf, N);
+    dsps_fft2r_fc32(y_cf, num_samples);
     unsigned int end_b = dsp_get_cpu_cycle_count();
     // Bit reverse
-    dsps_bit_rev_fc32(y_cf, N);
+    dsps_bit_rev_fc32(y_cf, num_samples);
     // Convert one complex vector to two complex vectors
-    dsps_cplx2reC_fc32(y_cf, N);
+    dsps_cplx2reC_fc32(y_cf, num_samples);
 
-    for (int i = 0 ; i < N / 2 ; i++) {
-        y1_cf[i] = 10 * log10f((y1_cf[i * 2 + 0] * y1_cf[i * 2 + 0] + y1_cf[i * 2 + 1] * y1_cf[i * 2 + 1]) / N);
+    //RETRIEVE THE MAX FREQ OF THE SIGNAL
+    int maxF = 0;
+    double maxA = 0;
+    for (int i = num_samples; i > 0; i--)
+    {
+        if(y_cf[i]>TH && i>maxF ){
+            maxF = i;
+            maxA = y_cf[i];
+        }
+    }
+    
+
+
+    for (int i = 0 ; i < num_samples / 2 ; i++) {
+        y1_cf[i] = 10 * log10f((y1_cf[i * 2 + 0] * y1_cf[i * 2 + 0] + y1_cf[i * 2 + 1] * y1_cf[i * 2 + 1]) / num_samples);
         //y2_cf[i] = 10 * log10f((y2_cf[i * 2 + 0] * y2_cf[i * 2 + 0] + y2_cf[i * 2 + 1] * y2_cf[i * 2 + 1]) / N);
         // Simple way to show two power spectrums as one plot
         //sum_y[i] = fmax(y1_cf[i], y2_cf[i]);
     }
 
-    for()
-
     // Show power spectrum in 64x10 window from -100 to 0 dB from 0..N/4 samples
     ESP_LOGW(TAG, "Signal x1");
-    dsps_view(y1_cf, N / 2, 64, 10,  -60, 40, '|');
-    ESP_LOGW(TAG, "Signal x2");
+    dsps_view(wave, num_samples / 2, 64, 10,  -60, 40, '|');
+    ESP_LOGW(TAG, "FFT");
+    dsps_view(y1_cf, num_samples / 2, 64, 10,  -60, 40, '|');
+    
+    //ESP_LOGW(TAG, "Signal x2");
     //dsps_view(y2_cf, N / 2, 64, 10,  -60, 40, '|');
-    ESP_LOGW(TAG, "Signals x1 and x2 on one plot");
+    //ESP_LOGW(TAG, "Signals x1 and x2 on one plot");
     //dsps_view(sum_y, N / 2, 64, 10,  -60, 40, '|');
+    
     ESP_LOGI(TAG, "FFT for %i complex points take %i cycles", N, end_b - start_b);
-
-    ESP_LOGI(TAG, "End Example.");
+    ESP_LOGI(TAG, "The maximum frequency of the signal is %i, and the relative amplitude value is %f", maxF, maxA);
+    //ESP_LOGI(TAG, "End Example.");
 }
 
 //fare for per : l'indice del result è la frequenza, il valore è l'ampiezza. Onde evitare rumori prendere max frequenza sopra una certa ampiezza di threshold.

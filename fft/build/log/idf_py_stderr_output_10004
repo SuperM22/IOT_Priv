@@ -1,0 +1,39 @@
+[0;33m--- esp-idf-monitor 1.4.0 on /dev/cu.usbserial-0001 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+[0;33m0x40039701: ieee80211_search_node in ROM
+[0m
+[0;33m0x40056f5c: memcpy in ROM
+0x40056f72: memcpy in ROM
+[0m
+[0;33m0x400396fe: ieee80211_search_node in ROM
+0x4207d617: ieee80211_output_do at ??:?
+0x4207d6fe: esp_wifi_internal_tx at ??:?
+0x4037c001: wifi_transmit_wrap at /Users/mimmo/esp/esp-idf/components/esp_wifi/src/wifi_netif.c:75
+0x4207b2f1: esp_netif_transmit_wrap at /Users/mimmo/esp/esp-idf/components/esp_netif/lwip/esp_netif_lwip.c:1251
+0x4204f575: low_level_output at /Users/mimmo/esp/esp-idf/components/esp_netif/lwip/netif/wlanif.c:90
+0x4204cacd: ethernet_output at /Users/mimmo/esp/esp-idf/components/lwip/lwip/src/netif/ethernet.c:312
+0x42063511: ethip6_output at /Users/mimmo/esp/esp-idf/components/lwip/lwip/src/core/ipv6/ethip6.c:101
+0x42049725: ip6_output_if_src at /Users/mimmo/esp/esp-idf/components/lwip/lwip/src/core/ipv6/ip6.c:1283
+0x42049789: ip6_output_if at /Users/mimmo/esp/esp-idf/components/lwip/lwip/src/core/ipv6/ip6.c:1173
+0x42049b12: mld6_send at /Users/mimmo/esp/esp-idf/components/lwip/lwip/src/core/ipv6/mld6.c:662 (discriminator 12)
+0x42049f7e: mld6_tmr at /Users/mimmo/esp/esp-idf/components/lwip/lwip/src/core/ipv6/mld6.c:532
+0x42049fc3: mld6_timeout_cb at /Users/mimmo/esp/esp-idf/components/lwip/lwip/src/core/ipv6/mld6.c:504
+0x42044699: sys_check_timeouts at /Users/mimmo/esp/esp-idf/components/lwip/lwip/src/core/timeouts.c:403
+0x4203dc9e: tcpip_timeouts_mbox_fetch at /Users/mimmo/esp/esp-idf/components/lwip/lwip/src/api/tcpip.c:109
+0x4203dd5a: tcpip_thread at /Users/mimmo/esp/esp-idf/components/lwip/lwip/src/api/tcpip.c:142
+0x4037cad1: vPortTaskWrapper at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x4037599c: esp_restart_noos at /Users/mimmo/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0;33m0x400559dd: _xtos_set_intlevel in ROM
+0x4037ce77: vPortClearInterruptMaskFromISR at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:564
+ (inlined by) vPortExitCritical at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:504
+0x4037c882: xQueueReceive at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:1632
+0x4204cf67: sys_arch_mbox_fetch at /Users/mimmo/esp/esp-idf/components/lwip/port/freertos/sys_arch.c:317
+0x4203dc98: tcpip_timeouts_mbox_fetch at /Users/mimmo/esp/esp-idf/components/lwip/lwip/src/api/tcpip.c:104
+0x4203dd5a: tcpip_thread at /Users/mimmo/esp/esp-idf/components/lwip/lwip/src/api/tcpip.c:142
+0x4037cad1: vPortTaskWrapper at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x4037599c: esp_restart_noos at /Users/mimmo/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:159
+[0m
+[0m
