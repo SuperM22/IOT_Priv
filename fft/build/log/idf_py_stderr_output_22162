@@ -1,0 +1,26 @@
+[0;33m--- esp-idf-monitor 1.4.0 on /dev/cu.usbserial-0001 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+[0;33m0x4200c08f: task_wdt_timeout_handling at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:441
+0x4200c4ac: task_wdt_isr at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:515
+0x403775e9: _xt_lowint1 at /Users/mimmo/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+0x42007ace: uart_ll_get_txfifo_len at /Users/mimmo/esp/esp-idf/components/hal/esp32s3/include/hal/uart_ll.h:387
+ (inlined by) uart_tx_char at /Users/mimmo/esp/esp-idf/components/vfs/vfs_uart.c:165
+0x42008993: uart_write at /Users/mimmo/esp/esp-idf/components/vfs/vfs_uart.c:218
+0x420074fd: console_write at /Users/mimmo/esp/esp-idf/components/vfs/vfs_console.c:73 (discriminator 1)
+0x4200706e: esp_vfs_write at /Users/mimmo/esp/esp-idf/components/vfs/vfs.c:482 (discriminator 4)
+0x4206cfa6: __swrite at /builds/idf/crosstool-NG/.build/HOST-x86_64-apple-darwin21.1/xtensa-esp-elf/src/newlib/newlib/libc/stdio/stdio.c:94
+0x4206c4f5: __sflush_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-apple-darwin21.1/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:224
+0x4206c552: _fflush_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-apple-darwin21.1/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fflush.c:278
+ (inlined by) _fflush_r at /builds/idf/crosstool-NG/.build/src/newlib-git-af24ceb7/newlib/libc/include/stdio.h:417
+0x4206cb91: __sfvwrite_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-apple-darwin21.1/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c:251
+0x420742ff: __sprint_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-apple-darwin21.1/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfiprintf.c:429
+ (inlined by) __sprint_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-apple-darwin21.1/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:399
+0x42073cc2: _vfprintf_r at /builds/idf/crosstool-NG/.build/HOST-x86_64-apple-darwin21.1/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1774 (discriminator 1)
+0x4206d01d: vprintf at /builds/idf/crosstool-NG/.build/HOST-x86_64-apple-darwin21.1/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vprintf.c:34
+0x420829e9: esp_log_writev at /Users/mimmo/esp/esp-idf/components/log/log.c:215
+0x40383171: esp_log_write at /Users/mimmo/esp/esp-idf/components/log/log.c:225
+0x42008b55: app_main at /Users/mimmo/UniProjects/IOT_Priv/fft/main/dsps_fft_main.c:247 (discriminator 1)
+0x42081a53: main_task at /Users/mimmo/esp/esp-idf/components/freertos/app_startup.c:208
+0x4037cad1: vPortTaskWrapper at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0m

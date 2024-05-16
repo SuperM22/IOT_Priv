@@ -1,0 +1,172 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x28 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3810,len:0x178c
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xcbc
+load:0x403cc700,len:0x2d98
+entry 0x403c9914
+[0;32mI (27) boot: ESP-IDF v5.2 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time May 14 2024 18:44:10[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (43) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (53) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (64) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (79) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (87) boot: End of partition table[0m
+[0;32mI (91) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=273b8h (160696) map[0m
+[0;32mI (128) esp_image: segment 1: paddr=000373e0 vaddr=3fc98500 size=0468ch ( 18060) load[0m
+[0;32mI (132) esp_image: segment 2: paddr=0003ba74 vaddr=40374000 size=045a4h ( 17828) load[0m
+[0;32mI (138) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=82bd0h (535504) map[0m
+[0;32mI (238) esp_image: segment 4: paddr=000c2bf8 vaddr=403785a4 size=0fe94h ( 65172) load[0m
+[0;32mI (261) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (261) boot: Disabling RNG early entropy source...[0m
+[0;32mI (273) cpu_start: Multicore app[0m
+[0;32mI (283) cpu_start: Pro cpu start user code[0m
+[0;32mI (283) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (283) cpu_start: Application information:[0m
+[0;32mI (286) cpu_start: Project name:     fft2r[0m
+[0;32mI (291) cpu_start: App version:      58336f6-dirty[0m
+[0;32mI (296) cpu_start: Compile time:     May 15 2024 11:35:12[0m
+[0;32mI (302) cpu_start: ELF file SHA256:  f8d226991...[0m
+[0;32mI (308) cpu_start: ESP-IDF:          v5.2[0m
+[0;32mI (312) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (317) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (322) cpu_start: Chip rev:         v0.2[0m
+[0;32mI (327) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (334) heap_init: At 3FCB0828 len 00038EE8 (227 KiB): RAM[0m
+[0;32mI (340) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (346) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (352) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (360) spi_flash: detected chip: gd[0m
+[0;32mI (363) spi_flash: flash io: dio[0m
+[0;33mW (367) spi_flash: Detected size(8192k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (380) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (387) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (394) main_task: Started on CPU0[0m
+[0;32mI (404) main_task: Calling app_main()[0m
+[0;32mI (424) example_connect: Start example_connect.[0m
+[0;32mI (424) pp: pp rom version: e7ae62f[0m
+[0;32mI (424) net80211: net80211 rom version: e7ae62f[0m
+I (444) wifi:wifi driver task: 3fcba384, prio:23, stack:6656, core=0
+I (454) wifi:wifi firmware version: cc1dd81
+I (454) wifi:wifi certification version: v7.0
+I (454) wifi:config NVS flash: enabled
+I (454) wifi:config nano formating: disabled
+I (454) wifi:Init data frame dynamic rx buffer num: 32
+I (464) wifi:Init static rx mgmt buffer num: 5
+I (464) wifi:Init management short buffer num: 32
+I (474) wifi:Init dynamic tx buffer num: 32
+I (474) wifi:Init static tx FG buffer num: 2
+I (474) wifi:Init static rx buffer size: 1600
+I (484) wifi:Init static rx buffer num: 10
+I (484) wifi:Init dynamic rx buffer num: 32
+[0;32mI (494) wifi_init: rx ba win: 6[0m
+[0;32mI (494) wifi_init: tcpip mbox: 32[0m
+[0;32mI (494) wifi_init: udp mbox: 6[0m
+[0;32mI (504) wifi_init: tcp mbox: 6[0m
+[0;32mI (504) wifi_init: tcp tx win: 5760[0m
+[0;32mI (504) wifi_init: tcp rx win: 5760[0m
+[0;32mI (514) wifi_init: tcp mss: 1440[0m
+[0;32mI (514) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (524) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (524) phy_init: phy_version 620,ec7ec30,Sep  5 2023,13:49:13[0m
+I (574) wifi:mode : sta (48:27:e2:e2:ee:98)
+I (574) wifi:enable tsf
+[0;32mI (574) example_connect: Connecting to iPhone (22)...[0m
+[0;32mI (574) example_connect: Waiting for IP(s)[0m
+I (2984) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+I (2984) wifi:state: init -> auth (b0)
+I (7344) wifi:state: auth -> init (200)
+I (7344) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+[0;32mI (7344) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (9754) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+I (12164) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+I (12164) wifi:state: init -> auth (b0)
+I (12914) wifi:state: auth -> assoc (0)
+I (12924) wifi:state: assoc -> run (10)
+I (12974) wifi:connected with iPhone (22), aid = 1, channel 1, BW20, bssid = 7a:88:62:4d:15:e5
+I (12974) wifi:security: WPA3-SAE, phy: bgn, rssi: -85
+I (12974) wifi:pm start, type: 1
+
+I (12984) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (12994) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (13034) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (13514) wifi:<ba-add>idx:0 (ifx:0, 7a:88:62:4d:15:e5), tid:0, ssn:2, winSize:64
+[0;32mI (14424) example_connect: Got IPv6 event: Interface "example_netif_sta" address: fe80:0000:0000:0000:4a27:e2ff:fee2:ee98, type: ESP_IP6_ADDR_IS_LINK_LOCAL[0m
+[0;32mI (14504) esp_netif_handlers: example_netif_sta ip: 172.20.10.3, mask: 255.255.255.240, gw: 172.20.10.1[0m
+[0;32mI (14504) example_connect: Got IPv4 event: Interface "example_netif_sta" address: 172.20.10.3[0m
+[0;32mI (14504) example_common: Connected to example_netif_sta[0m
+[0;32mI (14514) example_common: - IPv4 address: 172.20.10.3,[0m
+[0;32mI (14524) example_common: - IPv6 address: fe80:0000:0000:0000:4a27:e2ff:fee2:ee98, type: ESP_IP6_ADDR_IS_LINK_LOCAL[0m
+[0;32mI (14534) main: Start FFT.[0m
+[0;32mI (14704) main: THE MAX Index is 1057[0m
+[0;33mW (14714) main: Signal x1[0m
+[0;32mI (14714) view: Data min[638] = -3.553816, Data max[220] = 5.672237[0m
+ ________________________________________________________________
+0                                                                |
+1                                                                |
+2                                                                |
+3|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+4                                                                |
+5                                                                |
+6                                                                |
+7                                                                |
+8                                                                |
+9                                                                |
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (14784) view: Plot: Length=2000, min=-60.000000, max=40.000000[0m
+[0;33mW (14794) main: FFT[0m
+[0;32mI (14794) view: Data min[1778] = -115.964371, Data max[487] = 17.687635[0m
+ ________________________________________________________________
+0                                                                |
+1                                                                |
+2   |||     ||||||            ||||             ||||            |||
+3|||| ||   || ||||||||||   |||||||||||||    |||||||||||||   ||||||
+4|||| ||||||  ||  ||||||   ||||   |||||||   |||   |||||||   ||||||
+5 |     |||         |  ||  |      |||| ||  ||||     ||| |   ||| ||
+6       |||         |   |  |        |  ||  ||||      |  |   | |  |
+7        ||             |  |           ||  |||          |   | |  |
+8                       |  |            |  ||           |   |    |
+9                        ||              ||              |||     |
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (14874) view: Plot: Length=2000, min=-60.000000, max=40.000000[0m
+[0;32mI (14884) view: Data min[1795] = -147.870148, Data max[487] = 17.687635[0m
+ ________________________________________________________________
+0                                                                |
+1                                                                |
+2|            ||||            ||||             ||              |||
+3|||||||   |||||||||||||    ||||||||||||    |||||||            |||
+4|||||||   ||||  |||||||   |||||| |||||||   ||||||||           | |
+5  ||| |   |||     ||| |   ||| |  |||| ||  ||||||| |           | |
+6   |  |   | |      |  |   | |      |  ||  ||||    |           | |
+7      |   | |         |   | |         ||  |||     |           | |
+8      |   |           |   |            |  ||      |           | |
+9       |||             |||              ||         |||||||||||  |
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (14954) view: Plot: Length=2000, min=-60.000000, max=40.000000[0m
+[0;32mI (14964) view: Data min[257] = -129.758743, Data max[455] = 21.392815[0m
+ ________________________________________________________________
+0                                                                |
+1| |                                                    ||||     |
+2|||||                                                 ||| |||||||
+3    |||||||||||||||||||||||                ||||||||||||||  || |||
+4    |  ||||||| | | ||||||||              ||| ||| ||||| ||       |
+5       ||  |        || || |              ||| | |    |           |
+6           |              |              |||   |                |
+7           |              |              |||                    |
+8           |              |              |||                    |
+9                           ||||||||||||||                       |
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (15044) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
+[0;32mI (15044) main: FFT for 1024 complex points take 489947 cycles[0m
+[0;32mI (15054) main: The maximum frequency of the signal is 528.500000, and the relative amplitude value is 552.457642[0m
+[0;32mI (15064) main_task: Returned from app_main()[0m

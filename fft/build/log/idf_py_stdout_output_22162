@@ -1,0 +1,1155 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x28 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3810,len:0x178c
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xcbc
+load:0x403cc700,len:0x2d98
+entry 0x403c9914
+[0;32mI (27) boot: ESP-IDF v5.2 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time May 14 2024 18:44:10[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (43) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (53) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (64) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (79) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (87) boot: End of partition table[0m
+[0;32mI (91) esp_image: segment 0: paddr=00010020 vaddr=3c090020 size=273c8h (160712) map[0m
+[0;32mI (128) esp_image: segment 1: paddr=000373f0 vaddr=3fc98500 size=045dch ( 17884) load[0m
+[0;32mI (132) esp_image: segment 2: paddr=0003b9d4 vaddr=40374000 size=04644h ( 17988) load[0m
+[0;32mI (138) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=82a54h (535124) map[0m
+[0;32mI (238) esp_image: segment 4: paddr=000c2a7c vaddr=40378644 size=0fdf4h ( 65012) load[0m
+[0;32mI (261) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (261) boot: Disabling RNG early entropy source...[0m
+[0;32mI (273) cpu_start: Multicore app[0m
+[0;32mI (283) cpu_start: Pro cpu start user code[0m
+[0;32mI (283) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (283) cpu_start: Application information:[0m
+[0;32mI (286) cpu_start: Project name:     fft2r[0m
+[0;32mI (291) cpu_start: App version:      58336f6-dirty[0m
+[0;32mI (296) cpu_start: Compile time:     May 15 2024 11:35:12[0m
+[0;32mI (302) cpu_start: ELF file SHA256:  bfe32a6db...[0m
+[0;32mI (307) cpu_start: ESP-IDF:          v5.2[0m
+[0;32mI (312) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (317) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (322) cpu_start: Chip rev:         v0.2[0m
+[0;32mI (326) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (334) heap_init: At 3FCA43F8 len 00045318 (276 KiB): RAM[0m
+[0;32mI (340) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (346) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (352) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (359) spi_flash: detected chip: gd[0m
+[0;32mI (363) spi_flash: flash io: dio[0m
+[0;33mW (366) spi_flash: Detected size(8192k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (380) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (387) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (394) main_task: Started on CPU0[0m
+[0;32mI (404) main_task: Calling app_main()[0m
+[0;32mI (424) example_connect: Start example_connect.[0m
+[0;32mI (424) pp: pp rom version: e7ae62f[0m
+[0;32mI (424) net80211: net80211 rom version: e7ae62f[0m
+I (444) wifi:wifi driver task: 3fcae294, prio:23, stack:6656, core=0
+I (454) wifi:wifi firmware version: cc1dd81
+I (454) wifi:wifi certification version: v7.0
+I (454) wifi:config NVS flash: enabled
+I (454) wifi:config nano formating: disabled
+I (454) wifi:Init data frame dynamic rx buffer num: 32
+I (464) wifi:Init static rx mgmt buffer num: 5
+I (464) wifi:Init management short buffer num: 32
+I (474) wifi:Init dynamic tx buffer num: 32
+I (474) wifi:Init static tx FG buffer num: 2
+I (474) wifi:Init static rx buffer size: 1600
+I (484) wifi:Init static rx buffer num: 10
+I (484) wifi:Init dynamic rx buffer num: 32
+[0;32mI (494) wifi_init: rx ba win: 6[0m
+[0;32mI (494) wifi_init: tcpip mbox: 32[0m
+[0;32mI (494) wifi_init: udp mbox: 6[0m
+[0;32mI (504) wifi_init: tcp mbox: 6[0m
+[0;32mI (504) wifi_init: tcp tx win: 5760[0m
+[0;32mI (504) wifi_init: tcp rx win: 5760[0m
+[0;32mI (514) wifi_init: tcp mss: 1440[0m
+[0;32mI (514) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (524) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (524) phy_init: phy_version 620,ec7ec30,Sep  5 2023,13:49:13[0m
+I (564) wifi:mode : sta (48:27:e2:e2:ee:98)
+I (574) wifi:enable tsf
+[0;32mI (574) example_connect: Connecting to iPhone (22)...[0m
+[0;32mI (574) example_connect: Waiting for IP(s)[0m
+I (2984) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (2984) wifi:state: init -> auth (b0)
+I (3724) wifi:state: auth -> assoc (0)
+I (3804) wifi:Association refused temporarily, comeback time 196 (TUs)
+I (4004) wifi:state: assoc -> assoc (0)
+I (4014) wifi:Association refused temporarily, comeback time 196 (TUs)
+I (4214) wifi:state: assoc -> assoc (0)
+I (4214) wifi:Association refused temporarily, comeback time 196 (TUs)
+I (4414) wifi:state: assoc -> assoc (0)
+I (4424) wifi:Association refused temporarily, comeback time 196 (TUs)
+I (4624) wifi:state: assoc -> assoc (0)
+I (4634) wifi:state: assoc -> run (10)
+I (4734) wifi:connected with iPhone (22), aid = 1, channel 6, BW20, bssid = a6:f1:0a:7d:f6:9d
+I (4734) wifi:security: WPA3-SAE, phy: bgn, rssi: -50
+I (4734) wifi:pm start, type: 1
+
+I (4744) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (4754) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (4764) wifi:<ba-add>idx:0 (ifx:0, a6:f1:0a:7d:f6:9d), tid:0, ssn:6, winSize:64
+I (4784) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+[0;32mI (5764) esp_netif_handlers: example_netif_sta ip: 172.20.10.3, mask: 255.255.255.240, gw: 172.20.10.1[0m
+[0;32mI (5764) example_connect: Got IPv4 event: Interface "example_netif_sta" address: 172.20.10.3[0m
+[0;32mI (6424) example_connect: Got IPv6 event: Interface "example_netif_sta" address: fe80:0000:0000:0000:4a27:e2ff:fee2:ee98, type: ESP_IP6_ADDR_IS_LINK_LOCAL[0m
+[0;32mI (6424) example_common: Connected to example_netif_sta[0m
+[0;32mI (6434) example_common: - IPv4 address: 172.20.10.3,[0m
+[0;32mI (6434) example_common: - IPv6 address: fe80:0000:0000:0000:4a27:e2ff:fee2:ee98, type: ESP_IP6_ADDR_IS_LINK_LOCAL[0m
+[0;32mI (6444) main: Start Example.[0m
+[0;32mI (6484) main: Signal at index 0 is 1.000000[0m
+[0;32mI (6484) main: Signal at index 1 is 1.151996[0m
+[0;32mI (6484) main: Signal at index 2 is 1.291304[0m
+[0;32mI (6494) main: Signal at index 3 is 1.414284[0m
+[0;32mI (6494) main: Signal at index 4 is 1.517562[0m
+[0;32mI (6504) main: Signal at index 5 is 1.598113[0m
+[0;32mI (6504) main: Signal at index 6 is 1.653345[0m
+[0;32mI (6514) main: Signal at index 7 is 1.681162[0m
+[0;32mI (6514) main: Signal at index 8 is 1.680025[0m
+[0;32mI (6524) main: Signal at index 9 is 1.649000[0m
+[0;32mI (6524) main: Signal at index 10 is 1.587785[0m
+[0;32mI (6534) main: Signal at index 11 is 1.496730[0m
+[0;32mI (6534) main: Signal at index 12 is 1.376836[0m
+[0;32mI (6544) main: Signal at index 13 is 1.229744[0m
+[0;32mI (6544) main: Signal at index 14 is 1.057707[0m
+[0;32mI (6554) main: Signal at index 15 is 0.863541[0m
+[0;32mI (6554) main: Signal at index 16 is 0.650576[0m
+[0;32mI (6564) main: Signal at index 17 is 0.422580[0m
+[0;32mI (6564) main: Signal at index 18 is 0.183684[0m
+[0;32mI (6574) main: Signal at index 19 is -0.061709[0m
+[0;32mI (6574) main: Signal at index 20 is -0.309017[0m
+[0;32mI (6584) main: Signal at index 21 is -0.553582[0m
+[0;32mI (6584) main: Signal at index 22 is -0.790771[0m
+[0;32mI (6594) main: Signal at index 23 is -1.016074[0m
+[0;32mI (6594) main: Signal at index 24 is -1.225209[0m
+[0;32mI (6604) main: Signal at index 25 is -1.414214[0m
+[0;32mI (6604) main: Signal at index 26 is -1.579530[0m
+[0;32mI (6614) main: Signal at index 27 is -1.718087[0m
+[0;32mI (6614) main: Signal at index 28 is -1.827363[0m
+[0;32mI (6624) main: Signal at index 29 is -1.905443[0m
+[0;32mI (6624) main: Signal at index 30 is -1.951056[0m
+[0;32mI (6634) main: Signal at index 31 is -1.963605[0m
+[0;32mI (6634) main: Signal at index 32 is -1.943171[0m
+[0;32mI (6644) main: Signal at index 33 is -1.890513[0m
+[0;32mI (6644) main: Signal at index 34 is -1.807044[0m
+[0;32mI (6654) main: Signal at index 35 is -1.694795[0m
+[0;32mI (6654) main: Signal at index 36 is -1.556368[0m
+[0;32mI (6664) main: Signal at index 37 is -1.394871[0m
+[0;32mI (6664) main: Signal at index 38 is -1.213844[0m
+[0;32mI (6674) main: Signal at index 39 is -1.017177[0m
+[0;32mI (6674) main: Signal at index 40 is -0.809017[0m
+[0;32mI (6684) main: Signal at index 41 is -0.593677[0m
+[0;32mI (6684) main: Signal at index 42 is -0.375530[0m
+[0;32mI (6694) main: Signal at index 43 is -0.158917[0m
+[0;32mI (6694) main: Signal at index 44 is 0.051958[0m
+[0;32mI (6704) main: Signal at index 45 is 0.253116[0m
+[0;32mI (6704) main: Signal at index 46 is 0.440892[0m
+[0;32mI (6714) main: Signal at index 47 is 0.612015[0m
+[0;32mI (6714) main: Signal at index 48 is 0.763675[0m
+[0;32mI (6724) main: Signal at index 49 is 0.893580[0m
+[0;32mI (6724) main: Signal at index 50 is 1.000000[0m
+[0;32mI (6734) main: Signal at index 51 is 1.081797[0m
+[0;32mI (6734) main: Signal at index 52 is 1.138438[0m
+[0;32mI (6744) main: Signal at index 53 is 1.169998[0m
+[0;32mI (6744) main: Signal at index 54 is 1.177142[0m
+[0;32mI (6754) main: Signal at index 55 is 1.161097[0m
+[0;32mI (6754) main: Signal at index 56 is 1.123612[0m
+[0;32mI (6764) main: Signal at index 57 is 1.066898[0m
+[0;32mI (6764) main: Signal at index 58 is 0.993564[0m
+[0;32mI (6774) main: Signal at index 59 is 0.906546[0m
+[0;32mI (6774) main: Signal at index 60 is 0.809017[0m
+[0;32mI (6784) main: Signal at index 61 is 0.704308[0m
+[0;32mI (6784) main: Signal at index 62 is 0.595810[0m
+[0;32mI (6794) main: Signal at index 63 is 0.486890[0m
+[0;32mI (6794) main: Signal at index 64 is 0.380798[0m
+[0;32mI (6804) main: Signal at index 65 is 0.280582[0m
+[0;32mI (6804) main: Signal at index 66 is 0.189010[0m
+[0;32mI (6814) main: Signal at index 67 is 0.108500[0m
+[0;32mI (6814) main: Signal at index 68 is 0.041058[0m
+[0;32mI (6824) main: Signal at index 69 is -0.011772[0m
+[0;32mI (6834) main: Signal at index 70 is -0.048943[0m
+[0;32mI (6834) main: Signal at index 71 is -0.069934[0m
+[0;32mI (6844) main: Signal at index 72 is -0.074750[0m
+[0;32mI (6844) main: Signal at index 73 is -0.063926[0m
+[0;32mI (6854) main: Signal at index 74 is -0.038504[0m
+[0;32mI (6854) main: Signal at index 75 is -0.000000[0m
+[0;32mI (6864) main: Signal at index 76 is 0.049639[0m
+[0;32mI (6864) main: Signal at index 77 is 0.108093[0m
+[0;32mI (6874) main: Signal at index 78 is 0.172737[0m
+[0;32mI (6874) main: Signal at index 79 is 0.240713[0m
+[0;32mI (6884) main: Signal at index 80 is 0.309017[0m
+[0;32mI (6884) main: Signal at index 81 is 0.374578[0m
+[0;32mI (6894) main: Signal at index 82 is 0.434350[0m
+[0;32mI (6894) main: Signal at index 83 is 0.485401[0m
+[0;32mI (6904) main: Signal at index 84 is 0.524995[0m
+[0;32mI (6904) main: Signal at index 85 is 0.550672[0m
+[0;32mI (6914) main: Signal at index 86 is 0.560327[0m
+[0;32mI (6914) main: Signal at index 87 is 0.552269[0m
+[0;32mI (6924) main: Signal at index 88 is 0.525277[0m
+[0;32mI (6924) main: Signal at index 89 is 0.478647[0m
+[0;32mI (6934) main: Signal at index 90 is 0.412215[0m
+[0;32mI (6934) main: Signal at index 91 is 0.326376[0m
+[0;32mI (6944) main: Signal at index 92 is 0.222088[0m
+[0;32mI (6944) main: Signal at index 93 is 0.100852[0m
+[0;32mI (6954) main: Signal at index 94 is -0.035311[0m
+[0;32mI (6954) main: Signal at index 95 is -0.183900[0m
+[0;32mI (6964) main: Signal at index 96 is -0.341991[0m
+[0;32mI (6964) main: Signal at index 97 is -0.506303[0m
+[0;32mI (6974) main: Signal at index 98 is -0.673270[0m
+[0;32mI (6974) main: Signal at index 99 is -0.839127[0m
+[0;32mI (6984) main: Signal at index 100 is -1.000000[0m
+[0;32mI (6984) main: Signal at index 101 is -1.151996[0m
+[0;32mI (6994) main: Signal at index 102 is -1.291304[0m
+[0;32mI (6994) main: Signal at index 103 is -1.414284[0m
+[0;32mI (7004) main: Signal at index 104 is -1.517562[0m
+[0;32mI (7004) main: Signal at index 105 is -1.598113[0m
+[0;32mI (7014) main: Signal at index 106 is -1.653345[0m
+[0;32mI (7014) main: Signal at index 107 is -1.681162[0m
+[0;32mI (7024) main: Signal at index 108 is -1.680025[0m
+[0;32mI (7024) main: Signal at index 109 is -1.649000[0m
+[0;32mI (7034) main: Signal at index 110 is -1.587785[0m
+[0;32mI (7034) main: Signal at index 111 is -1.496730[0m
+[0;32mI (7044) main: Signal at index 112 is -1.376836[0m
+[0;32mI (7044) main: Signal at index 113 is -1.229744[0m
+[0;32mI (7054) main: Signal at index 114 is -1.057707[0m
+[0;32mI (7064) main: Signal at index 115 is -0.863541[0m
+[0;32mI (7064) main: Signal at index 116 is -0.650576[0m
+[0;32mI (7074) main: Signal at index 117 is -0.422580[0m
+[0;32mI (7074) main: Signal at index 118 is -0.183684[0m
+[0;32mI (7084) main: Signal at index 119 is 0.061709[0m
+[0;32mI (7084) main: Signal at index 120 is 0.309017[0m
+[0;32mI (7094) main: Signal at index 121 is 0.553582[0m
+[0;32mI (7094) main: Signal at index 122 is 0.790771[0m
+[0;32mI (7104) main: Signal at index 123 is 1.016074[0m
+[0;32mI (7104) main: Signal at index 124 is 1.225209[0m
+[0;32mI (7114) main: Signal at index 125 is 1.414214[0m
+[0;32mI (7114) main: Signal at index 126 is 1.579530[0m
+[0;32mI (7124) main: Signal at index 127 is 1.718087[0m
+[0;32mI (7124) main: Signal at index 128 is 1.827363[0m
+[0;32mI (7134) main: Signal at index 129 is 1.905443[0m
+[0;32mI (7134) main: Signal at index 130 is 1.951056[0m
+[0;32mI (7144) main: Signal at index 131 is 1.963605[0m
+[0;32mI (7144) main: Signal at index 132 is 1.943171[0m
+[0;32mI (7154) main: Signal at index 133 is 1.890513[0m
+[0;32mI (7154) main: Signal at index 134 is 1.807044[0m
+[0;32mI (7164) main: Signal at index 135 is 1.694795[0m
+[0;32mI (7164) main: Signal at index 136 is 1.556368[0m
+[0;32mI (7174) main: Signal at index 137 is 1.394871[0m
+[0;32mI (7174) main: Signal at index 138 is 1.213844[0m
+[0;32mI (7184) main: Signal at index 139 is 1.017177[0m
+[0;32mI (7184) main: Signal at index 140 is 0.809017[0m
+[0;32mI (7194) main: Signal at index 141 is 0.593677[0m
+[0;32mI (7194) main: Signal at index 142 is 0.375530[0m
+[0;32mI (7204) main: Signal at index 143 is 0.158917[0m
+[0;32mI (7204) main: Signal at index 144 is -0.051958[0m
+[0;32mI (7214) main: Signal at index 145 is -0.253116[0m
+[0;32mI (7214) main: Signal at index 146 is -0.440892[0m
+[0;32mI (7224) main: Signal at index 147 is -0.612015[0m
+[0;32mI (7224) main: Signal at index 148 is -0.763675[0m
+[0;32mI (7234) main: Signal at index 149 is -0.893580[0m
+[0;32mI (7244) main: Signal at index 150 is -1.000000[0m
+[0;32mI (7244) main: Signal at index 151 is -1.081797[0m
+[0;32mI (7254) main: Signal at index 152 is -1.138438[0m
+[0;32mI (7254) main: Signal at index 153 is -1.169998[0m
+[0;32mI (7264) main: Signal at index 154 is -1.177142[0m
+[0;32mI (7264) main: Signal at index 155 is -1.161097[0m
+[0;32mI (7274) main: Signal at index 156 is -1.123612[0m
+[0;32mI (7274) main: Signal at index 157 is -1.066898[0m
+[0;32mI (7284) main: Signal at index 158 is -0.993564[0m
+[0;32mI (7284) main: Signal at index 159 is -0.906546[0m
+[0;32mI (7294) main: Signal at index 160 is -0.809017[0m
+[0;32mI (7294) main: Signal at index 161 is -0.704308[0m
+[0;32mI (7304) main: Signal at index 162 is -0.595810[0m
+[0;32mI (7304) main: Signal at index 163 is -0.486890[0m
+[0;32mI (7314) main: Signal at index 164 is -0.380798[0m
+[0;32mI (7314) main: Signal at index 165 is -0.280582[0m
+[0;32mI (7324) main: Signal at index 166 is -0.189010[0m
+[0;32mI (7324) main: Signal at index 167 is -0.108500[0m
+[0;32mI (7334) main: Signal at index 168 is -0.041058[0m
+[0;32mI (7334) main: Signal at index 169 is 0.011772[0m
+[0;32mI (7344) main: Signal at index 170 is 0.048943[0m
+[0;32mI (7344) main: Signal at index 171 is 0.069934[0m
+[0;32mI (7354) main: Signal at index 172 is 0.074750[0m
+[0;32mI (7354) main: Signal at index 173 is 0.063926[0m
+[0;32mI (7364) main: Signal at index 174 is 0.038504[0m
+[0;32mI (7364) main: Signal at index 175 is 0.000000[0m
+[0;32mI (7374) main: Signal at index 176 is -0.049639[0m
+[0;32mI (7384) main: Signal at index 177 is -0.108093[0m
+[0;32mI (7384) main: Signal at index 178 is -0.172737[0m
+[0;32mI (7394) main: Signal at index 179 is -0.240713[0m
+[0;32mI (7394) main: Signal at index 180 is -0.309017[0m
+[0;32mI (7404) main: Signal at index 181 is -0.374578[0m
+[0;32mI (7404) main: Signal at index 182 is -0.434350[0m
+[0;32mI (7414) main: Signal at index 183 is -0.485401[0m
+[0;32mI (7414) main: Signal at index 184 is -0.524995[0m
+[0;32mI (7424) main: Signal at index 185 is -0.550672[0m
+[0;32mI (7424) main: Signal at index 186 is -0.560327[0m
+[0;32mI (7434) main: Signal at index 187 is -0.552269[0m
+[0;32mI (7434) main: Signal at index 188 is -0.525277[0m
+[0;32mI (7444) main: Signal at index 189 is -0.478647[0m
+[0;32mI (7444) main: Signal at index 190 is -0.412215[0m
+[0;32mI (7454) main: Signal at index 191 is -0.326376[0m
+[0;32mI (7454) main: Signal at index 192 is -0.222088[0m
+[0;32mI (7464) main: Signal at index 193 is -0.100852[0m
+[0;32mI (7464) main: Signal at index 194 is 0.035311[0m
+[0;32mI (7474) main: Signal at index 195 is 0.183900[0m
+[0;32mI (7474) main: Signal at index 196 is 0.341991[0m
+[0;32mI (7484) main: Signal at index 197 is 0.506303[0m
+[0;32mI (7484) main: Signal at index 198 is 0.673270[0m
+[0;32mI (7494) main: Signal at index 199 is 0.839127[0m
+[0;32mI (7494) main: Signal at index 200 is 1.000000[0m
+[0;32mI (7504) main: Signal at index 201 is 1.151996[0m
+[0;32mI (7504) main: Signal at index 202 is 1.291304[0m
+[0;32mI (7514) main: Signal at index 203 is 1.414284[0m
+[0;32mI (7524) main: Signal at index 204 is 1.517562[0m
+[0;32mI (7524) main: Signal at index 205 is 1.598113[0m
+[0;32mI (7534) main: Signal at index 206 is 1.653345[0m
+[0;32mI (7534) main: Signal at index 207 is 1.681162[0m
+[0;32mI (7544) main: Signal at index 208 is 1.680025[0m
+[0;32mI (7544) main: Signal at index 209 is 1.649000[0m
+[0;32mI (7554) main: Signal at index 210 is 1.587785[0m
+[0;32mI (7554) main: Signal at index 211 is 1.496730[0m
+[0;32mI (7564) main: Signal at index 212 is 1.376836[0m
+[0;32mI (7564) main: Signal at index 213 is 1.229744[0m
+[0;32mI (7574) main: Signal at index 214 is 1.057707[0m
+[0;32mI (7574) main: Signal at index 215 is 0.863541[0m
+[0;32mI (7584) main: Signal at index 216 is 0.650576[0m
+[0;32mI (7584) main: Signal at index 217 is 0.422580[0m
+[0;32mI (7594) main: Signal at index 218 is 0.183684[0m
+[0;32mI (7594) main: Signal at index 219 is -0.061709[0m
+[0;32mI (7604) main: Signal at index 220 is -0.309017[0m
+[0;32mI (7604) main: Signal at index 221 is -0.553582[0m
+[0;32mI (7614) main: Signal at index 222 is -0.790771[0m
+[0;32mI (7614) main: Signal at index 223 is -1.016074[0m
+[0;32mI (7624) main: Signal at index 224 is -1.225209[0m
+[0;32mI (7624) main: Signal at index 225 is -1.414214[0m
+[0;32mI (7634) main: Signal at index 226 is -1.579530[0m
+[0;32mI (7634) main: Signal at index 227 is -1.718087[0m
+[0;32mI (7644) main: Signal at index 228 is -1.827363[0m
+[0;32mI (7644) main: Signal at index 229 is -1.905443[0m
+[0;32mI (7654) main: Signal at index 230 is -1.951056[0m
+[0;32mI (7654) main: Signal at index 231 is -1.963605[0m
+[0;32mI (7664) main: Signal at index 232 is -1.943171[0m
+[0;32mI (7664) main: Signal at index 233 is -1.890513[0m
+[0;32mI (7674) main: Signal at index 234 is -1.807044[0m
+[0;32mI (7684) main: Signal at index 235 is -1.694795[0m
+[0;32mI (7684) main: Signal at index 236 is -1.556368[0m
+[0;32mI (7694) main: Signal at index 237 is -1.394871[0m
+[0;32mI (7694) main: Signal at index 238 is -1.213844[0m
+[0;32mI (7704) main: Signal at index 239 is -1.017177[0m
+[0;32mI (7704) main: Signal at index 240 is -0.809017[0m
+[0;32mI (7714) main: Signal at index 241 is -0.593677[0m
+[0;32mI (7714) main: Signal at index 242 is -0.375530[0m
+[0;32mI (7724) main: Signal at index 243 is -0.158917[0m
+[0;32mI (7724) main: Signal at index 244 is 0.051958[0m
+[0;32mI (7734) main: Signal at index 245 is 0.253116[0m
+[0;32mI (7734) main: Signal at index 246 is 0.440892[0m
+[0;32mI (7744) main: Signal at index 247 is 0.612015[0m
+[0;32mI (7744) main: Signal at index 248 is 0.763675[0m
+[0;32mI (7754) main: Signal at index 249 is 0.893580[0m
+[0;32mI (7754) main: Signal at index 250 is 1.000000[0m
+[0;32mI (7764) main: Signal at index 251 is 1.081797[0m
+[0;32mI (7764) main: Signal at index 252 is 1.138438[0m
+[0;32mI (7774) main: Signal at index 253 is 1.169998[0m
+[0;32mI (7774) main: Signal at index 254 is 1.177142[0m
+[0;32mI (7784) main: Signal at index 255 is 1.161097[0m
+[0;32mI (7784) main: Signal at index 256 is 1.123612[0m
+[0;32mI (7794) main: Signal at index 257 is 1.066898[0m
+[0;32mI (7794) main: Signal at index 258 is 0.993564[0m
+[0;32mI (7804) main: Signal at index 259 is 0.906546[0m
+[0;32mI (7804) main: Signal at index 260 is 0.809017[0m
+[0;32mI (7814) main: Signal at index 261 is 0.704308[0m
+[0;32mI (7814) main: Signal at index 262 is 0.595810[0m
+[0;32mI (7824) main: Signal at index 263 is 0.486890[0m
+[0;32mI (7824) main: Signal at index 264 is 0.380798[0m
+[0;32mI (7834) main: Signal at index 265 is 0.280582[0m
+[0;32mI (7834) main: Signal at index 266 is 0.189010[0m
+[0;32mI (7844) main: Signal at index 267 is 0.108500[0m
+[0;32mI (7844) main: Signal at index 268 is 0.041058[0m
+[0;32mI (7854) main: Signal at index 269 is -0.011772[0m
+[0;32mI (7864) main: Signal at index 270 is -0.048943[0m
+[0;32mI (7864) main: Signal at index 271 is -0.069934[0m
+[0;32mI (7874) main: Signal at index 272 is -0.074750[0m
+[0;32mI (7874) main: Signal at index 273 is -0.063926[0m
+[0;32mI (7884) main: Signal at index 274 is -0.038504[0m
+[0;32mI (7884) main: Signal at index 275 is -0.000000[0m
+[0;32mI (7894) main: Signal at index 276 is 0.049639[0m
+[0;32mI (7894) main: Signal at index 277 is 0.108093[0m
+[0;32mI (7904) main: Signal at index 278 is 0.172737[0m
+[0;32mI (7904) main: Signal at index 279 is 0.240713[0m
+[0;32mI (7914) main: Signal at index 280 is 0.309017[0m
+[0;32mI (7914) main: Signal at index 281 is 0.374578[0m
+[0;32mI (7924) main: Signal at index 282 is 0.434350[0m
+[0;32mI (7924) main: Signal at index 283 is 0.485401[0m
+[0;32mI (7934) main: Signal at index 284 is 0.524995[0m
+[0;32mI (7934) main: Signal at index 285 is 0.550672[0m
+[0;32mI (7944) main: Signal at index 286 is 0.560327[0m
+[0;32mI (7944) main: Signal at index 287 is 0.552269[0m
+[0;32mI (7954) main: Signal at index 288 is 0.525277[0m
+[0;32mI (7954) main: Signal at index 289 is 0.478647[0m
+[0;32mI (7964) main: Signal at index 290 is 0.412215[0m
+[0;32mI (7964) main: Signal at index 291 is 0.326376[0m
+[0;32mI (7974) main: Signal at index 292 is 0.222088[0m
+[0;32mI (7974) main: Signal at index 293 is 0.100852[0m
+[0;32mI (7984) main: Signal at index 294 is -0.035311[0m
+[0;32mI (7984) main: Signal at index 295 is -0.183900[0m
+[0;32mI (7994) main: Signal at index 296 is -0.341991[0m
+[0;32mI (7994) main: Signal at index 297 is -0.506303[0m
+[0;32mI (8004) main: Signal at index 298 is -0.673270[0m
+[0;32mI (8004) main: Signal at index 299 is -0.839127[0m
+[0;32mI (8014) main: Signal at index 300 is -1.000000[0m
+[0;32mI (8024) main: Signal at index 301 is -1.151996[0m
+[0;32mI (8024) main: Signal at index 302 is -1.291304[0m
+[0;32mI (8034) main: Signal at index 303 is -1.414284[0m
+[0;32mI (8034) main: Signal at index 304 is -1.517562[0m
+[0;32mI (8044) main: Signal at index 305 is -1.598113[0m
+[0;32mI (8044) main: Signal at index 306 is -1.653345[0m
+[0;32mI (8054) main: Signal at index 307 is -1.681162[0m
+[0;32mI (8054) main: Signal at index 308 is -1.680025[0m
+[0;32mI (8064) main: Signal at index 309 is -1.649000[0m
+[0;32mI (8064) main: Signal at index 310 is -1.587785[0m
+[0;32mI (8074) main: Signal at index 311 is -1.496730[0m
+[0;32mI (8074) main: Signal at index 312 is -1.376836[0m
+[0;32mI (8084) main: Signal at index 313 is -1.229744[0m
+[0;32mI (8084) main: Signal at index 314 is -1.057707[0m
+[0;32mI (8094) main: Signal at index 315 is -0.863541[0m
+[0;32mI (8094) main: Signal at index 316 is -0.650576[0m
+[0;32mI (8104) main: Signal at index 317 is -0.422580[0m
+[0;32mI (8104) main: Signal at index 318 is -0.183684[0m
+[0;32mI (8114) main: Signal at index 319 is 0.061709[0m
+[0;32mI (8114) main: Signal at index 320 is 0.309017[0m
+[0;32mI (8124) main: Signal at index 321 is 0.553582[0m
+[0;32mI (8124) main: Signal at index 322 is 0.790771[0m
+[0;32mI (8134) main: Signal at index 323 is 1.016074[0m
+[0;32mI (8134) main: Signal at index 324 is 1.225209[0m
+[0;32mI (8144) main: Signal at index 325 is 1.414214[0m
+[0;32mI (8144) main: Signal at index 326 is 1.579530[0m
+[0;32mI (8154) main: Signal at index 327 is 1.718087[0m
+[0;32mI (8164) main: Signal at index 328 is 1.827363[0m
+[0;32mI (8164) main: Signal at index 329 is 1.905443[0m
+[0;32mI (8174) main: Signal at index 330 is 1.951056[0m
+[0;32mI (8174) main: Signal at index 331 is 1.963605[0m
+[0;32mI (8184) main: Signal at index 332 is 1.943171[0m
+[0;32mI (8184) main: Signal at index 333 is 1.890513[0m
+[0;32mI (8194) main: Signal at index 334 is 1.807044[0m
+[0;32mI (8194) main: Signal at index 335 is 1.694795[0m
+[0;32mI (8204) main: Signal at index 336 is 1.556368[0m
+[0;32mI (8204) main: Signal at index 337 is 1.394871[0m
+[0;32mI (8214) main: Signal at index 338 is 1.213844[0m
+[0;32mI (8214) main: Signal at index 339 is 1.017177[0m
+[0;32mI (8224) main: Signal at index 340 is 0.809017[0m
+[0;32mI (8224) main: Signal at index 341 is 0.593677[0m
+[0;32mI (8234) main: Signal at index 342 is 0.375530[0m
+[0;32mI (8234) main: Signal at index 343 is 0.158917[0m
+[0;32mI (8244) main: Signal at index 344 is -0.051958[0m
+[0;32mI (8244) main: Signal at index 345 is -0.253116[0m
+[0;32mI (8254) main: Signal at index 346 is -0.440892[0m
+[0;32mI (8254) main: Signal at index 347 is -0.612015[0m
+[0;32mI (8264) main: Signal at index 348 is -0.763675[0m
+[0;32mI (8264) main: Signal at index 349 is -0.893580[0m
+[0;32mI (8274) main: Signal at index 350 is -1.000000[0m
+[0;32mI (8274) main: Signal at index 351 is -1.081797[0m
+[0;32mI (8284) main: Signal at index 352 is -1.138438[0m
+[0;32mI (8284) main: Signal at index 353 is -1.169998[0m
+[0;32mI (8294) main: Signal at index 354 is -1.177142[0m
+[0;32mI (8294) main: Signal at index 355 is -1.161097[0m
+[0;32mI (8304) main: Signal at index 356 is -1.123612[0m
+[0;32mI (8304) main: Signal at index 357 is -1.066898[0m
+[0;32mI (8314) main: Signal at index 358 is -0.993564[0m
+[0;32mI (8324) main: Signal at index 359 is -0.906546[0m
+[0;32mI (8324) main: Signal at index 360 is -0.809017[0m
+[0;32mI (8334) main: Signal at index 361 is -0.704308[0m
+[0;32mI (8334) main: Signal at index 362 is -0.595810[0m
+[0;32mI (8344) main: Signal at index 363 is -0.486890[0m
+[0;32mI (8344) main: Signal at index 364 is -0.380798[0m
+[0;32mI (8354) main: Signal at index 365 is -0.280582[0m
+[0;32mI (8354) main: Signal at index 366 is -0.189010[0m
+[0;32mI (8364) main: Signal at index 367 is -0.108500[0m
+[0;32mI (8364) main: Signal at index 368 is -0.041058[0m
+[0;32mI (8374) main: Signal at index 369 is 0.011772[0m
+[0;32mI (8374) main: Signal at index 370 is 0.048943[0m
+[0;32mI (8384) main: Signal at index 371 is 0.069934[0m
+[0;32mI (8384) main: Signal at index 372 is 0.074750[0m
+[0;32mI (8394) main: Signal at index 373 is 0.063926[0m
+[0;32mI (8394) main: Signal at index 374 is 0.038504[0m
+[0;32mI (8404) main: Signal at index 375 is 0.000000[0m
+[0;32mI (8404) main: Signal at index 376 is -0.049639[0m
+[0;32mI (8414) main: Signal at index 377 is -0.108093[0m
+[0;32mI (8414) main: Signal at index 378 is -0.172737[0m
+[0;32mI (8424) main: Signal at index 379 is -0.240713[0m
+[0;32mI (8424) main: Signal at index 380 is -0.309017[0m
+[0;32mI (8434) main: Signal at index 381 is -0.374578[0m
+[0;32mI (8434) main: Signal at index 382 is -0.434350[0m
+[0;32mI (8444) main: Signal at index 383 is -0.485401[0m
+[0;32mI (8444) main: Signal at index 384 is -0.524995[0m
+[0;32mI (8454) main: Signal at index 385 is -0.550672[0m
+[0;32mI (8464) main: Signal at index 386 is -0.560327[0m
+[0;32mI (8464) main: Signal at index 387 is -0.552269[0m
+[0;32mI (8474) main: Signal at index 388 is -0.525277[0m
+[0;32mI (8474) main: Signal at index 389 is -0.478647[0m
+[0;32mI (8484) main: Signal at index 390 is -0.412215[0m
+[0;32mI (8484) main: Signal at index 391 is -0.326376[0m
+[0;32mI (8494) main: Signal at index 392 is -0.222088[0m
+[0;32mI (8494) main: Signal at index 393 is -0.100852[0m
+[0;32mI (8504) main: Signal at index 394 is 0.035311[0m
+[0;32mI (8504) main: Signal at index 395 is 0.183900[0m
+[0;32mI (8514) main: Signal at index 396 is 0.341991[0m
+[0;32mI (8514) main: Signal at index 397 is 0.506303[0m
+[0;32mI (8524) main: Signal at index 398 is 0.673270[0m
+[0;32mI (8524) main: Signal at index 399 is 0.839127[0m
+[0;32mI (8534) main: Signal at index 400 is 1.000000[0m
+[0;32mI (8534) main: Signal at index 401 is 1.151996[0m
+[0;32mI (8544) main: Signal at index 402 is 1.291304[0m
+[0;32mI (8544) main: Signal at index 403 is 1.414284[0m
+[0;32mI (8554) main: Signal at index 404 is 1.517562[0m
+[0;32mI (8554) main: Signal at index 405 is 1.598113[0m
+[0;32mI (8564) main: Signal at index 406 is 1.653345[0m
+[0;32mI (8564) main: Signal at index 407 is 1.681162[0m
+[0;32mI (8574) main: Signal at index 408 is 1.680025[0m
+[0;32mI (8574) main: Signal at index 409 is 1.649000[0m
+[0;32mI (8584) main: Signal at index 410 is 1.587785[0m
+[0;32mI (8584) main: Signal at index 411 is 1.496730[0m
+[0;32mI (8594) main: Signal at index 412 is 1.376836[0m
+[0;32mI (8594) main: Signal at index 413 is 1.229744[0m
+[0;32mI (8604) main: Signal at index 414 is 1.057707[0m
+[0;32mI (8604) main: Signal at index 415 is 0.863541[0m
+[0;32mI (8614) main: Signal at index 416 is 0.650576[0m
+[0;32mI (8614) main: Signal at index 417 is 0.422580[0m
+[0;32mI (8624) main: Signal at index 418 is 0.183684[0m
+[0;32mI (8624) main: Signal at index 419 is -0.061709[0m
+[0;32mI (8634) main: Signal at index 420 is -0.309017[0m
+[0;32mI (8644) main: Signal at index 421 is -0.553582[0m
+[0;32mI (8644) main: Signal at index 422 is -0.790771[0m
+[0;32mI (8654) main: Signal at index 423 is -1.016074[0m
+[0;32mI (8654) main: Signal at index 424 is -1.225209[0m
+[0;32mI (8664) main: Signal at index 425 is -1.414214[0m
+[0;32mI (8664) main: Signal at index 426 is -1.579530[0m
+[0;32mI (8674) main: Signal at index 427 is -1.718087[0m
+[0;32mI (8674) main: Signal at index 428 is -1.827363[0m
+[0;32mI (8684) main: Signal at index 429 is -1.905443[0m
+[0;32mI (8684) main: Signal at index 430 is -1.951056[0m
+[0;32mI (8694) main: Signal at index 431 is -1.963605[0m
+[0;32mI (8694) main: Signal at index 432 is -1.943171[0m
+[0;32mI (8704) main: Signal at index 433 is -1.890513[0m
+[0;32mI (8704) main: Signal at index 434 is -1.807044[0m
+[0;32mI (8714) main: Signal at index 435 is -1.694795[0m
+[0;32mI (8714) main: Signal at index 436 is -1.556368[0m
+[0;32mI (8724) main: Signal at index 437 is -1.394871[0m
+[0;32mI (8724) main: Signal at index 438 is -1.213844[0m
+[0;32mI (8734) main: Signal at index 439 is -1.017177[0m
+[0;32mI (8734) main: Signal at index 440 is -0.809017[0m
+[0;32mI (8744) main: Signal at index 441 is -0.593677[0m
+[0;32mI (8744) main: Signal at index 442 is -0.375530[0m
+[0;32mI (8754) main: Signal at index 443 is -0.158917[0m
+[0;32mI (8754) main: Signal at index 444 is 0.051958[0m
+[0;32mI (8764) main: Signal at index 445 is 0.253116[0m
+[0;32mI (8774) main: Signal at index 446 is 0.440892[0m
+[0;32mI (8774) main: Signal at index 447 is 0.612015[0m
+[0;32mI (8784) main: Signal at index 448 is 0.763675[0m
+[0;32mI (8784) main: Signal at index 449 is 0.893580[0m
+[0;32mI (8794) main: Signal at index 450 is 1.000000[0m
+[0;32mI (8794) main: Signal at index 451 is 1.081797[0m
+[0;32mI (8804) main: Signal at index 452 is 1.138438[0m
+[0;32mI (8804) main: Signal at index 453 is 1.169998[0m
+[0;32mI (8814) main: Signal at index 454 is 1.177142[0m
+[0;32mI (8814) main: Signal at index 455 is 1.161097[0m
+[0;32mI (8824) main: Signal at index 456 is 1.123612[0m
+[0;32mI (8824) main: Signal at index 457 is 1.066898[0m
+[0;32mI (8834) main: Signal at index 458 is 0.993564[0m
+[0;32mI (8834) main: Signal at index 459 is 0.906546[0m
+[0;32mI (8844) main: Signal at index 460 is 0.809017[0m
+[0;32mI (8844) main: Signal at index 461 is 0.704308[0m
+[0;32mI (8854) main: Signal at index 462 is 0.595810[0m
+[0;32mI (8854) main: Signal at index 463 is 0.486890[0m
+[0;32mI (8864) main: Signal at index 464 is 0.380798[0m
+[0;32mI (8864) main: Signal at index 465 is 0.280582[0m
+[0;32mI (8874) main: Signal at index 466 is 0.189010[0m
+[0;32mI (8874) main: Signal at index 467 is 0.108500[0m
+[0;32mI (8884) main: Signal at index 468 is 0.041058[0m
+[0;32mI (8884) main: Signal at index 469 is -0.011772[0m
+[0;32mI (8894) main: Signal at index 470 is -0.048943[0m
+[0;32mI (8894) main: Signal at index 471 is -0.069934[0m
+[0;32mI (8904) main: Signal at index 472 is -0.074750[0m
+[0;32mI (8904) main: Signal at index 473 is -0.063926[0m
+[0;32mI (8914) main: Signal at index 474 is -0.038504[0m
+[0;32mI (8914) main: Signal at index 475 is -0.000000[0m
+[0;32mI (8924) main: Signal at index 476 is 0.049639[0m
+[0;32mI (8924) main: Signal at index 477 is 0.108093[0m
+[0;32mI (8934) main: Signal at index 478 is 0.172737[0m
+[0;32mI (8934) main: Signal at index 479 is 0.240713[0m
+[0;32mI (8944) main: Signal at index 480 is 0.309017[0m
+[0;32mI (8954) main: Signal at index 481 is 0.374578[0m
+[0;32mI (8954) main: Signal at index 482 is 0.434350[0m
+[0;32mI (8964) main: Signal at index 483 is 0.485401[0m
+[0;32mI (8964) main: Signal at index 484 is 0.524995[0m
+[0;32mI (8974) main: Signal at index 485 is 0.550672[0m
+[0;32mI (8974) main: Signal at index 486 is 0.560327[0m
+[0;32mI (8984) main: Signal at index 487 is 0.552269[0m
+[0;32mI (8984) main: Signal at index 488 is 0.525277[0m
+[0;32mI (8994) main: Signal at index 489 is 0.478647[0m
+[0;32mI (8994) main: Signal at index 490 is 0.412215[0m
+[0;32mI (9004) main: Signal at index 491 is 0.326376[0m
+[0;32mI (9004) main: Signal at index 492 is 0.222088[0m
+[0;32mI (9014) main: Signal at index 493 is 0.100852[0m
+[0;32mI (9014) main: Signal at index 494 is -0.035311[0m
+[0;32mI (9024) main: Signal at index 495 is -0.183900[0m
+[0;32mI (9024) main: Signal at index 496 is -0.341991[0m
+[0;32mI (9034) main: Signal at index 497 is -0.506303[0m
+[0;32mI (9034) main: Signal at index 498 is -0.673270[0m
+[0;32mI (9044) main: Signal at index 499 is -0.839127[0m
+[0;32mI (9044) main: Signal at index 500 is -1.000000[0m
+[0;32mI (9054) main: Signal at index 501 is -1.151996[0m
+[0;32mI (9054) main: Signal at index 502 is -1.291304[0m
+[0;32mI (9064) main: Signal at index 503 is -1.414284[0m
+[0;32mI (9064) main: Signal at index 504 is -1.517562[0m
+[0;32mI (9074) main: Signal at index 505 is -1.598113[0m
+[0;32mI (9074) main: Signal at index 506 is -1.653345[0m
+[0;32mI (9084) main: Signal at index 507 is -1.681162[0m
+[0;32mI (9084) main: Signal at index 508 is -1.680025[0m
+[0;32mI (9094) main: Signal at index 509 is -1.649000[0m
+[0;32mI (9094) main: Signal at index 510 is -1.587785[0m
+[0;32mI (9104) main: Signal at index 511 is -1.496730[0m
+[0;32mI (9114) main: Signal at index 512 is -1.376836[0m
+[0;32mI (9114) main: Signal at index 513 is -1.229744[0m
+[0;32mI (9124) main: Signal at index 514 is -1.057707[0m
+[0;32mI (9124) main: Signal at index 515 is -0.863541[0m
+[0;32mI (9134) main: Signal at index 516 is -0.650576[0m
+[0;32mI (9134) main: Signal at index 517 is -0.422580[0m
+[0;32mI (9144) main: Signal at index 518 is -0.183684[0m
+[0;32mI (9144) main: Signal at index 519 is 0.061709[0m
+[0;32mI (9154) main: Signal at index 520 is 0.309017[0m
+[0;32mI (9154) main: Signal at index 521 is 0.553582[0m
+[0;32mI (9164) main: Signal at index 522 is 0.790771[0m
+[0;32mI (9164) main: Signal at index 523 is 1.016074[0m
+[0;32mI (9174) main: Signal at index 524 is 1.225209[0m
+[0;32mI (9174) main: Signal at index 525 is 1.414214[0m
+[0;32mI (9184) main: Signal at index 526 is 1.579530[0m
+[0;32mI (9184) main: Signal at index 527 is 1.718087[0m
+[0;32mI (9194) main: Signal at index 528 is 1.827363[0m
+[0;32mI (9194) main: Signal at index 529 is 1.905443[0m
+[0;32mI (9204) main: Signal at index 530 is 1.951056[0m
+[0;32mI (9204) main: Signal at index 531 is 1.963605[0m
+[0;32mI (9214) main: Signal at index 532 is 1.943171[0m
+[0;32mI (9214) main: Signal at index 533 is 1.890513[0m
+[0;32mI (9224) main: Signal at index 534 is 1.807044[0m
+[0;32mI (9224) main: Signal at index 535 is 1.694795[0m
+[0;32mI (9234) main: Signal at index 536 is 1.556368[0m
+[0;32mI (9234) main: Signal at index 537 is 1.394871[0m
+[0;32mI (9244) main: Signal at index 538 is 1.213844[0m
+[0;32mI (9244) main: Signal at index 539 is 1.017177[0m
+[0;32mI (9254) main: Signal at index 540 is 0.809017[0m
+[0;32mI (9254) main: Signal at index 541 is 0.593677[0m
+[0;32mI (9264) main: Signal at index 542 is 0.375530[0m
+[0;32mI (9264) main: Signal at index 543 is 0.158917[0m
+[0;32mI (9274) main: Signal at index 544 is -0.051958[0m
+[0;32mI (9284) main: Signal at index 545 is -0.253116[0m
+[0;32mI (9284) main: Signal at index 546 is -0.440892[0m
+[0;32mI (9294) main: Signal at index 547 is -0.612015[0m
+[0;32mI (9294) main: Signal at index 548 is -0.763675[0m
+[0;32mI (9304) main: Signal at index 549 is -0.893580[0m
+[0;32mI (9304) main: Signal at index 550 is -1.000000[0m
+[0;32mI (9314) main: Signal at index 551 is -1.081797[0m
+[0;32mI (9314) main: Signal at index 552 is -1.138438[0m
+[0;32mI (9324) main: Signal at index 553 is -1.169998[0m
+[0;32mI (9324) main: Signal at index 554 is -1.177142[0m
+[0;32mI (9334) main: Signal at index 555 is -1.161097[0m
+[0;32mI (9334) main: Signal at index 556 is -1.123612[0m
+[0;32mI (9344) main: Signal at index 557 is -1.066898[0m
+[0;32mI (9344) main: Signal at index 558 is -0.993564[0m
+[0;32mI (9354) main: Signal at index 559 is -0.906546[0m
+[0;32mI (9354) main: Signal at index 560 is -0.809017[0m
+[0;32mI (9364) main: Signal at index 561 is -0.704308[0m
+[0;32mI (9364) main: Signal at index 562 is -0.595810[0m
+[0;32mI (9374) main: Signal at index 563 is -0.486890[0m
+[0;32mI (9374) main: Signal at index 564 is -0.380798[0m
+[0;32mI (9384) main: Signal at index 565 is -0.280582[0m
+[0;32mI (9384) main: Signal at index 566 is -0.189010[0m
+[0;32mI (9394) main: Signal at index 567 is -0.108500[0m
+[0;32mI (9394) main: Signal at index 568 is -0.041058[0m
+[0;32mI (9404) main: Signal at index 569 is 0.011772[0m
+[0;32mI (9414) main: Signal at index 570 is 0.048943[0m
+[0;32mI (9414) main: Signal at index 571 is 0.069934[0m
+[0;32mI (9424) main: Signal at index 572 is 0.074750[0m
+[0;32mI (9424) main: Signal at index 573 is 0.063926[0m
+[0;32mI (9434) main: Signal at index 574 is 0.038504[0m
+[0;32mI (9434) main: Signal at index 575 is 0.000000[0m
+[0;32mI (9444) main: Signal at index 576 is -0.049639[0m
+[0;32mI (9444) main: Signal at index 577 is -0.108093[0m
+[0;32mI (9454) main: Signal at index 578 is -0.172737[0m
+[0;32mI (9454) main: Signal at index 579 is -0.240713[0m
+[0;32mI (9464) main: Signal at index 580 is -0.309017[0m
+[0;32mI (9464) main: Signal at index 581 is -0.374578[0m
+[0;32mI (9474) main: Signal at index 582 is -0.434350[0m
+[0;32mI (9474) main: Signal at index 583 is -0.485401[0m
+[0;32mI (9484) main: Signal at index 584 is -0.524995[0m
+[0;32mI (9484) main: Signal at index 585 is -0.550672[0m
+[0;32mI (9494) main: Signal at index 586 is -0.560327[0m
+[0;32mI (9494) main: Signal at index 587 is -0.552269[0m
+[0;32mI (9504) main: Signal at index 588 is -0.525277[0m
+[0;32mI (9504) main: Signal at index 589 is -0.478647[0m
+[0;32mI (9514) main: Signal at index 590 is -0.412215[0m
+[0;32mI (9514) main: Signal at index 591 is -0.326376[0m
+[0;32mI (9524) main: Signal at index 592 is -0.222088[0m
+[0;32mI (9524) main: Signal at index 593 is -0.100852[0m
+[0;32mI (9534) main: Signal at index 594 is 0.035311[0m
+[0;32mI (9534) main: Signal at index 595 is 0.183900[0m
+[0;32mI (9544) main: Signal at index 596 is 0.341991[0m
+[0;32mI (9544) main: Signal at index 597 is 0.506303[0m
+[0;32mI (9554) main: Signal at index 598 is 0.673270[0m
+[0;32mI (9564) main: Signal at index 599 is 0.839127[0m
+[0;32mI (9564) main: Signal at index 600 is 1.000000[0m
+[0;32mI (9574) main: Signal at index 601 is 1.151996[0m
+[0;32mI (9574) main: Signal at index 602 is 1.291304[0m
+[0;32mI (9584) main: Signal at index 603 is 1.414284[0m
+[0;32mI (9584) main: Signal at index 604 is 1.517562[0m
+[0;32mI (9594) main: Signal at index 605 is 1.598113[0m
+[0;32mI (9594) main: Signal at index 606 is 1.653345[0m
+[0;32mI (9604) main: Signal at index 607 is 1.681162[0m
+[0;32mI (9604) main: Signal at index 608 is 1.680025[0m
+[0;32mI (9614) main: Signal at index 609 is 1.649000[0m
+[0;32mI (9614) main: Signal at index 610 is 1.587785[0m
+[0;32mI (9624) main: Signal at index 611 is 1.496730[0m
+[0;32mI (9624) main: Signal at index 612 is 1.376836[0m
+[0;32mI (9634) main: Signal at index 613 is 1.229744[0m
+[0;32mI (9634) main: Signal at index 614 is 1.057707[0m
+[0;32mI (9644) main: Signal at index 615 is 0.863541[0m
+[0;32mI (9644) main: Signal at index 616 is 0.650576[0m
+[0;32mI (9654) main: Signal at index 617 is 0.422580[0m
+[0;32mI (9654) main: Signal at index 618 is 0.183684[0m
+[0;32mI (9664) main: Signal at index 619 is -0.061709[0m
+[0;32mI (9664) main: Signal at index 620 is -0.309017[0m
+[0;32mI (9674) main: Signal at index 621 is -0.553582[0m
+[0;32mI (9674) main: Signal at index 622 is -0.790771[0m
+[0;32mI (9684) main: Signal at index 623 is -1.016074[0m
+[0;32mI (9684) main: Signal at index 624 is -1.225209[0m
+[0;32mI (9694) main: Signal at index 625 is -1.414214[0m
+[0;32mI (9694) main: Signal at index 626 is -1.579530[0m
+[0;32mI (9704) main: Signal at index 627 is -1.718087[0m
+[0;32mI (9704) main: Signal at index 628 is -1.827363[0m
+[0;32mI (9714) main: Signal at index 629 is -1.905443[0m
+[0;32mI (9714) main: Signal at index 630 is -1.951056[0m
+[0;32mI (9724) main: Signal at index 631 is -1.963605[0m
+[0;32mI (9734) main: Signal at index 632 is -1.943171[0m
+[0;32mI (9734) main: Signal at index 633 is -1.890513[0m
+[0;32mI (9744) main: Signal at index 634 is -1.807044[0m
+[0;32mI (9744) main: Signal at index 635 is -1.694795[0m
+[0;32mI (9754) main: Signal at index 636 is -1.556368[0m
+[0;32mI (9754) main: Signal at index 637 is -1.394871[0m
+[0;32mI (9764) main: Signal at index 638 is -1.213844[0m
+[0;32mI (9764) main: Signal at index 639 is -1.017177[0m
+[0;32mI (9774) main: Signal at index 640 is -0.809017[0m
+[0;32mI (9774) main: Signal at index 641 is -0.593677[0m
+[0;32mI (9784) main: Signal at index 642 is -0.375530[0m
+[0;32mI (9784) main: Signal at index 643 is -0.158917[0m
+[0;32mI (9794) main: Signal at index 644 is 0.051958[0m
+[0;32mI (9794) main: Signal at index 645 is 0.253116[0m
+[0;32mI (9804) main: Signal at index 646 is 0.440892[0m
+[0;32mI (9804) main: Signal at index 647 is 0.612015[0m
+[0;32mI (9814) main: Signal at index 648 is 0.763675[0m
+[0;32mI (9814) main: Signal at index 649 is 0.893580[0m
+[0;32mI (9824) main: Signal at index 650 is 1.000000[0m
+[0;32mI (9824) main: Signal at index 651 is 1.081797[0m
+[0;32mI (9834) main: Signal at index 652 is 1.138438[0m
+[0;32mI (9834) main: Signal at index 653 is 1.169998[0m
+[0;32mI (9844) main: Signal at index 654 is 1.177142[0m
+[0;32mI (9844) main: Signal at index 655 is 1.161097[0m
+[0;32mI (9854) main: Signal at index 656 is 1.123612[0m
+[0;32mI (9854) main: Signal at index 657 is 1.066898[0m
+[0;32mI (9864) main: Signal at index 658 is 0.993564[0m
+[0;32mI (9864) main: Signal at index 659 is 0.906546[0m
+[0;32mI (9874) main: Signal at index 660 is 0.809017[0m
+[0;32mI (9874) main: Signal at index 661 is 0.704308[0m
+[0;32mI (9884) main: Signal at index 662 is 0.595810[0m
+[0;32mI (9894) main: Signal at index 663 is 0.486890[0m
+[0;32mI (9894) main: Signal at index 664 is 0.380798[0m
+[0;32mI (9904) main: Signal at index 665 is 0.280582[0m
+[0;32mI (9904) main: Signal at index 666 is 0.189010[0m
+[0;32mI (9914) main: Signal at index 667 is 0.108500[0m
+[0;32mI (9914) main: Signal at index 668 is 0.041058[0m
+[0;32mI (9924) main: Signal at index 669 is -0.011772[0m
+[0;32mI (9924) main: Signal at index 670 is -0.048943[0m
+[0;32mI (9934) main: Signal at index 671 is -0.069934[0m
+[0;32mI (9934) main: Signal at index 672 is -0.074750[0m
+[0;32mI (9944) main: Signal at index 673 is -0.063926[0m
+[0;32mI (9944) main: Signal at index 674 is -0.038504[0m
+[0;32mI (9954) main: Signal at index 675 is -0.000000[0m
+[0;32mI (9954) main: Signal at index 676 is 0.049639[0m
+[0;32mI (9964) main: Signal at index 677 is 0.108093[0m
+[0;32mI (9964) main: Signal at index 678 is 0.172737[0m
+[0;32mI (9974) main: Signal at index 679 is 0.240713[0m
+[0;32mI (9974) main: Signal at index 680 is 0.309017[0m
+[0;32mI (9984) main: Signal at index 681 is 0.374578[0m
+[0;32mI (9984) main: Signal at index 682 is 0.434350[0m
+[0;32mI (9994) main: Signal at index 683 is 0.485401[0m
+[0;32mI (9994) main: Signal at index 684 is 0.524995[0m
+[0;32mI (10004) main: Signal at index 685 is 0.550672[0m
+[0;32mI (10004) main: Signal at index 686 is 0.560327[0m
+[0;32mI (10014) main: Signal at index 687 is 0.552269[0m
+[0;32mI (10014) main: Signal at index 688 is 0.525277[0m
+[0;32mI (10024) main: Signal at index 689 is 0.478647[0m
+[0;32mI (10024) main: Signal at index 690 is 0.412215[0m
+[0;32mI (10034) main: Signal at index 691 is 0.326376[0m
+[0;32mI (10034) main: Signal at index 692 is 0.222088[0m
+[0;32mI (10044) main: Signal at index 693 is 0.100852[0m
+[0;32mI (10054) main: Signal at index 694 is -0.035311[0m
+[0;32mI (10054) main: Signal at index 695 is -0.183900[0m
+[0;32mI (10064) main: Signal at index 696 is -0.341991[0m
+[0;32mI (10064) main: Signal at index 697 is -0.506303[0m
+[0;32mI (10074) main: Signal at index 698 is -0.673270[0m
+[0;32mI (10074) main: Signal at index 699 is -0.839127[0m
+[0;32mI (10084) main: Signal at index 700 is -1.000000[0m
+[0;32mI (10084) main: Signal at index 701 is -1.151996[0m
+[0;32mI (10094) main: Signal at index 702 is -1.291304[0m
+[0;32mI (10094) main: Signal at index 703 is -1.414284[0m
+[0;32mI (10104) main: Signal at index 704 is -1.517562[0m
+[0;32mI (10104) main: Signal at index 705 is -1.598113[0m
+[0;32mI (10114) main: Signal at index 706 is -1.653345[0m
+[0;32mI (10114) main: Signal at index 707 is -1.681162[0m
+[0;32mI (10124) main: Signal at index 708 is -1.680025[0m
+[0;32mI (10124) main: Signal at index 709 is -1.649000[0m
+[0;32mI (10134) main: Signal at index 710 is -1.587785[0m
+[0;32mI (10144) main: Signal at index 711 is -1.496730[0m
+[0;32mI (10144) main: Signal at index 712 is -1.376836[0m
+[0;32mI (10154) main: Signal at index 713 is -1.229744[0m
+[0;32mI (10154) main: Signal at index 714 is -1.057707[0m
+[0;32mI (10164) main: Signal at index 715 is -0.863541[0m
+[0;32mI (10164) main: Signal at index 716 is -0.650576[0m
+[0;32mI (10174) main: Signal at index 717 is -0.422580[0m
+[0;32mI (10174) main: Signal at index 718 is -0.183684[0m
+[0;32mI (10184) main: Signal at index 719 is 0.061709[0m
+[0;32mI (10184) main: Signal at index 720 is 0.309017[0m
+[0;32mI (10194) main: Signal at index 721 is 0.553582[0m
+[0;32mI (10194) main: Signal at index 722 is 0.790771[0m
+[0;32mI (10204) main: Signal at index 723 is 1.016074[0m
+[0;32mI (10204) main: Signal at index 724 is 1.225209[0m
+[0;32mI (10214) main: Signal at index 725 is 1.414214[0m
+[0;32mI (10214) main: Signal at index 726 is 1.579530[0m
+[0;32mI (10224) main: Signal at index 727 is 1.718087[0m
+[0;32mI (10224) main: Signal at index 728 is 1.827363[0m
+[0;32mI (10234) main: Signal at index 729 is 1.905443[0m
+[0;32mI (10234) main: Signal at index 730 is 1.951056[0m
+[0;32mI (10244) main: Signal at index 731 is 1.963605[0m
+[0;32mI (10254) main: Signal at index 732 is 1.943171[0m
+[0;32mI (10254) main: Signal at index 733 is 1.890513[0m
+[0;32mI (10264) main: Signal at index 734 is 1.807044[0m
+[0;32mI (10264) main: Signal at index 735 is 1.694795[0m
+[0;32mI (10274) main: Signal at index 736 is 1.556368[0m
+[0;32mI (10274) main: Signal at index 737 is 1.394871[0m
+[0;32mI (10284) main: Signal at index 738 is 1.213844[0m
+[0;32mI (10284) main: Signal at index 739 is 1.017177[0m
+[0;32mI (10294) main: Signal at index 740 is 0.809017[0m
+[0;32mI (10294) main: Signal at index 741 is 0.593677[0m
+[0;32mI (10304) main: Signal at index 742 is 0.375530[0m
+[0;32mI (10304) main: Signal at index 743 is 0.158917[0m
+[0;32mI (10314) main: Signal at index 744 is -0.051958[0m
+[0;32mI (10314) main: Signal at index 745 is -0.253116[0m
+[0;32mI (10324) main: Signal at index 746 is -0.440892[0m
+[0;32mI (10324) main: Signal at index 747 is -0.612015[0m
+[0;32mI (10334) main: Signal at index 748 is -0.763675[0m
+[0;32mI (10334) main: Signal at index 749 is -0.893580[0m
+[0;32mI (10344) main: Signal at index 750 is -1.000000[0m
+[0;32mI (10344) main: Signal at index 751 is -1.081797[0m
+[0;32mI (10354) main: Signal at index 752 is -1.138438[0m
+[0;32mI (10364) main: Signal at index 753 is -1.169998[0m
+[0;32mI (10364) main: Signal at index 754 is -1.177142[0m
+[0;32mI (10374) main: Signal at index 755 is -1.161097[0m
+[0;32mI (10374) main: Signal at index 756 is -1.123612[0m
+[0;32mI (10384) main: Signal at index 757 is -1.066898[0m
+[0;32mI (10384) main: Signal at index 758 is -0.993564[0m
+[0;32mI (10394) main: Signal at index 759 is -0.906546[0m
+[0;32mI (10394) main: Signal at index 760 is -0.809017[0m
+[0;32mI (10404) main: Signal at index 761 is -0.704308[0m
+[0;32mI (10404) main: Signal at index 762 is -0.595810[0m
+[0;32mI (10414) main: Signal at index 763 is -0.486890[0m
+[0;32mI (10414) main: Signal at index 764 is -0.380798[0m
+[0;32mI (10424) main: Signal at index 765 is -0.280582[0m
+[0;32mI (10424) main: Signal at index 766 is -0.189010[0m
+[0;32mI (10434) main: Signal at index 767 is -0.108500[0m
+[0;32mI (10434) main: Signal at index 768 is -0.041058[0m
+[0;32mI (10444) main: Signal at index 769 is 0.011772[0m
+[0;32mI (10454) main: Signal at index 770 is 0.048943[0m
+[0;32mI (10454) main: Signal at index 771 is 0.069934[0m
+[0;32mI (10464) main: Signal at index 772 is 0.074750[0m
+[0;32mI (10464) main: Signal at index 773 is 0.063926[0m
+[0;32mI (10474) main: Signal at index 774 is 0.038504[0m
+[0;32mI (10474) main: Signal at index 775 is 0.000000[0m
+[0;32mI (10484) main: Signal at index 776 is -0.049639[0m
+[0;32mI (10484) main: Signal at index 777 is -0.108093[0m
+[0;32mI (10494) main: Signal at index 778 is -0.172737[0m
+[0;32mI (10494) main: Signal at index 779 is -0.240713[0m
+[0;32mI (10504) main: Signal at index 780 is -0.309017[0m
+[0;32mI (10504) main: Signal at index 781 is -0.374578[0m
+[0;32mI (10514) main: Signal at index 782 is -0.434350[0m
+[0;32mI (10514) main: Signal at index 783 is -0.485401[0m
+[0;32mI (10524) main: Signal at index 784 is -0.524995[0m
+[0;32mI (10524) main: Signal at index 785 is -0.550672[0m
+[0;32mI (10534) main: Signal at index 786 is -0.560327[0m
+[0;32mI (10534) main: Signal at index 787 is -0.552269[0m
+[0;32mI (10544) main: Signal at index 788 is -0.525277[0m
+[0;32mI (10554) main: Signal at index 789 is -0.478647[0m
+[0;32mI (10554) main: Signal at index 790 is -0.412215[0m
+[0;32mI (10564) main: Signal at index 791 is -0.326376[0m
+[0;32mI (10564) main: Signal at index 792 is -0.222088[0m
+[0;32mI (10574) main: Signal at index 793 is -0.100852[0m
+[0;32mI (10574) main: Signal at index 794 is 0.035311[0m
+[0;32mI (10584) main: Signal at index 795 is 0.183900[0m
+[0;32mI (10584) main: Signal at index 796 is 0.341991[0m
+[0;32mI (10594) main: Signal at index 797 is 0.506303[0m
+[0;32mI (10594) main: Signal at index 798 is 0.673270[0m
+[0;32mI (10604) main: Signal at index 799 is 0.839127[0m
+[0;32mI (10604) main: Signal at index 800 is 1.000000[0m
+[0;32mI (10614) main: Signal at index 801 is 1.151996[0m
+[0;32mI (10614) main: Signal at index 802 is 1.291304[0m
+[0;32mI (10624) main: Signal at index 803 is 1.414284[0m
+[0;32mI (10624) main: Signal at index 804 is 1.517562[0m
+[0;32mI (10634) main: Signal at index 805 is 1.598113[0m
+[0;32mI (10634) main: Signal at index 806 is 1.653345[0m
+[0;32mI (10644) main: Signal at index 807 is 1.681162[0m
+[0;32mI (10644) main: Signal at index 808 is 1.680025[0m
+[0;32mI (10654) main: Signal at index 809 is 1.649000[0m
+[0;32mI (10664) main: Signal at index 810 is 1.587785[0m
+[0;32mI (10664) main: Signal at index 811 is 1.496730[0m
+[0;32mI (10674) main: Signal at index 812 is 1.376836[0m
+[0;32mI (10674) main: Signal at index 813 is 1.229744[0m
+[0;32mI (10684) main: Signal at index 814 is 1.057707[0m
+[0;32mI (10684) main: Signal at index 815 is 0.863541[0m
+[0;32mI (10694) main: Signal at index 816 is 0.650576[0m
+[0;32mI (10694) main: Signal at index 817 is 0.422580[0m
+[0;32mI (10704) main: Signal at index 818 is 0.183684[0m
+[0;32mI (10704) main: Signal at index 819 is -0.061709[0m
+[0;32mI (10714) main: Signal at index 820 is -0.309017[0m
+[0;32mI (10714) main: Signal at index 821 is -0.553582[0m
+[0;32mI (10724) main: Signal at index 822 is -0.790771[0m
+[0;32mI (10724) main: Signal at index 823 is -1.016074[0m
+[0;32mI (10734) main: Signal at index 824 is -1.225209[0m
+[0;32mI (10734) main: Signal at index 825 is -1.414214[0m
+[0;32mI (10744) main: Signal at index 826 is -1.579530[0m
+[0;32mI (10744) main: Signal at index 827 is -1.718087[0m
+[0;32mI (10754) main: Signal at index 828 is -1.827363[0m
+[0;32mI (10764) main: Signal at index 829 is -1.905443[0m
+[0;32mI (10764) main: Signal at index 830 is -1.951056[0m
+[0;32mI (10774) main: Signal at index 831 is -1.963605[0m
+[0;32mI (10774) main: Signal at index 832 is -1.943171[0m
+[0;32mI (10784) main: Signal at index 833 is -1.890513[0m
+[0;32mI (10784) main: Signal at index 834 is -1.807044[0m
+[0;32mI (10794) main: Signal at index 835 is -1.694795[0m
+[0;32mI (10794) main: Signal at index 836 is -1.556368[0m
+[0;32mI (10804) main: Signal at index 837 is -1.394871[0m
+[0;32mI (10804) main: Signal at index 838 is -1.213844[0m
+[0;32mI (10814) main: Signal at index 839 is -1.017177[0m
+[0;32mI (10814) main: Signal at index 840 is -0.809017[0m
+[0;32mI (10824) main: Signal at index 841 is -0.593677[0m
+[0;32mI (10824) main: Signal at index 842 is -0.375530[0m
+[0;32mI (10834) main: Signal at index 843 is -0.158917[0m
+[0;32mI (10834) main: Signal at index 844 is 0.051958[0m
+[0;32mI (10844) main: Signal at index 845 is 0.253116[0m
+[0;32mI (10844) main: Signal at index 846 is 0.440892[0m
+[0;32mI (10854) main: Signal at index 847 is 0.612015[0m
+[0;32mI (10864) main: Signal at index 848 is 0.763675[0m
+[0;32mI (10864) main: Signal at index 849 is 0.893580[0m
+[0;32mI (10874) main: Signal at index 850 is 1.000000[0m
+[0;32mI (10874) main: Signal at index 851 is 1.081797[0m
+[0;32mI (10884) main: Signal at index 852 is 1.138438[0m
+[0;32mI (10884) main: Signal at index 853 is 1.169998[0m
+[0;32mI (10894) main: Signal at index 854 is 1.177142[0m
+[0;32mI (10894) main: Signal at index 855 is 1.161097[0m
+[0;32mI (10904) main: Signal at index 856 is 1.123612[0m
+[0;32mI (10904) main: Signal at index 857 is 1.066898[0m
+[0;32mI (10914) main: Signal at index 858 is 0.993564[0m
+[0;32mI (10914) main: Signal at index 859 is 0.906546[0m
+[0;32mI (10924) main: Signal at index 860 is 0.809017[0m
+[0;32mI (10924) main: Signal at index 861 is 0.704308[0m
+[0;32mI (10934) main: Signal at index 862 is 0.595810[0m
+[0;32mI (10934) main: Signal at index 863 is 0.486890[0m
+[0;32mI (10944) main: Signal at index 864 is 0.380798[0m
+[0;32mI (10944) main: Signal at index 865 is 0.280582[0m
+[0;32mI (10954) main: Signal at index 866 is 0.189010[0m
+[0;32mI (10954) main: Signal at index 867 is 0.108500[0m
+[0;32mI (10964) main: Signal at index 868 is 0.041058[0m
+[0;32mI (10964) main: Signal at index 869 is -0.011772[0m
+[0;32mI (10974) main: Signal at index 870 is -0.048943[0m
+[0;32mI (10984) main: Signal at index 871 is -0.069934[0m
+[0;32mI (10984) main: Signal at index 872 is -0.074750[0m
+[0;32mI (10994) main: Signal at index 873 is -0.063926[0m
+[0;32mI (10994) main: Signal at index 874 is -0.038504[0m
+[0;32mI (11004) main: Signal at index 875 is -0.000000[0m
+[0;32mI (11004) main: Signal at index 876 is 0.049639[0m
+[0;32mI (11014) main: Signal at index 877 is 0.108093[0m
+[0;32mI (11014) main: Signal at index 878 is 0.172737[0m
+[0;32mI (11024) main: Signal at index 879 is 0.240713[0m
+[0;32mI (11024) main: Signal at index 880 is 0.309017[0m
+[0;32mI (11034) main: Signal at index 881 is 0.374578[0m
+[0;32mI (11034) main: Signal at index 882 is 0.434350[0m
+[0;32mI (11044) main: Signal at index 883 is 0.485401[0m
+[0;32mI (11044) main: Signal at index 884 is 0.524995[0m
+[0;32mI (11054) main: Signal at index 885 is 0.550672[0m
+[0;32mI (11054) main: Signal at index 886 is 0.560327[0m
+[0;32mI (11064) main: Signal at index 887 is 0.552269[0m
+[0;32mI (11064) main: Signal at index 888 is 0.525277[0m
+[0;32mI (11074) main: Signal at index 889 is 0.478647[0m
+[0;32mI (11074) main: Signal at index 890 is 0.412215[0m
+[0;32mI (11084) main: Signal at index 891 is 0.326376[0m
+[0;32mI (11094) main: Signal at index 892 is 0.222088[0m
+[0;32mI (11094) main: Signal at index 893 is 0.100852[0m
+[0;32mI (11104) main: Signal at index 894 is -0.035311[0m
+[0;32mI (11104) main: Signal at index 895 is -0.183900[0m
+[0;32mI (11114) main: Signal at index 896 is -0.341991[0m
+[0;32mI (11114) main: Signal at index 897 is -0.506303[0m
+[0;32mI (11124) main: Signal at index 898 is -0.673270[0m
+[0;32mI (11124) main: Signal at index 899 is -0.839127[0m
+[0;32mI (11134) main: Signal at index 900 is -1.000000[0m
+[0;32mI (11134) main: Signal at index 901 is -1.151996[0m
+[0;32mI (11144) main: Signal at index 902 is -1.291304[0m
+[0;32mI (11144) main: Signal at index 903 is -1.414284[0m
+[0;32mI (11154) main: Signal at index 904 is -1.517562[0m
+[0;32mI (11154) main: Signal at index 905 is -1.598113[0m
+[0;32mI (11164) main: Signal at index 906 is -1.653345[0m
+[0;32mI (11164) main: Signal at index 907 is -1.681162[0m
+[0;32mI (11174) main: Signal at index 908 is -1.680025[0m
+[0;32mI (11174) main: Signal at index 909 is -1.649000[0m
+[0;32mI (11184) main: Signal at index 910 is -1.587785[0m
+[0;32mI (11194) main: Signal at index 911 is -1.496730[0m
+[0;32mI (11194) main: Signal at index 912 is -1.376836[0m
+[0;32mI (11204) main: Signal at index 913 is -1.229744[0m
+[0;32mI (11204) main: Signal at index 914 is -1.057707[0m
+[0;32mI (11214) main: Signal at index 915 is -0.863541[0m
+[0;32mI (11214) main: Signal at index 916 is -0.650576[0m
+[0;32mI (11224) main: Signal at index 917 is -0.422580[0m
+[0;32mI (11224) main: Signal at index 918 is -0.183684[0m
+[0;32mI (11234) main: Signal at index 919 is 0.061709[0m
+[0;32mI (11234) main: Signal at index 920 is 0.309017[0m
+[0;32mI (11244) main: Signal at index 921 is 0.553582[0m
+[0;32mI (11244) main: Signal at index 922 is 0.790771[0m
+[0;32mI (11254) main: Signal at index 923 is 1.016074[0m
+[0;32mI (11254) main: Signal at index 924 is 1.225209[0m
+[0;32mI (11264) main: Signal at index 925 is 1.414214[0m
+[0;32mI (11264) main: Signal at index 926 is 1.579530[0m
+[0;32mI (11274) main: Signal at index 927 is 1.718087[0m
+[0;32mI (11274) main: Signal at index 928 is 1.827363[0m
+[0;32mI (11284) main: Signal at index 929 is 1.905443[0m
+[0;32mI (11294) main: Signal at index 930 is 1.951056[0m
+[0;32mI (11294) main: Signal at index 931 is 1.963605[0m
+[0;32mI (11304) main: Signal at index 932 is 1.943171[0m
+[0;32mI (11304) main: Signal at index 933 is 1.890513[0m
+[0;32mI (11314) main: Signal at index 934 is 1.807044[0m
+[0;32mI (11314) main: Signal at index 935 is 1.694795[0m
+[0;32mI (11324) main: Signal at index 936 is 1.556368[0m
+[0;32mI (11324) main: Signal at index 937 is 1.394871[0m
+[0;32mI (11334) main: Signal at index 938 is 1.213844[0m
+[0;32mI (11334) main: Signal at index 939 is 1.017177[0m
+[0;32mI (11344) main: Signal at index 940 is 0.809017[0m
+[0;32mI (11344) main: Signal at index 941 is 0.593677[0m
+[0;32mI (11354) main: Signal at index 942 is 0.375530[0m
+[0;32mI (11354) main: Signal at index 943 is 0.158917[0m
+[0;32mI (11364) main: Signal at index 944 is -0.051958[0m
+[0;32mI (11364) main: Signal at index 945 is -0.253116[0m
+[0;32mI (11374) main: Signal at index 946 is -0.440892[0m
+[0;32mI (11374) main: Signal at index 947 is -0.612015[0m
+[0;32mI (11384) main: Signal at index 948 is -0.763675[0m
+[0;32mI (11384) main: Signal at index 949 is -0.893580[0m
+[0;32mI (11394) main: Signal at index 950 is -1.000000[0m
+[0;32mI (11404) main: Signal at index 951 is -1.081797[0m
+[0;32mI (11404) main: Signal at index 952 is -1.138438[0m
+[0;32mI (11414) main: Signal at index 953 is -1.169998[0m
+[0;32mI (11414) main: Signal at index 954 is -1.177142[0m
+[0;32mI (11424) main: Signal at index 95[0;31mE (11424) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (11424) task_wdt:  - IDLE0 (CPU 0)[0m
+[0;31mE (11424) task_wdt: Tasks currently running:[0m
+[0;31mE (11424) task_wdt: CPU 0: main[0m
+[0;31mE (11424) task_wdt: CPU 1: IDLE1[0m
+[0;31mE (11424) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x4200C08F:0x3FC9A5A0 0x4200C4AC:0x3FC9A5C0 0x403775E9:0x3FC9A5F0 0x42007ACE:0x3FCA7C10 0x42008993:0x3FCA7C40 0x420074FD:0x3FCA7C60 0x4200706E:0x3FCA7C80 0x4206CFA6:0x3FCA7CA0 0x4206C4F5:0x3FCA7CC0 0x4206C552:0x3FCA7CE0 0x4206CB91:0x3FCA7D10 0x420742FF:0x3FCA7D40 0x42073CC2:0x3FCA7D60 0x4206D01D:0x3FCA8080 0x420829E9:0x3FCA80B0 0x40383171:0x3FCA80E0 0x42008B55:0x3FCA8130 0x42081A53:0x3FCA8170 0x4037CAD1:0x3FCA81A0
+
+5 is -1.161097[0m
+[0;32mI (11494) main: Signal at index 956 is -1.123612[0m
+[0;32mI (11504) main: Signal at index 957 is -1.066898[0m
+[0;32mI (11504) main: Signal at index 958 is -0.993564[0m
+[0;32mI (11514) main: Signal at index 959 is -0.906546[0m
+[0;32mI (11514) main: Signal at index 960 is -0.809017[0m
+[0;32mI (11524) main: Signal at index 961 is -0.704308[0m
+[0;32mI (11524) main: Signal at index 962 is -0.595810[0m
+[0;32mI (11534) main: Signal at index 963 is -0.486890[0m
+[0;32mI (11544) main: Signal at index 964 is -0.380798[0m
+[0;32mI (11544) main: Signal at index 965 is -0.280582[0m
+[0;32mI (11554) main: Signal at index 966 is -0.189010[0m
+[0;32mI (11554) main: Signal at index 967 is -0.108500[0m
+[0;32mI (11564) main: Signal at index 968 is -0.041058[0m
+[0;32mI (11564) main: Signal at index 969 is 0.011772[0m
+[0;32mI (11574) main: Signal at index 970 is 0.048943[0m
+[0;32mI (11574) main: Signal at index 971 is 0.069934[0m
+[0;32mI (11584) main: Signal at index 972 is 0.074750[0m
+[0;32mI (11584) main: Signal at index 973 is 0.063926[0m
+[0;32mI (11594) main: Signal at index 974 is 0.038504[0m
+[0;32mI (11594) main: Signal at index 975 is 0.000000[0m
+[0;32mI (11604) main: Signal at index 976 is -0.049639[0m
+[0;32mI (11604) main: Signal at index 977 is -0.108093[0m
+[0;32mI (11614) main: Signal at index 978 is -0.172737[0m
+[0;32mI (11614) main: Signal at index 979 is -0.240713[0m
+[0;32mI (11624) main: Signal at index 980 is -0.309017[0m
+[0;32mI (11624) main: Signal at index 981 is -0.374578[0m
+[0;32mI (11634) main: Signal at index 982 is -0.434350[0m
+[0;32mI (11644) main: Signal at index 983 is -0.485401[0m
+[0;32mI (11644) main: Signal at index 984 is -0.524995[0m
+[0;32mI (11654) main: Signal at index 985 is -0.550672[0m
+[0;32mI (11654) main: Signal at index 986 is -0.560327[0m
+[0;32mI (11664) main: Signal at index 987 is -0.552269[0m
+[0;32mI (11664) main: Signal at index 988 is -0.525277[0m
+[0;32mI (11674) main: Signal at index 989 is -0.478647[0m
+[0;32mI (11674) main: Signal at index 990 is -0.412215[0m
+[0;32mI (11684) main: Signal at index 991 is -0.326376[0m
+[0;32mI (11684) main: Signal at index 992 is -0.222088[0m
+[0;32mI (11694) main: Signal at index 993 is -0.100852[0m
+[0;32mI (11694) main: Signal at index 994 is 0.035311[0m
+[0;32mI (11704) main: Signal at index 995 is 0.183900[0m
+[0;32mI (11704) main: Signal at index 996 is 0.341991[0m
+[0;32mI (11714) main: Signal at index 997 is 0.506303[0m
+[0;32mI (11714) main: Signal at index 998 is 0.673270[0m
+[0;32mI (11724) main: Signal at index 999 is 0.839127[0m
+[0;33mW (11734) main: Signal x1[0m
+[0;32mI (11734) view: Data min[31] = -1.963605, Data max[131] = 1.963605[0m
+ ________________________________________________________________
+0                                                                |
+1                                                                |
+2                                                                |
+3|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+4                                                                |
+5                                                                |
+6                                                                |
+7                                                                |
+8                                                                |
+9                                                                |
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (11814) view: Plot: Length=250, min=-60.000000, max=40.000000[0m
+[0;33mW (11814) main: FFT[0m
+[0;32mI (11824) view: Data min[195] = -90.040398, Data max[95] = 5.110473[0m
+ ________________________________________________________________
+0                                                                |
+1                                                                |
+2                                                                |
+3   || ||||||||                        ||   ||||  |   |  || |    |
+4   |||||||||||||||               |||||||||||||||||||| |||||||||||
+5  |  |  |   | |||||||||||||||| |||| ||   |||  || | || ||  |||||||
+6|||               ||||||||||||||||            |           |   | |
+7||                |||||||||||||                                 |
+8                  |||||||||||||                                 |
+9                                                                |
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (11894) view: Plot: Length=500, min=-60.000000, max=40.000000[0m
+[0;32mI (11904) main: FFT for 1024 complex points take 100215 cycles[0m
+[0;32mI (11914) main: The maximum frequency of the signal is 0, and the relative amplitude value is 22.956987[0m
+[0;32mI (11924) main_task: Returned from app_main()[0m

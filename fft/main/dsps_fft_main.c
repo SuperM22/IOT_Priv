@@ -43,7 +43,6 @@
 #include "esp_dsp.h"
 
 static const char *TAG = "main";
-static esp_adc_cal_characteristics_t adc1_chars;
 
 
 
@@ -58,43 +57,49 @@ extern const uint8_t mqtt_eclipseprojects_io_pem_end[]   asm("_binary_mqtt_eclip
 
 #define _USE_MATH_DEFINES
 #define N_SAMPLES 1024
-int N = N_SAMPLES;
+
 
 //SIGNAL DEFINES
-#define SAMPLE_RATE 1000 //samples per second (Hz)
-#define FREQUENCY_SIN 25
-#define FREQUENCY_COS 15
-#define DURATION 3 //seconds
-#define TH 10 //threshold for amplitude we consider the max frequence of the fft
-#define NUMSAMPLES 3000
 
-// Input test array
-int num_samples = SAMPLE_RATE * DURATION;
-float wave[NUMSAMPLES];
+#define SAMPLING_RATE 4000 // Hz 5Khz is the max frequency at which we can sample signals of low frequency (< 4/5 hz) since the bins will be of around 5hz each (Fs/n)
+#define NUM_SAMPLES 1024 //SAMPLE NUMBER HAVE TO BE EXPRESSIBLE AS A POWER OF 2 ELSE FFT WON'T WORK
+#define TH 3 //threshold for magnitude, max frequency of the fft
+int N = NUM_SAMPLES;
+typedef struct {
+    int num_sin_components;
+    double sin_frequencies[5]; // Maximum number of sine components
+    double sin_amplitudes[5]; // Maximum number of sine components
+} SignalComponent;
+
+__attribute__((aligned(16)))
+float wave[NUM_SAMPLES];
 // __attribute__((aligned(16)))
 // float x1[N_SAMPLES];
 // __attribute__((aligned(16)))
 // float x2[N_SAMPLES];
 // Window coefficients
 __attribute__((aligned(16)))
-float wind[NUMSAMPLES];
+float wind[NUM_SAMPLES];
 // working complex array
 __attribute__((aligned(16)))
-float y_cf[NUMSAMPLES * 2];
+float y_cf[NUM_SAMPLES * 2];
 // Pointers to result arrays
 float *y1_cf = &y_cf[0];
-//float *y2_cf = &y_cf[N_SAMPLES];
+float *y2_cf = &y_cf[NUM_SAMPLES];
 
 
 // Sum of y1 and y2
 __attribute__((aligned(16)))
-//float sum_y[N_SAMPLES / 2];
+float sum_y[NUM_SAMPLES / 2];
 
 //MQTT FUNCTIONS
 //
 // Note: this function is for testing purposes only publishing part of the active partition
 //       (to be checked against the original binary)
 //
+
+//SIGNAL AGGREGATION
+
 static void send_binary(esp_mqtt_client_handle_t client)
 {
     esp_partition_mmap_handle_t out_handle;
@@ -183,7 +188,41 @@ static void mqtt_app_start(void)
     esp_mqtt_client_start(client);
 }
 
+//SIGNAL GENERATOR FUNCTION
 
+float composite_signal(float t, SignalComponent *component) {
+    float signal = 0;
+    
+    // Summing sine components
+    for (int i = 0; i < component->num_sin_components; i++) {
+        signal += component->sin_amplitudes[i] * sin(2 * M_PI * component->sin_frequencies[i] * t);
+    }
+    
+    return signal;
+}
+
+SignalComponent component = {
+    2, // Number of sine components
+    {3,5}, // Sine frequencies in HZ
+    {2,4}, // Sine amplitudes
+};
+
+void signal_resampling(int newF,float array[]){
+
+        for (int i = 0; i < N; i++) {
+        float t = (float)i / newF;
+        wave[i] = composite_signal(t, &component);
+    }
+}
+
+float signal_mean(float signal[]){
+    int size = sizeof(signal)/sizeof(signal[0]);
+    float sum = 0;
+    for (int i = 0;i < size;i++){
+        sum+=signal[i];
+    }
+    return sum/size;
+}
 
 void app_main()
 {
@@ -197,107 +236,86 @@ void app_main()
      */
     ESP_ERROR_CHECK(example_connect());
 
-    // //code to take the voltage as the potentiometre
-    // //uint32_t voltage;
-    // esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11, ADC_WIDTH_BIT_DEFAULT, 0, &adc1_chars);
-    // ESP_ERROR_CHECK(adc1_config_width(ADC_WIDTH_BIT_DEFAULT));
-    // ESP_ERROR_CHECK(adc1_config_channel_atten(ADC1_CHANNEL_0, ADC_ATTEN_DB_11));
-    // for(int j = 0 ;j < N ; j++){
-    //     x1[j] = esp_adc_cal_raw_to_voltage(adc1_get_raw(ADC1_CHANNEL_0), &adc1_chars);
-    //     //printf("%lf" PRIu32 " \n", x1[j]);
-    //    vTaskDelay(pdMS_TO_TICKS(1000 / Fs));
-    // }
-
-
-
-    
-
-
     esp_err_t ret;
-    ESP_LOGI(TAG, "Start Example.");
+    ESP_LOGI(TAG, "Start FFT.");
     ret = dsps_fft2r_init_fc32(NULL, CONFIG_DSP_MAX_FFT_SIZE);
     if (ret  != ESP_OK) {
         ESP_LOGE(TAG, "Not possible to initialize FFT. Error = %i", ret);
         return;
     }
 
-    
-    double increment_sin = 2.0 * M_PI * FREQUENCY_SIN / SAMPLE_RATE;
-    double increment_cos = 2.0 * M_PI * FREQUENCY_COS / SAMPLE_RATE;
-    double phase_sin = 0.0;
-    double phase_cos = 0.0;
-
-    for (int i = 0; i < num_samples; i++) {
-        double sin_value = sin(phase_sin);
-        double cos_value = cos(phase_cos);
-        wave[i] = sin_value + cos_value;
-        phase_sin += increment_sin;
-        phase_cos += increment_cos;
-        if (phase_sin >= 2.0 * M_PI) {
-            phase_sin -= 2.0 * M_PI;
-        }
-        if (phase_cos >= 2.0 * M_PI) {
-            phase_cos -= 2.0 * M_PI;
-        }
+    for (int i = 0; i < N; i++) {
+        float t = (float)i / SAMPLING_RATE;
+        wave[i] = composite_signal(t, &component);
+        //ESP_LOGI(TAG, "FFT for %f ", wave[i]);
     }
 
 
-
     // Generate hann window
-    dsps_wind_hann_f32(wind, num_samples);
+    dsps_wind_hann_f32(wind, N);
     // Generate input signal for x1 A=1 , F=0.1
-    //dsps_tone_gen_f32(x1, N, 1.0, 1.0,  0);
+    // dsps_tone_gen_f32(x1, N, 1.0, 0.1,  0);
+    // for(int i=0; i<N;i++){
+    //     ESP_LOGI(TAG, "Signal at index %i is %f", i, x1[i]);
+    // }
+
     // Generate input signal for x2 A=0.1,F=0.2
     //dsps_tone_gen_f32(x2, N, 0.1, 0.2, 0);
 
     // Convert two input vectors to one complex vector
-    for (int i = 0 ; i < num_samples ; i++) {
-        y_cf[i * 2 + 0] = wave[i] * wind[i];
-        y_cf[i * 2 + 1] = 0;
+    for (int i = 0 ; i < N ; i++) {
+        y_cf[i * 2] = wave[i] ;//* wind[i];
+        y_cf[i * 2 + 1] = 0; // I don't have a second vector as in the example
     }
     // FFT
     unsigned int start_b = dsp_get_cpu_cycle_count();
-    dsps_fft2r_fc32(y_cf, num_samples);
+    dsps_fft2r_fc32(y_cf, N);
     unsigned int end_b = dsp_get_cpu_cycle_count();
     // Bit reverse
-    dsps_bit_rev_fc32(y_cf, num_samples);
+    dsps_bit_rev_fc32(y_cf, N);
     // Convert one complex vector to two complex vectors
-    dsps_cplx2reC_fc32(y_cf, num_samples);
+    dsps_cplx2reC_fc32(y_cf, N);
 
     //RETRIEVE THE MAX FREQ OF THE SIGNAL
-    int maxF = 0;
-    double maxA = 0;
-    for (int i = num_samples; i > 0; i--)
+    int maxI = 0;
+    float maxM = 0;
+    for (int i = 0; i < N; i++) 
     {
-        if(y_cf[i]>TH && i>maxF ){
-            maxF = i;
-            maxA = y_cf[i];
+        if(y_cf[i]>TH && y_cf[i]>maxM){
+            maxI = i;
+            maxM = y1_cf[i];
         }
     }
+    ESP_LOGI(TAG, "THE MAX Index is %i", maxI);
+    float maxF = maxI;
+    maxF = maxF*(SAMPLING_RATE) / (float) (N); //max frequency retrival
     
 
 
-    for (int i = 0 ; i < num_samples / 2 ; i++) {
-        y1_cf[i] = 10 * log10f((y1_cf[i * 2 + 0] * y1_cf[i * 2 + 0] + y1_cf[i * 2 + 1] * y1_cf[i * 2 + 1]) / num_samples);
-        //y2_cf[i] = 10 * log10f((y2_cf[i * 2 + 0] * y2_cf[i * 2 + 0] + y2_cf[i * 2 + 1] * y2_cf[i * 2 + 1]) / N);
+    for (int i = 0 ; i < N / 2 ; i++) {
+        y1_cf[i] = 10 * log10f((y1_cf[i * 2 + 0] * y1_cf[i * 2 + 0] + y1_cf[i * 2 + 1] * y1_cf[i * 2 + 1]) / N);
+        y2_cf[i] = 10 * log10f((y2_cf[i * 2 + 0] * y2_cf[i * 2 + 0] + y2_cf[i * 2 + 1] * y2_cf[i * 2 + 1]) / N);
         // Simple way to show two power spectrums as one plot
-        //sum_y[i] = fmax(y1_cf[i], y2_cf[i]);
+        sum_y[i] = fmax(y1_cf[i], y2_cf[i]);
     }
 
     // Show power spectrum in 64x10 window from -100 to 0 dB from 0..N/4 samples
     ESP_LOGW(TAG, "Signal x1");
-    dsps_view(wave, num_samples / 2, 64, 10,  -60, 40, '|');
+    dsps_view(wave, N / 2, 64, 10,  -60, 40, '|');
     ESP_LOGW(TAG, "FFT");
-    dsps_view(y1_cf, num_samples / 2, 64, 10,  -60, 40, '|');
+    dsps_view(y1_cf, N / 2, 64, 10,  -60, 40, '|');
+    //dsps_view(y2_cf, N / 2, 64, 10,  -60, 40, '|');
     
     //ESP_LOGW(TAG, "Signal x2");
     //dsps_view(y2_cf, N / 2, 64, 10,  -60, 40, '|');
     //ESP_LOGW(TAG, "Signals x1 and x2 on one plot");
-    //dsps_view(sum_y, N / 2, 64, 10,  -60, 40, '|');
+    dsps_view(sum_y, N / 2, 64, 10,  -60, 40, '|');
     
     ESP_LOGI(TAG, "FFT for %i complex points take %i cycles", N, end_b - start_b);
-    ESP_LOGI(TAG, "The maximum frequency of the signal is %i, and the relative amplitude value is %f", maxF, maxA);
+    ESP_LOGI(TAG, "The maximum frequency of the signal is %f, and the relative magnitude value is %f", maxF, maxM);
     //ESP_LOGI(TAG, "End Example.");
 }
 
 //fare for per : l'indice del result è la frequenza, il valore è l'ampiezza. Onde evitare rumori prendere max frequenza sopra una certa ampiezza di threshold.
+
+//l aggregate sarà  una semplice media
