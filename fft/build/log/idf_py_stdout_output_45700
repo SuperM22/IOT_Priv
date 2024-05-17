@@ -134,4 +134,41 @@ I (4814) wifi:AP's beacon interval = 102400 us, DTIM period = 1
 2|                                                               |
 3||                                                              |
 4  ||||                                                          |
-5 
+5      |||||||||||||||                                           |
+6                     ||||||||||||||||||||||||||||||||||||||||||||
+7                                                                |
+8                                                                |
+9                                                                |
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (6654) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
+[0;32mI (6664) view: Data min[511] = -33.087410, Data max[1] = 43.506424[0m
+ ________________________________________________________________
+0|                                                               |
+1|                                                               |
+2|                                                               |
+3||                                                              |
+4  ||||                                                          |
+5      |||||||||||||||                                           |
+6                     ||||||||||||||||||||||||||||||||||||||||||||
+7                                                                |
+8                                                                |
+9                                                                |
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (6734) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
+[0;32mI (6744) main: FFT for 1024 complex points take 129727 cycles[0m
+[0;32mI (6754) main: The maximum frequency of the signal is 0.000000, and the relative magnitude value is 937.363953[0m
+[0;32mI (6764) main_task: Returned from app_main()[0m
+I (635634) wifi:bcn_timeout,ap_probe_send_start
+I (638134) wifi:ap_probe_send over, resett wifi status to disassoc
+I (638134) wifi:state: run -> init (c800)
+I (638134) wifi:pm stop, total sleep time: 450518833 us / 633482686 us
+
+I (638144) wifi:<ba-del>idx:0, tid:0
+I (638144) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+[0;32mI (638154) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (640564) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (642974) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (645384) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (647794) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (650204) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (652614) example_connect: WiFi Connect failed 7 times, stop reconnect.[0m

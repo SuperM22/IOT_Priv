@@ -60,6 +60,7 @@ extern const uint8_t mqtt_eclipseprojects_io_pem_end[]   asm("_binary_mqtt_eclip
 
 
 //SIGNAL DEFINES
+#define WINDOW_TIME 5 //seconds
 
 #define SAMPLING_RATE 4000 // Hz 5Khz is the max frequency at which we can sample signals of low frequency (< 4/5 hz) since the bins will be of around 5hz each (Fs/n)
 #define NUM_SAMPLES 1024 //SAMPLE NUMBER HAVE TO BE EXPRESSIBLE AS A POWER OF 2 ELSE FFT WON'T WORK
@@ -91,6 +92,11 @@ float *y2_cf = &y_cf[NUM_SAMPLES];
 // Sum of y1 and y2
 __attribute__((aligned(16)))
 float sum_y[NUM_SAMPLES / 2];
+
+
+__attribute__((aligned(16)))
+float new_signal[NUM_SAMPLES]; //Allocating this array inside the main gives a Rom overflow
+
 
 //MQTT FUNCTIONS
 //
@@ -208,10 +214,9 @@ SignalComponent component = {
 };
 
 void signal_resampling(int newF,float array[]){
-
         for (int i = 0; i < N; i++) {
         float t = (float)i / newF;
-        wave[i] = composite_signal(t, &component);
+        array[i] = composite_signal(t, &component);
     }
 }
 
@@ -253,14 +258,7 @@ void app_main()
 
     // Generate hann window
     dsps_wind_hann_f32(wind, N);
-    // Generate input signal for x1 A=1 , F=0.1
-    // dsps_tone_gen_f32(x1, N, 1.0, 0.1,  0);
-    // for(int i=0; i<N;i++){
-    //     ESP_LOGI(TAG, "Signal at index %i is %f", i, x1[i]);
-    // }
-
-    // Generate input signal for x2 A=0.1,F=0.2
-    //dsps_tone_gen_f32(x2, N, 0.1, 0.2, 0);
+    
 
     // Convert two input vectors to one complex vector
     for (int i = 0 ; i < N ; i++) {
@@ -281,14 +279,15 @@ void app_main()
     float maxM = 0;
     for (int i = 0; i < N; i++) 
     {
-        if(y_cf[i]>TH && y_cf[i]>maxM){
+        float mag = sqrt( y_cf[i]*y_cf[i] + y_cf[i+1] * y_cf[i+1]);
+        if(mag>TH && mag>maxM){
             maxI = i;
-            maxM = y1_cf[i];
+            maxM = mag;
         }
     }
     ESP_LOGI(TAG, "THE MAX Index is %i", maxI);
     float maxF = maxI;
-    maxF = maxF*(SAMPLING_RATE) / (float) (N); //max frequency retrival
+    maxF = maxF*(SAMPLING_RATE) / (float) (N*2); //max frequency retrival
     
 
 
@@ -314,6 +313,18 @@ void app_main()
     ESP_LOGI(TAG, "FFT for %i complex points take %i cycles", N, end_b - start_b);
     ESP_LOGI(TAG, "The maximum frequency of the signal is %f, and the relative magnitude value is %f", maxF, maxM);
     //ESP_LOGI(TAG, "End Example.");
+    //resampling of the signal 
+    int newF= 2 * (int) ceil(maxF);
+    ESP_LOGI(TAG, "Resampled at freq %i", newF);
+    int dimension = newF* WINDOW_TIME ;
+    
+    signal_resampling(newF,new_signal);
+    for (int i = 0; i < dimension; i++)
+    {
+        ESP_LOGI(TAG, "Resampled %f", new_signal[i]);
+    }
+    
+
 }
 
 //fare for per : l'indice del result è la frequenza, il valore è l'ampiezza. Onde evitare rumori prendere max frequenza sopra una certa ampiezza di threshold.

@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "fft2r",
-    "project_version":    "58336f6-dirty",
+    "project_version":    "51e3ed2-dirty",
     "project_path":       "/Users/mimmo/UniProjects/IOT_Priv/fft",
     "idf_path":           "/Users/mimmo/esp/esp-idf",
     "build_dir":          "/Users/mimmo/UniProjects/IOT_Priv/fft/build",
@@ -2163,18 +2163,6 @@
             "managed_priv_reqs": [ "espressif__esp-dsp", "protocol_examples_common" ],
             "include_dirs": [ "." ]
         },
-        "protocol_examples_common": {
-            "alias": "idf::protocol_examples_common",
-            "target": "___idf_protocol_examples_common",
-            "prefix": "idf",
-            "dir": "/Users/mimmo/esp/esp-idf/examples/common_components/protocol_examples_common",
-            "lib": "__idf_protocol_examples_common",
-            "reqs": [],
-            "priv_reqs": [ "esp_netif", "driver", "esp_wifi", "vfs" ],
-            "managed_reqs": [],
-            "managed_priv_reqs": [],
-            "include_dirs": [ "include" ]
-        },
         "espressif__esp-dsp": {
             "alias": "idf::espressif__esp-dsp",
             "target": "___idf_espressif__esp-dsp",
@@ -2186,6 +2174,18 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "include_dirs": [ "modules/dotprod/include", "modules/support/include", "modules/support/mem/include", "modules/windows/include", "modules/windows/hann/include", "modules/windows/blackman/include", "modules/windows/blackman_harris/include", "modules/windows/blackman_nuttall/include", "modules/windows/nuttall/include", "modules/windows/flat_top/include", "modules/iir/include", "modules/fir/include", "modules/math/include", "modules/math/add/include", "modules/math/sub/include", "modules/math/mul/include", "modules/math/addc/include", "modules/math/mulc/include", "modules/math/sqrt/include", "modules/matrix/mul/include", "modules/matrix/add/include", "modules/matrix/addc/include", "modules/matrix/mulc/include", "modules/matrix/sub/include", "modules/matrix/include", "modules/fft/include", "modules/dct/include", "modules/conv/include", "modules/common/include", "modules/matrix/mul/test/include", "modules/kalman/ekf/include", "modules/kalman/ekf_imu13states/include" ]
+        },
+        "protocol_examples_common": {
+            "alias": "idf::protocol_examples_common",
+            "target": "___idf_protocol_examples_common",
+            "prefix": "idf",
+            "dir": "/Users/mimmo/esp/esp-idf/examples/common_components/protocol_examples_common",
+            "lib": "__idf_protocol_examples_common",
+            "reqs": [],
+            "priv_reqs": [ "esp_netif", "driver", "esp_wifi", "vfs" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "include_dirs": [ "include" ]
         }
     },
     "debug_prefix_map_gdbinit": ""

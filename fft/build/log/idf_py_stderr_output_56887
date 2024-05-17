@@ -1,0 +1,29 @@
+[0;33m--- esp-idf-monitor 1.4.0 on /dev/cu.usbserial-0001 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+[0;33m0x4037daac: prvSelectHighestPriorityTaskSMP at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:3570 (discriminator 3)
+[0m
+[0;33m0x40000000: _WindowOverflow4 in ROM
+[0m
+[0;33m0x40000000: _WindowOverflow4 in ROM
+[0m
+[0;33m0x4037daa9: prvSelectHighestPriorityTaskSMP at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:3570 (discriminator 3)
+0x4037e2f6: vTaskSwitchContext at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:3641
+0x4037cf88: _frxt_dispatch at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/portasm.S:451
+0x4037cf7e: _frxt_int_exit at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/portasm.S:246
+[0m
+[0;33m0x4206a9ce: __kernel_cos at /builds/idf/crosstool-NG/.build/HOST-x86_64-apple-darwin21.1/xtensa-esp-elf/src/newlib/newlib/libm/math/k_cos.c:92
+[0m
+[0;33m0x4037daac: prvSelectHighestPriorityTaskSMP at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:3570 (discriminator 3)
+[0m
+[0;33m0x40000000: _WindowOverflow4 in ROM
+[0m
+[0;33m0x40000000: _WindowOverflow4 in ROM
+[0m
+[0;33m0x4037daa9: prvSelectHighestPriorityTaskSMP at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:3570 (discriminator 3)
+0x4037e2f6: vTaskSwitchContext at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:3641
+0x4037cf88: _frxt_dispatch at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/portasm.S:451
+0x4037cf7e: _frxt_int_exit at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/portasm.S:246
+[0m
+[0;33m0x40033620: __muldf3 in ROM
+[0m
+[0m
