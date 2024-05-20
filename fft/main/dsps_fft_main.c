@@ -316,9 +316,11 @@ void app_main()
      */
     ESP_ERROR_CHECK(example_connect());
 
+    vTaskDelay(1000);
     //sample the signal and store it in wave[];
     counter_init = xTaskGetTickCount();
     signal_sampling();
+    vTaskDelay(1000);
 
 
     //the FFT is performed on wave[], stored in y_cf[] and the max frequency of the signal is returned as a float;
@@ -330,9 +332,11 @@ void app_main()
     ESP_LOGI(TAG, "Resampled at freq %i", newF);
     int dimension = newF* WINDOW_TIME ;
     
+    vTaskDelay(1000);
+    
     //resample the signal and store the samples in new_signal[]
     signal_resampling(maxF,new_signal,dimension);
-
+    vTaskDelay(1000);
 
     float mean = signal_mean(new_signal,dimension);
 

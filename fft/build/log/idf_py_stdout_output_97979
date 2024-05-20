@@ -1,0 +1,41 @@
+[0/1] Re-running CMake...
+-- Building ESP-IDF components for target esp32s3
+Processing 3 dependencies:
+[1/3] espressif/esp-dsp (1.4.12)
+[2/3] idf (5.2.0)
+[3/3] protocol_examples_common (*)
+-- Project sdkconfig file /Users/mimmo/UniProjects/IOT_Priv/fft/sdkconfig
+-- Compiler supported targets: xtensa-esp-elf
+-- App "fft2r" version: 832823d-dirty
+-- Adding linker script /Users/mimmo/UniProjects/IOT_Priv/fft/build/esp-idf/esp_system/ld/memory.ld
+-- Adding linker script /Users/mimmo/esp/esp-idf/components/esp_system/ld/esp32s3/sections.ld.in
+-- Adding linker script /Users/mimmo/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.ld
+-- Adding linker script /Users/mimmo/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.api.ld
+-- Adding linker script /Users/mimmo/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.libgcc.ld
+-- Adding linker script /Users/mimmo/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.newlib.ld
+-- Adding linker script /Users/mimmo/esp/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.version.ld
+-- Adding linker script /Users/mimmo/esp/esp-idf/components/soc/esp32s3/ld/esp32s3.peripherals.ld
+-- Components: app_trace app_update bootloader bootloader_support bt cmock console cxx driver efuse esp-tls esp_adc esp_app_format esp_bootloader_format esp_coex esp_common esp_eth esp_event esp_gdbstub esp_hid esp_http_client esp_http_server esp_https_ota esp_https_server esp_hw_support esp_lcd esp_local_ctrl esp_mm esp_netif esp_netif_stack esp_partition esp_phy esp_pm esp_psram esp_ringbuf esp_rom esp_system esp_timer esp_wifi espcoredump espressif__esp-dsp esptool_py fatfs freertos hal heap http_parser idf_test ieee802154 json log lwip main mbedtls mqtt newlib nvs_flash nvs_sec_provider openthread partition_table perfmon protobuf-c protocol_examples_common protocomm pthread sdmmc soc spi_flash spiffs tcp_transport touch_element ulp unity usb vfs wear_levelling wifi_provisioning wpa_supplicant xtensa
+-- Component paths: /Users/mimmo/esp/esp-idf/components/app_trace /Users/mimmo/esp/esp-idf/components/app_update /Users/mimmo/esp/esp-idf/components/bootloader /Users/mimmo/esp/esp-idf/components/bootloader_support /Users/mimmo/esp/esp-idf/components/bt /Users/mimmo/esp/esp-idf/components/cmock /Users/mimmo/esp/esp-idf/components/console /Users/mimmo/esp/esp-idf/components/cxx /Users/mimmo/esp/esp-idf/components/driver /Users/mimmo/esp/esp-idf/components/efuse /Users/mimmo/esp/esp-idf/components/esp-tls /Users/mimmo/esp/esp-idf/components/esp_adc /Users/mimmo/esp/esp-idf/components/esp_app_format /Users/mimmo/esp/esp-idf/components/esp_bootloader_format /Users/mimmo/esp/esp-idf/components/esp_coex /Users/mimmo/esp/esp-idf/components/esp_common /Users/mimmo/esp/esp-idf/components/esp_eth /Users/mimmo/esp/esp-idf/components/esp_event /Users/mimmo/esp/esp-idf/components/esp_gdbstub /Users/mimmo/esp/esp-idf/components/esp_hid /Users/mimmo/esp/esp-idf/components/esp_http_client /Users/mimmo/esp/esp-idf/components/esp_http_server /Users/mimmo/esp/esp-idf/components/esp_https_ota /Users/mimmo/esp/esp-idf/components/esp_https_server /Users/mimmo/esp/esp-idf/components/esp_hw_support /Users/mimmo/esp/esp-idf/components/esp_lcd /Users/mimmo/esp/esp-idf/components/esp_local_ctrl /Users/mimmo/esp/esp-idf/components/esp_mm /Users/mimmo/esp/esp-idf/components/esp_netif /Users/mimmo/esp/esp-idf/components/esp_netif_stack /Users/mimmo/esp/esp-idf/components/esp_partition /Users/mimmo/esp/esp-idf/components/esp_phy /Users/mimmo/esp/esp-idf/components/esp_pm /Users/mimmo/esp/esp-idf/components/esp_psram /Users/mimmo/esp/esp-idf/components/esp_ringbuf /Users/mimmo/esp/esp-idf/components/esp_rom /Users/mimmo/esp/esp-idf/components/esp_system /Users/mimmo/esp/esp-idf/components/esp_timer /Users/mimmo/esp/esp-idf/components/esp_wifi /Users/mimmo/esp/esp-idf/components/espcoredump /Users/mimmo/UniProjects/IOT_Priv/fft/managed_components/espressif__esp-dsp /Users/mimmo/esp/esp-idf/components/esptool_py /Users/mimmo/esp/esp-idf/components/fatfs /Users/mimmo/esp/esp-idf/components/freertos /Users/mimmo/esp/esp-idf/components/hal /Users/mimmo/esp/esp-idf/components/heap /Users/mimmo/esp/esp-idf/components/http_parser /Users/mimmo/esp/esp-idf/components/idf_test /Users/mimmo/esp/esp-idf/components/ieee802154 /Users/mimmo/esp/esp-idf/components/json /Users/mimmo/esp/esp-idf/components/log /Users/mimmo/esp/esp-idf/components/lwip /Users/mimmo/UniProjects/IOT_Priv/fft/main /Users/mimmo/esp/esp-idf/components/mbedtls /Users/mimmo/esp/esp-idf/components/mqtt /Users/mimmo/esp/esp-idf/components/newlib /Users/mimmo/esp/esp-idf/components/nvs_flash /Users/mimmo/esp/esp-idf/components/nvs_sec_provider /Users/mimmo/esp/esp-idf/components/openthread /Users/mimmo/esp/esp-idf/components/partition_table /Users/mimmo/esp/esp-idf/components/perfmon /Users/mimmo/esp/esp-idf/components/protobuf-c /Users/mimmo/esp/esp-idf/examples/common_components/protocol_examples_common /Users/mimmo/esp/esp-idf/components/protocomm /Users/mimmo/esp/esp-idf/components/pthread /Users/mimmo/esp/esp-idf/components/sdmmc /Users/mimmo/esp/esp-idf/components/soc /Users/mimmo/esp/esp-idf/components/spi_flash /Users/mimmo/esp/esp-idf/components/spiffs /Users/mimmo/esp/esp-idf/components/tcp_transport /Users/mimmo/esp/esp-idf/components/touch_element /Users/mimmo/esp/esp-idf/components/ulp /Users/mimmo/esp/esp-idf/components/unity /Users/mimmo/esp/esp-idf/components/usb /Users/mimmo/esp/esp-idf/components/vfs /Users/mimmo/esp/esp-idf/components/wear_levelling /Users/mimmo/esp/esp-idf/components/wifi_provisioning /Users/mimmo/esp/esp-idf/components/wpa_supplicant /Users/mimmo/esp/esp-idf/components/xtensa
+-- Configuring done (14.2s)
+-- Generating done (1.7s)
+-- Build files have been written to: /Users/mimmo/UniProjects/IOT_Priv/fft/build
+[1/11] Performing build step for 'bootloader'
+[1/1] cd /Users/mimmo/UniProjects/IOT_Priv/fft/build/bootloader/esp-idf/esptool_py && /Users/mimmo/.espressif/python_env/idf5.2_py3.12_env/bin/python /Users/mimmo/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /Users/mimmo/UniProjects/IOT_Priv/fft/build/bootloader/bootloader.bin
+Bootloader binary size 0x5240 bytes. 0x2dc0 bytes (36%) free.
+[2/11] No install step for 'bootloader'
+[3/11] Completed 'bootloader'
+[4/11] Building C object esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj
+[5/11] Linking C static library esp-idf/esp_app_format/libesp_app_format.a
+[6/11] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/dsps_fft_main.c.obj
+[7/11] Linking C static library esp-idf/main/libmain.a
+[8/11] Generating ld/sections.ld
+[9/11] Linking CXX executable fft2r.elf
+[10/11] Generating binary image from built executable
+esptool.py v4.7.0
+Creating esp32s3 image...
+Merged 2 ELF sections
+Successfully created esp32s3 image.
+Generated /Users/mimmo/UniProjects/IOT_Priv/fft/build/fft2r.bin
+[11/11] cd /Users/mimmo/UniProjects/IOT_Priv/fft/build/esp-idf/esptool_py && /Users/mimmo/.espressif/python_env/idf5.2_py3.12_env/bin/python /Users/mimmo/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /Users/mimmo/UniProjects/IOT_Priv/fft/build/partition_table/partition-table.bin /Users/mimmo/UniProjects/IOT_Priv/fft/build/fft2r.bin
+fft2r.bin binary size 0xe2ec0 bytes. Smallest app partition is 0x100000 bytes. 0x1d140 bytes (11%) free.
