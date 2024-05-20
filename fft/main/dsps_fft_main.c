@@ -25,8 +25,7 @@
 #include "driver/uart.h"
 #include "soc/uart_struct.h"
 #include <math.h>
-#include "driver/adc.h"
-#include "esp_adc_cal.h"
+
 #include <inttypes.h>
 #include <assert.h>
 #include "esp_partition.h"
@@ -75,11 +74,7 @@ typedef struct {
 
 __attribute__((aligned(16)))
 float wave[NUM_SAMPLES];
-// __attribute__((aligned(16)))
-// float x1[N_SAMPLES];
-// __attribute__((aligned(16)))
-// float x2[N_SAMPLES];
-// Window coefficients
+
 __attribute__((aligned(16)))
 float wind[NUM_SAMPLES];
 // working complex array
@@ -99,12 +94,10 @@ __attribute__((aligned(16)))
 float new_signal[NUM_SAMPLES]; //Allocating this array inside the main gives a Rom overflow
 
 
-//MQTT FUNCTIONS
-//
-// Note: this function is for testing purposes only publishing part of the active partition
-//       (to be checked against the original binary)
-//
-
+//LATENCY
+static TickType_t counter_init;
+static TickType_t publish_time;
+TickType_t end_time;
 //SIGNAL AGGREGATION
 
 static void send_binary(esp_mqtt_client_handle_t client)
@@ -137,19 +130,28 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
     case MQTT_EVENT_SUBSCRIBED:
         ESP_LOGI("MQTT", "MQTT_EVENT_SUBSCRIBED, msg_id=%d", event->msg_id);
-        msg_id = esp_mqtt_client_publish(client, "/topic/qos0", string, 0, 0, 0);
-        ESP_LOGI("MQTT", "sent publish successful, msg_id=%d", msg_id);
+        msg_id = esp_mqtt_client_publish(client, "/topic/qos0", string, 0, 0, 0); //returns 0 on success, -1 else
+        if(msg_id == 0){
+            ESP_LOGI("MQTT", "sent publish successful, msg_id=%d", msg_id);
+            publish_time = xTaskGetTickCount();
+            end_time = publish_time-counter_init;
+            end_time = (unsigned int) (end_time * portTICK_PERIOD_MS);
+            ESP_LOGI("MQTT","The total latency is %ld milliseconds",end_time);
+        }
+
         break;
     case MQTT_EVENT_UNSUBSCRIBED:
         ESP_LOGI("MQTT", "MQTT_EVENT_UNSUBSCRIBED, msg_id=%d", event->msg_id);
         break;
     case MQTT_EVENT_PUBLISHED:
+        ESP_LOGI(TAG, "Latency is : %ld milliseconds", end_time);
         ESP_LOGI("MQTT", "MQTT_EVENT_PUBLISHED, msg_id=%d", event->msg_id);
         break;
     case MQTT_EVENT_DATA:
         ESP_LOGI("MQTT", "MQTT_EVENT_DATA");
         printf("TOPIC=%.*s\r\n", event->topic_len, event->topic);
         printf("DATA=%.*s\r\n", event->data_len, event->data);
+        //ESP_LOGI("MQTT","MSG_ID=%d", event->msg_id);
         if (strncmp(event->data, "send binary please", event->data_len) == 0) {
             ESP_LOGI("MQTT", "Sending the binary");
             send_binary(client);
@@ -291,12 +293,7 @@ float perform_FFT(){
     dsps_view(wave, N / 2, 64, 10,  -60, 40, '|');
     ESP_LOGW("FFT", "FFT");
     dsps_view(y1_cf, N / 2, 64, 10,  -60, 40, '|');
-    //dsps_view(y2_cf, N / 2, 64, 10,  -60, 40, '|');
     
-    //ESP_LOGW(TAG, "Signal x2");
-    //dsps_view(y2_cf, N / 2, 64, 10,  -60, 40, '|');
-    //ESP_LOGW(TAG, "Signals x1 and x2 on one plot");
-    //dsps_view(sum_y, N / 2, 64, 10,  -60, 40, '|');
     
     ESP_LOGI("FFT", "FFT for %i complex points take %i cycles", N, end_b - start_b);
     ESP_LOGI("FFT", "The maximum frequency of the signal is %f, and the relative magnitude value is %f", maxF, maxM);
@@ -320,7 +317,9 @@ void app_main()
     ESP_ERROR_CHECK(example_connect());
 
     //sample the signal and store it in wave[];
+    counter_init = xTaskGetTickCount();
     signal_sampling();
+
 
     //the FFT is performed on wave[], stored in y_cf[] and the max frequency of the signal is returned as a float;
     float maxF = perform_FFT();
@@ -343,4 +342,4 @@ void app_main()
     mqtt_app_start();
 }
 
-//l aggregate sarà  una semplice media
+//l aggregate sarà  una semplice medi

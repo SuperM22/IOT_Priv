@@ -1,0 +1,240 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x28 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3810,len:0x178c
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xcbc
+load:0x403cc700,len:0x2d98
+entry 0x403c9914
+[0;32mI (27) boot: ESP-IDF v5.2 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time May 17 2024 11:54:22[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (43) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (53) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (64) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (79) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (87) boot: End of partition table[0m
+[0;32mI (91) esp_image: segment 0: paddr=00010020 vaddr=3c0a0020 size=2d6e4h (186084) map[0m
+[0;32mI (133) esp_image: segment 1: paddr=0003d70c vaddr=3fc98500 size=0290ch ( 10508) load[0m
+[0;32mI (135) esp_image: segment 2: paddr=00040020 vaddr=42000020 size=9cb80h (641920) map[0m
+[0;32mI (253) esp_image: segment 3: paddr=000dcba8 vaddr=3fc9ae0c size=01dc0h (  7616) load[0m
+[0;32mI (255) esp_image: segment 4: paddr=000de970 vaddr=40374000 size=144c8h ( 83144) load[0m
+[0;32mI (286) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (286) boot: Disabling RNG early entropy source...[0m
+[0;32mI (297) cpu_start: Multicore app[0m
+[0;32mI (307) cpu_start: Pro cpu start user code[0m
+[0;32mI (307) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (307) cpu_start: Application information:[0m
+[0;32mI (310) cpu_start: Project name:     fft2r[0m
+[0;32mI (315) cpu_start: App version:      3f0fcf4-dirty[0m
+[0;32mI (321) cpu_start: Compile time:     May 20 2024 19:41:37[0m
+[0;32mI (327) cpu_start: ELF file SHA256:  9e823b5e8...[0m
+[0;32mI (332) cpu_start: ESP-IDF:          v5.2[0m
+[0;32mI (337) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (341) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (346) cpu_start: Chip rev:         v0.2[0m
+[0;32mI (351) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (358) heap_init: At 3FCA6468 len 000432A8 (268 KiB): RAM[0m
+[0;32mI (364) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (370) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (377) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (384) spi_flash: detected chip: gd[0m
+[0;32mI (387) spi_flash: flash io: dio[0m
+[0;32mI (391) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (398) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (405) main_task: Started on CPU0[0m
+[0;32mI (415) main_task: Calling app_main()[0m
+[0;32mI (435) example_connect: Start example_connect.[0m
+[0;32mI (435) pp: pp rom version: e7ae62f[0m
+[0;32mI (435) net80211: net80211 rom version: e7ae62f[0m
+I (455) wifi:wifi driver task: 3fcb035c, prio:23, stack:6656, core=0
+I (465) wifi:wifi firmware version: cc1dd81
+I (465) wifi:wifi certification version: v7.0
+I (465) wifi:config NVS flash: enabled
+I (465) wifi:config nano formating: disabled
+I (465) wifi:Init data frame dynamic rx buffer num: 32
+I (475) wifi:Init static rx mgmt buffer num: 5
+I (475) wifi:Init management short buffer num: 32
+I (485) wifi:Init dynamic tx buffer num: 32
+I (485) wifi:Init static tx FG buffer num: 2
+I (485) wifi:Init static rx buffer size: 1600
+I (495) wifi:Init static rx buffer num: 10
+I (495) wifi:Init dynamic rx buffer num: 32
+[0;32mI (505) wifi_init: rx ba win: 6[0m
+[0;32mI (505) wifi_init: tcpip mbox: 32[0m
+[0;32mI (505) wifi_init: udp mbox: 6[0m
+[0;32mI (515) wifi_init: tcp mbox: 6[0m
+[0;32mI (515) wifi_init: tcp tx win: 5760[0m
+[0;32mI (515) wifi_init: tcp rx win: 5760[0m
+[0;32mI (525) wifi_init: tcp mss: 1440[0m
+[0;32mI (525) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (535) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (535) phy_init: phy_version 620,ec7ec30,Sep  5 2023,13:49:13[0m
+I (575) wifi:mode : sta (48:27:e2:e2:ee:98)
+I (575) wifi:enable tsf
+[0;32mI (585) example_connect: Connecting to iPhone (22)...[0m
+[0;32mI (585) example_connect: Waiting for IP(s)[0m
+I (2995) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (2995) wifi:state: init -> auth (b0)
+I (3735) wifi:state: auth -> assoc (0)
+I (3745) wifi:state: assoc -> run (10)
+I (4235) wifi:connected with iPhone (22), aid = 1, channel 6, BW20, bssid = b6:bd:72:9b:4e:6f
+I (4235) wifi:security: WPA3-SAE, phy: bgn, rssi: -45
+I (4235) wifi:pm start, type: 1
+
+I (4235) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (4245) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (4305) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+[0;32mI (5255) esp_netif_handlers: example_netif_sta ip: 172.20.10.3, mask: 255.255.255.240, gw: 172.20.10.1[0m
+[0;32mI (5255) example_connect: Got IPv4 event: Interface "example_netif_sta" address: 172.20.10.3[0m
+[0;32mI (5435) example_connect: Got IPv6 event: Interface "example_netif_sta" address: fe80:0000:0000:0000:4a27:e2ff:fee2:ee98, type: ESP_IP6_ADDR_IS_LINK_LOCAL[0m
+[0;32mI (5435) example_common: Connected to example_netif_sta[0m
+[0;32mI (5445) example_common: - IPv4 address: 172.20.10.3,[0m
+[0;32mI (5445) example_common: - IPv6 address: fe80:0000:0000:0000:4a27:e2ff:fee2:ee98, type: ESP_IP6_ADDR_IS_LINK_LOCAL[0m
+[0;32mI (5495) signal_sampling: Signal sampling over [0m
+[0;32mI (5495) FFT: Start FFT.[0m
+[0;32mI (5515) FFT: THE MAX Index is 2[0m
+[0;33mW (5515) FFT: Signal x1[0m
+[0;32mI (5515) view: Data min[511] = -1.722893, Data max[220] = 5.672237[0m
+ ________________________________________________________________
+0                                                                |
+1                                                                |
+2                                                                |
+3|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+4                                                                |
+5                                                                |
+6                                                                |
+7                                                                |
+8                                                                |
+9                                                                |
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (5585) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
+[0;33mW (5595) FFT: FFT[0m
+[0;32mI (5595) view: Data min[510] = -24.236752, Data max[1] = 42.183899[0m
+ ________________________________________________________________
+0|                                                               |
+1|                                                               |
+2||                                                              |
+3  |||                                                           |
+4     |||||||||||                                                |
+5                |||||||||||||||||||||||||||||||||||||||||||||||||
+6                                                                |
+7                                                                |
+8                                                                |
+9                                                                |
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (5675) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
+[0;32mI (5675) FFT: FFT for 1024 complex points take 130089 cycles[0m
+[0;32mI (5685) FFT: The maximum frequency of the signal is 3.906250, and the relative magnitude value is 4114.764648[0m
+[0;32mI (5695) FFT: FFT calculation and max frequency retrieval is over[0m
+[0;32mI (5705) main: Resampled at freq 8[0m
+[0;32mI (5705) signal_resampling: Signal resampling over [0m
+[0;32mI (5715) signal_mean: Signal mean over [0m
+[0;32mI (5715) MQTT: [APP] Free memory: 241088 bytes[0m
+[0;32mI (5725) MQTT: Other event id:7[0m
+[0;32mI (5725) main_task: Returned from app_main()[0m
+W (5745) wifi:[ADDBA]rx delba, code:39, delete tid:0
+I (5755) wifi:<ba-add>idx:0 (ifx:0, b6:bd:72:9b:4e:6f), tid:0, ssn:48, winSize:64
+I (7435) wifi:starting SA query procedure with AP(b6:bd:72:9b:4e:6f)
+I (7435) wifi:Send SA Query req with transaction id 4fd2
+I (7635) wifi:Send SA Query req with transaction id 4fd3
+I (7835) wifi:Send SA Query req with transaction id 4fd4
+I (8035) wifi:Send SA Query req with transaction id 4fd5
+I (8235) wifi:Send SA Query req with transaction id 4fd6
+I (8435) wifi:Send SA Query req with transaction id 4fd7
+I (8455) wifi:No response to 6 SA Queries, reset connection sending disassoc
+I (8455) wifi:state: run -> init (d100)
+I (8455) wifi:pm stop, total sleep time: 2323872 us / 4222002 us
+
+I (8465) wifi:<ba-del>idx:0, tid:0
+I (8465) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+[0;31mE (8475) esp-tls-mbedtls: mbedtls_ssl_handshake returned -0x004C[0m
+[0;32mI (8475) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (8475) esp-tls-mbedtls: Certificate verified.[0m
+[0;31mE (8495) esp-tls: Failed to open new connection[0m
+[0;31mE (8495) transport_base: Failed to open a new connection[0m
+[0;31mE (8505) mqtt_client: Error transport connect[0m
+[0;32mI (8505) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (8515) MQTT: Last error code reported from esp-tls: 0x801a[0m
+[0;32mI (8515) MQTT: Last tls stack error number: 0x4c[0m
+[0;32mI (8525) MQTT: Last captured errno : 0 (Success)[0m
+[0;32mI (8525) MQTT: MQTT_EVENT_DISCONNECTED[0m
+I (10895) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (10895) wifi:state: init -> auth (b0)
+I (11645) wifi:state: auth -> assoc (0)
+I (11655) wifi:state: assoc -> run (10)
+I (11705) wifi:connected with iPhone (22), aid = 2, channel 6, BW20, bssid = b6:bd:72:9b:4e:6f
+I (11705) wifi:security: WPA3-SAE, phy: bgn, rssi: -46
+I (11705) wifi:pm start, type: 1
+
+I (11715) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (11735) wifi:<ba-add>idx:0 (ifx:0, b6:bd:72:9b:4e:6f), tid:0, ssn:2, winSize:64
+I (11775) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+[0;32mI (12725) esp_netif_handlers: example_netif_sta ip: 172.20.10.3, mask: 255.255.255.240, gw: 172.20.10.1[0m
+[0;32mI (12725) example_connect: Got IPv4 event: Interface "example_netif_sta" address: 172.20.10.3[0m
+[0;32mI (13435) example_connect: Got IPv6 event: Interface "example_netif_sta" address: fe80:0000:0000:0000:4a27:e2ff:fee2:ee98, type: ESP_IP6_ADDR_IS_LINK_LOCAL[0m
+[0;32mI (18535) MQTT: Other event id:7[0m
+[0;33mW (31445) esp-tls: Failed to open new connection in specified timeout[0m
+[0;31mE (31445) transport_base: Failed to open a new connection[0m
+[0;31mE (31445) mqtt_client: Error transport connect[0m
+[0;32mI (31445) MQTT: MQTT_EVENT_ERROR[0m
+[0;32mI (31455) MQTT: Last error code reported from esp-tls: 0x8006[0m
+[0;32mI (31455) MQTT: Last tls stack error number: 0x0[0m
+[0;32mI (31465) MQTT: Last captured errno : 0 (Success)[0m
+[0;32mI (31465) MQTT: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (41475) MQTT: Other event id:7[0m
+[0;32mI (58485) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (58495) MQTT: sent subscribe successful, msg_id=23501[0m
+[0;32mI (59985) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=23501[0m
+[0;32mI (59985) MQTT: sent publish successful, msg_id=0[0m
+[0;32mI (93535) MQTT: MQTT_EVENT_DATA[0m
+TOPIC=/topic/qos0
+DATA=The average of the signal is: -0.03
+MSG_ID=0I (159955) wifi:state: run -> init (34c0)
+I (159955) wifi:pm stop, total sleep time: 113677939 us / 148241547 us
+
+I (159955) wifi:<ba-del>idx:0, tid:0
+I (159955) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+[0;32mI (159965) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;31mE (159965) transport_base: poll_read select error 113, errno = Software caused connection abort, fd = 54[0m
+[0;31mE (159975) mqtt_client: Poll read error: 119, aborting connection[0m
+[0;32mI (159985) MQTT: MQTT_EVENT_DISCONNECTED[0m
+I (162375) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (162375) wifi:state: init -> auth (b0)
+I (163175) wifi:state: auth -> assoc (0)
+I (163175) wifi:state: assoc -> run (10)
+I (163235) wifi:connected with iPhone (22), aid = 2, channel 6, BW20, bssid = b6:bd:72:9b:4e:6f
+I (163235) wifi:security: WPA3-SAE, phy: bgn, rssi: -45
+I (163245) wifi:pm start, type: 1
+
+I (163245) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (163325) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+[0;32mI (164255) esp_netif_handlers: example_netif_sta ip: 172.20.10.3, mask: 255.255.255.240, gw: 172.20.10.1[0m
+[0;32mI (164255) example_connect: Got IPv4 event: Interface "example_netif_sta" address: 172.20.10.3[0m
+[0;32mI (164435) example_connect: Got IPv6 event: Interface "example_netif_sta" address: fe80:0000:0000:0000:4a27:e2ff:fee2:ee98, type: ESP_IP6_ADDR_IS_LINK_LOCAL[0m
+W (164765) wifi:[ADDBA]rx delba, code:39, delete tid:0
+[0;32mI (169995) MQTT: Other event id:7[0m
+I (170025) wifi:<ba-add>idx:0 (ifx:0, b6:bd:72:9b:4e:6f), tid:0, ssn:58, winSize:64
+[0;32mI (177995) MQTT: MQTT_EVENT_CONNECTED[0m
+[0;32mI (178005) MQTT: sent subscribe successful, msg_id=20543[0m
+[0;32mI (179495) MQTT: MQTT_EVENT_SUBSCRIBED, msg_id=20543[0m
+[0;32mI (179505) MQTT: sent publish successful, msg_id=0[0m
+I (187595) wifi:state: run -> init (20c0)
+I (187595) wifi:pm stop, total sleep time: 17314809 us / 24354755 us
+
+I (187595) wifi:<ba-del>idx:0, tid:0
+I (187605) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+[0;32mI (187605) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;31mE (187605) transport_base: poll_read select error 113, errno = Software caused connection abort, fd = 54[0m
+[0;31mE (187625) mqtt_client: Poll read error: 119, aborting connection[0m
+[0;32mI (187635) MQTT: MQTT_EVENT_DISCONNECTED[0m
+I (190025) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (190025) wifi:state: init -> auth (b0)
