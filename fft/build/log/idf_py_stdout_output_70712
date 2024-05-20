@@ -136,4 +136,602 @@ I (20805) wifi:AP's beacon interval = 102400 us, DTIM period = 1
 [0;32mI (22585) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
 [0;33mW (22595) FFT: FFT[0m
 [0;32mI (22595) view: Data min[510] = -24.236752, Data max[1] = 42.183899[0m
- ___________
+ ________________________________________________________________
+0|                                                               |
+1|                                                               |
+2||                                                              |
+3  |||                                                           |
+4     |||||||||||                                                |
+5                |||||||||||||||||||||||||||||||||||||||||||||||||
+6                                                                |
+7                                                                |
+8                                                                |
+9                                                                |
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (22675) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
+[0;32mI (22675) view: Data min[510] = -24.236752, Data max[1] = 42.183899[0m
+ ________________________________________________________________
+0|                                                               |
+1|                                                               |
+2||                                                              |
+3  |||                                                           |
+4     |||||||||||                                                |
+5                |||||||||||||||||||||||||||||||||||||||||||||||||
+6                                                                |
+7                                                                |
+8                                                                |
+9                                                                |
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (22755) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
+[0;32mI (22765) FFT: FFT for 1024 complex points take 130029 cycles[0m
+[0;32mI (22765) FFT: The maximum frequency of the signal is 3.906250, and the relative magnitude value is 4114.764648[0m
+[0;32mI (22785) FFT: FFT calculation and max frequency retrieval is over[0m
+[0;32mI (22785) main: Resampled at freq 8[0m
+[0;32mI (22795) signal_resampling: Signal resampling over [0m
+[0;32mI (22795) main: [APP] Free memory: 241000 bytes[0m
+[0;32mI (22805) main: Other event id:7[0m
+[0;32mI (22805) main_task: Returned from app_main()[0m
+[0;32mI (24185) main: MQTT_EVENT_CONNECTED[0m
+[0;32mI (24195) main: sent subscribe successful, msg_id=34566[0m
+[0;32mI (24395) main: MQTT_EVENT_SUBSCRIBED, msg_id=34566[0m
+[0;32mI (24395) main: sent publish successful, msg_id=0[0m
+[0;32mI (24695) main: MQTT_EVENT_DATA[0m
+TOPIC=/topic/qos0
+DATA=The average of the signal is: -0.03
+I (911305) wifi:bcn_timeout,ap_probe_send_start
+I (913815) wifi:ap_probe_send over, resett wifi status to disassoc
+I (913815) wifi:state: run -> init (c800)
+I (913815) wifi:pm stop, total sleep time: 694314108 us / 893203530 us
+
+I (913815) wifi:<ba-del>idx:0, tid:0
+I (913815) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+[0;32mI (913825) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;31mE (913835) transport_base: poll_read select error 113, errno = Software caused connection abort, fd = 54[0m
+[0;31mE (913845) mqtt_client: Poll read error: 119, aborting connection[0m
+[0;32mI (913855) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (916245) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (918655) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (921055) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (923465) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (925875) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (928285) example_connect: WiFi Connect failed 7 times, stop reconnect.[0m
+[0;32mI (928855) main: Other event id:7[0m
+[0;31mE (928855) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (928855) esp-tls: Failed to open new connection[0m
+[0;31mE (928855) transport_base: Failed to open a new connection[0m
+[0;31mE (928865) mqtt_client: Error transport connect[0m
+[0;32mI (928865) main: MQTT_EVENT_ERROR[0m
+[0;32mI (928875) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (928875) main: Last tls stack error number: 0x0[0m
+[0;32mI (928885) main: Last captured errno : 0 (Success)[0m
+[0;32mI (928885) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (938895) main: Other event id:7[0m
+[0;31mE (938895) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (938895) esp-tls: Failed to open new connection[0m
+[0;31mE (938895) transport_base: Failed to open a new connection[0m
+[0;31mE (938905) mqtt_client: Error transport connect[0m
+[0;32mI (938905) main: MQTT_EVENT_ERROR[0m
+[0;32mI (938915) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (938915) main: Last tls stack error number: 0x0[0m
+[0;32mI (938925) main: Last captured errno : 0 (Success)[0m
+[0;32mI (938925) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (948935) main: Other event id:7[0m
+[0;31mE (948935) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (948935) esp-tls: Failed to open new connection[0m
+[0;31mE (948935) transport_base: Failed to open a new connection[0m
+[0;31mE (948945) mqtt_client: Error transport connect[0m
+[0;32mI (948945) main: MQTT_EVENT_ERROR[0m
+[0;32mI (948955) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (948955) main: Last tls stack error number: 0x0[0m
+[0;32mI (948965) main: Last captured errno : 0 (Success)[0m
+[0;32mI (948965) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (958975) main: Other event id:7[0m
+[0;31mE (958975) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (958975) esp-tls: Failed to open new connection[0m
+[0;31mE (958975) transport_base: Failed to open a new connection[0m
+[0;31mE (958985) mqtt_client: Error transport connect[0m
+[0;32mI (958985) main: MQTT_EVENT_ERROR[0m
+[0;32mI (958995) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (958995) main: Last tls stack error number: 0x0[0m
+[0;32mI (959005) main: Last captured errno : 0 (Success)[0m
+[0;32mI (959005) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (969015) main: Other event id:7[0m
+[0;31mE (969015) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (969015) esp-tls: Failed to open new connection[0m
+[0;31mE (969015) transport_base: Failed to open a new connection[0m
+[0;31mE (969025) mqtt_client: Error transport connect[0m
+[0;32mI (969025) main: MQTT_EVENT_ERROR[0m
+[0;32mI (969035) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (969035) main: Last tls stack error number: 0x0[0m
+[0;32mI (969045) main: Last captured errno : 0 (Success)[0m
+[0;32mI (969045) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (979055) main: Other event id:7[0m
+[0;31mE (979055) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (979055) esp-tls: Failed to open new connection[0m
+[0;31mE (979055) transport_base: Failed to open a new connection[0m
+[0;31mE (979065) mqtt_client: Error transport connect[0m
+[0;32mI (979065) main: MQTT_EVENT_ERROR[0m
+[0;32mI (979075) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (979075) main: Last tls stack error number: 0x0[0m
+[0;32mI (979085) main: Last captured errno : 0 (Success)[0m
+[0;32mI (979085) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (989095) main: Other event id:7[0m
+[0;31mE (989095) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (989095) esp-tls: Failed to open new connection[0m
+[0;31mE (989095) transport_base: Failed to open a new connection[0m
+[0;31mE (989105) mqtt_client: Error transport connect[0m
+[0;32mI (989105) main: MQTT_EVENT_ERROR[0m
+[0;32mI (989115) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (989115) main: Last tls stack error number: 0x0[0m
+[0;32mI (989125) main: Last captured errno : 0 (Success)[0m
+[0;32mI (989125) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (999135) main: Other event id:7[0m
+[0;31mE (999135) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (999135) esp-tls: Failed to open new connection[0m
+[0;31mE (999135) transport_base: Failed to open a new connection[0m
+[0;31mE (999145) mqtt_client: Error transport connect[0m
+[0;32mI (999145) main: MQTT_EVENT_ERROR[0m
+[0;32mI (999155) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (999155) main: Last tls stack error number: 0x0[0m
+[0;32mI (999165) main: Last captured errno : 0 (Success)[0m
+[0;32mI (999165) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1009175) main: Other event id:7[0m
+[0;31mE (1009175) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1009175) esp-tls: Failed to open new connection[0m
+[0;31mE (1009175) transport_base: Failed to open a new connection[0m
+[0;31mE (1009185) mqtt_client: Error transport connect[0m
+[0;32mI (1009185) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1009195) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1009195) main: Last tls stack error number: 0x0[0m
+[0;32mI (1009205) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1009205) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1019215) main: Other event id:7[0m
+[0;31mE (1019215) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1019215) esp-tls: Failed to open new connection[0m
+[0;31mE (1019215) transport_base: Failed to open a new connection[0m
+[0;31mE (1019225) mqtt_client: Error transport connect[0m
+[0;32mI (1019225) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1019235) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1019235) main: Last tls stack error number: 0x0[0m
+[0;32mI (1019245) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1019245) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1029255) main: Other event id:7[0m
+[0;31mE (1029255) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1029255) esp-tls: Failed to open new connection[0m
+[0;31mE (1029255) transport_base: Failed to open a new connection[0m
+[0;31mE (1029265) mqtt_client: Error transport connect[0m
+[0;32mI (1029265) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1029275) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1029275) main: Last tls stack error number: 0x0[0m
+[0;32mI (1029285) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1029285) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1039295) main: Other event id:7[0m
+[0;31mE (1039295) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1039295) esp-tls: Failed to open new connection[0m
+[0;31mE (1039295) transport_base: Failed to open a new connection[0m
+[0;31mE (1039305) mqtt_client: Error transport connect[0m
+[0;32mI (1039305) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1039315) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1039315) main: Last tls stack error number: 0x0[0m
+[0;32mI (1039325) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1039325) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1049335) main: Other event id:7[0m
+[0;31mE (1049335) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1049335) esp-tls: Failed to open new connection[0m
+[0;31mE (1049335) transport_base: Failed to open a new connection[0m
+[0;31mE (1049345) mqtt_client: Error transport connect[0m
+[0;32mI (1049345) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1049355) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1049355) main: Last tls stack error number: 0x0[0m
+[0;32mI (1049365) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1049365) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1059375) main: Other event id:7[0m
+[0;31mE (1059375) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1059375) esp-tls: Failed to open new connection[0m
+[0;31mE (1059375) transport_base: Failed to open a new connection[0m
+[0;31mE (1059385) mqtt_client: Error transport connect[0m
+[0;32mI (1059385) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1059395) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1059395) main: Last tls stack error number: 0x0[0m
+[0;32mI (1059405) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1059405) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1069415) main: Other event id:7[0m
+[0;31mE (1069415) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1069415) esp-tls: Failed to open new connection[0m
+[0;31mE (1069415) transport_base: Failed to open a new connection[0m
+[0;31mE (1069425) mqtt_client: Error transport connect[0m
+[0;32mI (1069425) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1069435) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1069435) main: Last tls stack error number: 0x0[0m
+[0;32mI (1069445) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1069445) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1079455) main: Other event id:7[0m
+[0;31mE (1079455) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1079455) esp-tls: Failed to open new connection[0m
+[0;31mE (1079455) transport_base: Failed to open a new connection[0m
+[0;31mE (1079465) mqtt_client: Error transport connect[0m
+[0;32mI (1079465) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1079475) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1079475) main: Last tls stack error number: 0x0[0m
+[0;32mI (1079485) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1079485) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1089495) main: Other event id:7[0m
+[0;31mE (1089495) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1089495) esp-tls: Failed to open new connection[0m
+[0;31mE (1089495) transport_base: Failed to open a new connection[0m
+[0;31mE (1089505) mqtt_client: Error transport connect[0m
+[0;32mI (1089505) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1089515) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1089515) main: Last tls stack error number: 0x0[0m
+[0;32mI (1089525) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1089525) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1099535) main: Other event id:7[0m
+[0;31mE (1099535) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1099535) esp-tls: Failed to open new connection[0m
+[0;31mE (1099535) transport_base: Failed to open a new connection[0m
+[0;31mE (1099545) mqtt_client: Error transport connect[0m
+[0;32mI (1099545) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1099555) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1099555) main: Last tls stack error number: 0x0[0m
+[0;32mI (1099565) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1099565) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1109575) main: Other event id:7[0m
+[0;31mE (1109575) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1109575) esp-tls: Failed to open new connection[0m
+[0;31mE (1109575) transport_base: Failed to open a new connection[0m
+[0;31mE (1109585) mqtt_client: Error transport connect[0m
+[0;32mI (1109585) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1109595) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1109595) main: Last tls stack error number: 0x0[0m
+[0;32mI (1109605) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1109605) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1119615) main: Other event id:7[0m
+[0;31mE (1119615) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1119615) esp-tls: Failed to open new connection[0m
+[0;31mE (1119615) transport_base: Failed to open a new connection[0m
+[0;31mE (1119625) mqtt_client: Error transport connect[0m
+[0;32mI (1119625) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1119635) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1119635) main: Last tls stack error number: 0x0[0m
+[0;32mI (1119645) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1119645) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1129655) main: Other event id:7[0m
+[0;31mE (1129655) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1129655) esp-tls: Failed to open new connection[0m
+[0;31mE (1129655) transport_base: Failed to open a new connection[0m
+[0;31mE (1129665) mqtt_client: Error transport connect[0m
+[0;32mI (1129665) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1129675) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1129675) main: Last tls stack error number: 0x0[0m
+[0;32mI (1129685) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1129685) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1139695) main: Other event id:7[0m
+[0;31mE (1139695) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1139695) esp-tls: Failed to open new connection[0m
+[0;31mE (1139695) transport_base: Failed to open a new connection[0m
+[0;31mE (1139705) mqtt_client: Error transport connect[0m
+[0;32mI (1139705) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1139715) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1139715) main: Last tls stack error number: 0x0[0m
+[0;32mI (1139725) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1139725) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1149735) main: Other event id:7[0m
+[0;31mE (1149735) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1149735) esp-tls: Failed to open new connection[0m
+[0;31mE (1149735) transport_base: Failed to open a new connection[0m
+[0;31mE (1149745) mqtt_client: Error transport connect[0m
+[0;32mI (1149745) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1149755) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1149755) main: Last tls stack error number: 0x0[0m
+[0;32mI (1149765) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1149765) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1159775) main: Other event id:7[0m
+[0;31mE (1159775) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1159775) esp-tls: Failed to open new connection[0m
+[0;31mE (1159775) transport_base: Failed to open a new connection[0m
+[0;31mE (1159785) mqtt_client: Error transport connect[0m
+[0;32mI (1159785) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1159795) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1159795) main: Last tls stack error number: 0x0[0m
+[0;32mI (1159805) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1159805) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1169815) main: Other event id:7[0m
+[0;31mE (1169815) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1169815) esp-tls: Failed to open new connection[0m
+[0;31mE (1169815) transport_base: Failed to open a new connection[0m
+[0;31mE (1169825) mqtt_client: Error transport connect[0m
+[0;32mI (1169825) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1169835) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1169835) main: Last tls stack error number: 0x0[0m
+[0;32mI (1169845) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1169845) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1179855) main: Other event id:7[0m
+[0;31mE (1179855) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1179855) esp-tls: Failed to open new connection[0m
+[0;31mE (1179855) transport_base: Failed to open a new connection[0m
+[0;31mE (1179865) mqtt_client: Error transport connect[0m
+[0;32mI (1179865) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1179875) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1179875) main: Last tls stack error number: 0x0[0m
+[0;32mI (1179885) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1179885) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1189895) main: Other event id:7[0m
+[0;31mE (1189895) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1189895) esp-tls: Failed to open new connection[0m
+[0;31mE (1189895) transport_base: Failed to open a new connection[0m
+[0;31mE (1189905) mqtt_client: Error transport connect[0m
+[0;32mI (1189905) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1189915) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1189915) main: Last tls stack error number: 0x0[0m
+[0;32mI (1189925) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1189925) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1199935) main: Other event id:7[0m
+[0;31mE (1199935) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1199935) esp-tls: Failed to open new connection[0m
+[0;31mE (1199935) transport_base: Failed to open a new connection[0m
+[0;31mE (1199945) mqtt_client: Error transport connect[0m
+[0;32mI (1199945) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1199955) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1199955) main: Last tls stack error number: 0x0[0m
+[0;32mI (1199965) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1199965) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1209975) main: Other event id:7[0m
+[0;31mE (1209975) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1209975) esp-tls: Failed to open new connection[0m
+[0;31mE (1209975) transport_base: Failed to open a new connection[0m
+[0;31mE (1209985) mqtt_client: Error transport connect[0m
+[0;32mI (1209985) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1209995) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1209995) main: Last tls stack error number: 0x0[0m
+[0;32mI (1210005) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1210005) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1220015) main: Other event id:7[0m
+[0;31mE (1220015) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1220015) esp-tls: Failed to open new connection[0m
+[0;31mE (1220015) transport_base: Failed to open a new connection[0m
+[0;31mE (1220025) mqtt_client: Error transport connect[0m
+[0;32mI (1220025) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1220035) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1220035) main: Last tls stack error number: 0x0[0m
+[0;32mI (1220045) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1220045) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1230055) main: Other event id:7[0m
+[0;31mE (1230055) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1230055) esp-tls: Failed to open new connection[0m
+[0;31mE (1230055) transport_base: Failed to open a new connection[0m
+[0;31mE (1230065) mqtt_client: Error transport connect[0m
+[0;32mI (1230065) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1230075) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1230075) main: Last tls stack error number: 0x0[0m
+[0;32mI (1230085) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1230085) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1240095) main: Other event id:7[0m
+[0;31mE (1240095) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1240095) esp-tls: Failed to open new connection[0m
+[0;31mE (1240095) transport_base: Failed to open a new connection[0m
+[0;31mE (1240105) mqtt_client: Error transport connect[0m
+[0;32mI (1240105) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1240115) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1240115) main: Last tls stack error number: 0x0[0m
+[0;32mI (1240125) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1240125) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1250135) main: Other event id:7[0m
+[0;31mE (1250135) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1250135) esp-tls: Failed to open new connection[0m
+[0;31mE (1250135) transport_base: Failed to open a new connection[0m
+[0;31mE (1250145) mqtt_client: Error transport connect[0m
+[0;32mI (1250145) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1250155) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1250155) main: Last tls stack error number: 0x0[0m
+[0;32mI (1250165) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1250165) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1260175) main: Other event id:7[0m
+[0;31mE (1260175) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1260175) esp-tls: Failed to open new connection[0m
+[0;31mE (1260175) transport_base: Failed to open a new connection[0m
+[0;31mE (1260185) mqtt_client: Error transport connect[0m
+[0;32mI (1260185) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1260195) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1260195) main: Last tls stack error number: 0x0[0m
+[0;32mI (1260205) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1260205) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1270215) main: Other event id:7[0m
+[0;31mE (1270215) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1270215) esp-tls: Failed to open new connection[0m
+[0;31mE (1270215) transport_base: Failed to open a new connection[0m
+[0;31mE (1270225) mqtt_client: Error transport connect[0m
+[0;32mI (1270225) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1270235) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1270235) main: Last tls stack error number: 0x0[0m
+[0;32mI (1270245) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1270245) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1280255) main: Other event id:7[0m
+[0;31mE (1280255) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1280255) esp-tls: Failed to open new connection[0m
+[0;31mE (1280255) transport_base: Failed to open a new connection[0m
+[0;31mE (1280265) mqtt_client: Error transport connect[0m
+[0;32mI (1280265) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1280275) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1280275) main: Last tls stack error number: 0x0[0m
+[0;32mI (1280285) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1280285) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1290295) main: Other event id:7[0m
+[0;31mE (1290295) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1290295) esp-tls: Failed to open new connection[0m
+[0;31mE (1290295) transport_base: Failed to open a new connection[0m
+[0;31mE (1290305) mqtt_client: Error transport connect[0m
+[0;32mI (1290305) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1290315) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1290315) main: Last tls stack error number: 0x0[0m
+[0;32mI (1290325) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1290325) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1300335) main: Other event id:7[0m
+[0;31mE (1300335) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1300335) esp-tls: Failed to open new connection[0m
+[0;31mE (1300335) transport_base: Failed to open a new connection[0m
+[0;31mE (1300345) mqtt_client: Error transport connect[0m
+[0;32mI (1300345) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1300355) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1300355) main: Last tls stack error number: 0x0[0m
+[0;32mI (1300365) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1300365) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1310375) main: Other event id:7[0m
+[0;31mE (1310375) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1310375) esp-tls: Failed to open new connection[0m
+[0;31mE (1310375) transport_base: Failed to open a new connection[0m
+[0;31mE (1310385) mqtt_client: Error transport connect[0m
+[0;32mI (1310385) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1310395) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1310395) main: Last tls stack error number: 0x0[0m
+[0;32mI (1310405) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1310405) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1320415) main: Other event id:7[0m
+[0;31mE (1320415) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1320415) esp-tls: Failed to open new connection[0m
+[0;31mE (1320415) transport_base: Failed to open a new connection[0m
+[0;31mE (1320425) mqtt_client: Error transport connect[0m
+[0;32mI (1320425) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1320435) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1320435) main: Last tls stack error number: 0x0[0m
+[0;32mI (1320445) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1320445) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1330455) main: Other event id:7[0m
+[0;31mE (1330455) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1330455) esp-tls: Failed to open new connection[0m
+[0;31mE (1330455) transport_base: Failed to open a new connection[0m
+[0;31mE (1330465) mqtt_client: Error transport connect[0m
+[0;32mI (1330465) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1330475) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1330475) main: Last tls stack error number: 0x0[0m
+[0;32mI (1330485) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1330485) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1340495) main: Other event id:7[0m
+[0;31mE (1340495) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1340495) esp-tls: Failed to open new connection[0m
+[0;31mE (1340495) transport_base: Failed to open a new connection[0m
+[0;31mE (1340505) mqtt_client: Error transport connect[0m
+[0;32mI (1340505) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1340515) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1340515) main: Last tls stack error number: 0x0[0m
+[0;32mI (1340525) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1340525) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1350535) main: Other event id:7[0m
+[0;31mE (1350535) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1350535) esp-tls: Failed to open new connection[0m
+[0;31mE (1350535) transport_base: Failed to open a new connection[0m
+[0;31mE (1350545) mqtt_client: Error transport connect[0m
+[0;32mI (1350545) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1350555) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1350555) main: Last tls stack error number: 0x0[0m
+[0;32mI (1350565) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1350565) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1360575) main: Other event id:7[0m
+[0;31mE (1360575) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1360575) esp-tls: Failed to open new connection[0m
+[0;31mE (1360575) transport_base: Failed to open a new connection[0m
+[0;31mE (1360585) mqtt_client: Error transport connect[0m
+[0;32mI (1360585) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1360595) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1360595) main: Last tls stack error number: 0x0[0m
+[0;32mI (1360605) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1360605) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1370615) main: Other event id:7[0m
+[0;31mE (1370615) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1370615) esp-tls: Failed to open new connection[0m
+[0;31mE (1370615) transport_base: Failed to open a new connection[0m
+[0;31mE (1370625) mqtt_client: Error transport connect[0m
+[0;32mI (1370625) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1370635) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1370635) main: Last tls stack error number: 0x0[0m
+[0;32mI (1370645) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1370645) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1380655) main: Other event id:7[0m
+[0;31mE (1380655) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1380655) esp-tls: Failed to open new connection[0m
+[0;31mE (1380655) transport_base: Failed to open a new connection[0m
+[0;31mE (1380665) mqtt_client: Error transport connect[0m
+[0;32mI (1380665) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1380675) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1380675) main: Last tls stack error number: 0x0[0m
+[0;32mI (1380685) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1380685) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1390695) main: Other event id:7[0m
+[0;31mE (1390695) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1390695) esp-tls: Failed to open new connection[0m
+[0;31mE (1390695) transport_base: Failed to open a new connection[0m
+[0;31mE (1390705) mqtt_client: Error transport connect[0m
+[0;32mI (1390705) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1390715) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1390715) main: Last tls stack error number: 0x0[0m
+[0;32mI (1390725) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1390725) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1400735) main: Other event id:7[0m
+[0;31mE (1400735) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1400735) esp-tls: Failed to open new connection[0m
+[0;31mE (1400735) transport_base: Failed to open a new connection[0m
+[0;31mE (1400745) mqtt_client: Error transport connect[0m
+[0;32mI (1400745) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1400755) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1400755) main: Last tls stack error number: 0x0[0m
+[0;32mI (1400765) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1400765) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1410775) main: Other event id:7[0m
+[0;31mE (1410775) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1410775) esp-tls: Failed to open new connection[0m
+[0;31mE (1410775) transport_base: Failed to open a new connection[0m
+[0;31mE (1410785) mqtt_client: Error transport connect[0m
+[0;32mI (1410785) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1410795) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1410795) main: Last tls stack error number: 0x0[0m
+[0;32mI (1410805) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1410805) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1420815) main: Other event id:7[0m
+[0;31mE (1420815) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1420815) esp-tls: Failed to open new connection[0m
+[0;31mE (1420815) transport_base: Failed to open a new connection[0m
+[0;31mE (1420825) mqtt_client: Error transport connect[0m
+[0;32mI (1420825) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1420835) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1420835) main: Last tls stack error number: 0x0[0m
+[0;32mI (1420845) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1420845) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1430855) main: Other event id:7[0m
+[0;31mE (1430855) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1430855) esp-tls: Failed to open new connection[0m
+[0;31mE (1430855) transport_base: Failed to open a new connection[0m
+[0;31mE (1430865) mqtt_client: Error transport connect[0m
+[0;32mI (1430865) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1430875) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1430875) main: Last tls stack error number: 0x0[0m
+[0;32mI (1430885) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1430885) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1440895) main: Other event id:7[0m
+[0;31mE (1440895) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1440895) esp-tls: Failed to open new connection[0m
+[0;31mE (1440895) transport_base: Failed to open a new connection[0m
+[0;31mE (1440905) mqtt_client: Error transport connect[0m
+[0;32mI (1440905) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1440915) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1440915) main: Last tls stack error number: 0x0[0m
+[0;32mI (1440925) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1440925) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1450935) main: Other event id:7[0m
+[0;31mE (1450935) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1450935) esp-tls: Failed to open new connection[0m
+[0;31mE (1450935) transport_base: Failed to open a new connection[0m
+[0;31mE (1450945) mqtt_client: Error transport connect[0m
+[0;32mI (1450945) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1450955) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1450955) main: Last tls stack error number: 0x0[0m
+[0;32mI (1450965) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1450965) main: MQTT_EVENT_DISCONNECTED[0m
+[0;32mI (1460975) main: Other event id:7[0m
+[0;31mE (1460975) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1460975) esp-tls: Failed to open new connection[0m
+[0;31mE (1460975) transport_base: Failed to open a new connection[0m
+[0;31mE (1460985) mqtt_client: Error transport connect[0m
+[0;32mI (1460985) main: MQTT_EVENT_ERROR[0m
+[0;32mI (1460995) main: Last error code reported from esp-tls: 0x8004[0m
+[0;32mI (1460995) main: Last tls stack error number: 0x0[0m
+[0;32mI (1461005) main: Last captured errno : 0 (Success)[0m
+[0;32mI (1461005) main: MQTT_EVENT_DISCONNECTED[0m
