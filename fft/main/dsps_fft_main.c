@@ -44,7 +44,8 @@
 
 static const char *TAG = "main";
 
-
+char buffer[10];
+char string[50]= "The average of the signal is: ";
 
 #if CONFIG_BROKER_CERTIFICATE_OVERRIDDEN == 1
 static const uint8_t mqtt_eclipseprojects_io_pem_start[]  = "-----BEGIN CERTIFICATE-----\n" CONFIG_BROKER_CERTIFICATE_OVERRIDE "\n-----END CERTIFICATE-----";
@@ -115,65 +116,60 @@ static void send_binary(esp_mqtt_client_handle_t client)
     // sending only the configured portion of the partition (if it's less than the partition size)
     int binary_size = MIN(CONFIG_BROKER_BIN_SIZE_TO_SEND, partition->size);
     int msg_id = esp_mqtt_client_publish(client, "/topic/binary", binary_address, binary_size, 0, 0);
-    ESP_LOGI(TAG, "binary sent with msg_id=%d", msg_id);
+    ESP_LOGI("MQTT", "binary sent with msg_id=%d", msg_id);
 }
 static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
 {
-    ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%" PRIi32, base, event_id);
+    ESP_LOGD("MQTT", "Event dispatched from event loop base=%s, event_id=%" PRIi32, base, event_id);
     esp_mqtt_event_handle_t event = event_data;
     esp_mqtt_client_handle_t client = event->client;
     int msg_id;
     switch ((esp_mqtt_event_id_t)event_id) {
     case MQTT_EVENT_CONNECTED:
-        ESP_LOGI(TAG, "MQTT_EVENT_CONNECTED");
+        ESP_LOGI("MQTT", "MQTT_EVENT_CONNECTED");
         msg_id = esp_mqtt_client_subscribe(client, "/topic/qos0", 0);
-        ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
-
-        //msg_id = esp_mqtt_client_subscribe(client, "/topic/qos1", 1);
-        //ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
-
-        //msg_id = esp_mqtt_client_unsubscribe(client, "/topic/qos1");
-        //ESP_LOGI(TAG, "sent unsubscribe successful, msg_id=%d", msg_id);
+        ESP_LOGI("MQTT", "sent subscribe successful, msg_id=%d", msg_id);
         break;
+
     case MQTT_EVENT_DISCONNECTED:
-        ESP_LOGI(TAG, "MQTT_EVENT_DISCONNECTED");
+        ESP_LOGI("MQTT", "MQTT_EVENT_DISCONNECTED");
         break;
 
     case MQTT_EVENT_SUBSCRIBED:
-        ESP_LOGI(TAG, "MQTT_EVENT_SUBSCRIBED, msg_id=%d", event->msg_id);
-        msg_id = esp_mqtt_client_publish(client, "/topic/qos0", "data", 0, 0, 0);
-        ESP_LOGI(TAG, "sent publish successful, msg_id=%d", msg_id);
+        ESP_LOGI("MQTT", "MQTT_EVENT_SUBSCRIBED, msg_id=%d", event->msg_id);
+        msg_id = esp_mqtt_client_publish(client, "/topic/qos0", string, 0, 0, 0);
+        ESP_LOGI("MQTT", "sent publish successful, msg_id=%d", msg_id);
         break;
     case MQTT_EVENT_UNSUBSCRIBED:
-        ESP_LOGI(TAG, "MQTT_EVENT_UNSUBSCRIBED, msg_id=%d", event->msg_id);
+        ESP_LOGI("MQTT", "MQTT_EVENT_UNSUBSCRIBED, msg_id=%d", event->msg_id);
         break;
     case MQTT_EVENT_PUBLISHED:
-        ESP_LOGI(TAG, "MQTT_EVENT_PUBLISHED, msg_id=%d", event->msg_id);
+        ESP_LOGI("MQTT", "MQTT_EVENT_PUBLISHED, msg_id=%d", event->msg_id);
         break;
     case MQTT_EVENT_DATA:
-        ESP_LOGI(TAG, "MQTT_EVENT_DATA");
+        ESP_LOGI("MQTT", "MQTT_EVENT_DATA");
         printf("TOPIC=%.*s\r\n", event->topic_len, event->topic);
         printf("DATA=%.*s\r\n", event->data_len, event->data);
         if (strncmp(event->data, "send binary please", event->data_len) == 0) {
-            ESP_LOGI(TAG, "Sending the binary");
+            ESP_LOGI("MQTT", "Sending the binary");
             send_binary(client);
         }
         break;
     case MQTT_EVENT_ERROR:
-        ESP_LOGI(TAG, "MQTT_EVENT_ERROR");
+        ESP_LOGI("MQTT", "MQTT_EVENT_ERROR");
         if (event->error_handle->error_type == MQTT_ERROR_TYPE_TCP_TRANSPORT) {
-            ESP_LOGI(TAG, "Last error code reported from esp-tls: 0x%x", event->error_handle->esp_tls_last_esp_err);
-            ESP_LOGI(TAG, "Last tls stack error number: 0x%x", event->error_handle->esp_tls_stack_err);
-            ESP_LOGI(TAG, "Last captured errno : %d (%s)",  event->error_handle->esp_transport_sock_errno,
+            ESP_LOGI("MQTT", "Last error code reported from esp-tls: 0x%x", event->error_handle->esp_tls_last_esp_err);
+            ESP_LOGI("MQTT", "Last tls stack error number: 0x%x", event->error_handle->esp_tls_stack_err);
+            ESP_LOGI("MQTT", "Last captured errno : %d (%s)",  event->error_handle->esp_transport_sock_errno,
                      strerror(event->error_handle->esp_transport_sock_errno));
         } else if (event->error_handle->error_type == MQTT_ERROR_TYPE_CONNECTION_REFUSED) {
-            ESP_LOGI(TAG, "Connection refused error: 0x%x", event->error_handle->connect_return_code);
+            ESP_LOGI("MQTT", "Connection refused error: 0x%x", event->error_handle->connect_return_code);
         } else {
-            ESP_LOGW(TAG, "Unknown error type: 0x%x", event->error_handle->error_type);
+            ESP_LOGW("MQTT", "Unknown error type: 0x%x", event->error_handle->error_type);
         }
         break;
     default:
-        ESP_LOGI(TAG, "Other event id:%d", event->event_id);
+        ESP_LOGI("MQTT", "Other event id:%d", event->event_id);
         break;
     }
 }
@@ -187,7 +183,7 @@ static void mqtt_app_start(void)
         },
     };
 
-    ESP_LOGI(TAG, "[APP] Free memory: %" PRIu32 " bytes", esp_get_free_heap_size());
+    ESP_LOGI("MQTT", "[APP] Free memory: %" PRIu32 " bytes", esp_get_free_heap_size());
     esp_mqtt_client_handle_t client = esp_mqtt_client_init(&mqtt_cfg);
     /* The last argument may be used to pass data to the event handler, in this example mqtt_event_handler */
     esp_mqtt_client_register_event(client, ESP_EVENT_ANY_ID, mqtt_event_handler, NULL);
@@ -213,48 +209,40 @@ SignalComponent component = {
     {2,4}, // Sine amplitudes
 };
 
-void signal_resampling(int newF,float array[]){
+void signal_sampling(){
         for (int i = 0; i < N; i++) {
+        float t = (float)i / SAMPLING_RATE;
+        wave[i] = composite_signal(t, &component);
+        
+    }
+    ESP_LOGI("signal_sampling", "Signal sampling over ");
+}
+
+void signal_resampling(float newF,float array[],int dimension){
+        for (int i = 0; i < dimension; i++) {
         float t = (float)i / newF;
         array[i] = composite_signal(t, &component);
     }
+    ESP_LOGI("signal_resampling", "Signal resampling over ");
 }
 
-float signal_mean(float signal[]){
-    int size = sizeof(signal)/sizeof(signal[0]);
+float signal_mean(float signal[],int dimension){
     float sum = 0;
-    for (int i = 0;i < size;i++){
+    for (int i = 0;i < dimension;i++){
         sum+=signal[i];
     }
-    return sum/size;
+    ESP_LOGI("signal_mean", "Signal mean over ");
+    return sum/(float) dimension;
 }
 
-void app_main()
-{
-    ESP_ERROR_CHECK(nvs_flash_init());
-    ESP_ERROR_CHECK(esp_netif_init());
-    ESP_ERROR_CHECK(esp_event_loop_create_default());
-
-    /* This helper function configures Wi-Fi or Ethernet, as selected in menuconfig.
-     * Read "Establishing Wi-Fi or Ethernet Connection" section in
-     * examples/protocols/README.md for more information about this function.
-     */
-    ESP_ERROR_CHECK(example_connect());
-
+float perform_FFT(){
     esp_err_t ret;
-    ESP_LOGI(TAG, "Start FFT.");
+    ESP_LOGI("FFT", "Start FFT.");
     ret = dsps_fft2r_init_fc32(NULL, CONFIG_DSP_MAX_FFT_SIZE);
     if (ret  != ESP_OK) {
-        ESP_LOGE(TAG, "Not possible to initialize FFT. Error = %i", ret);
-        return;
+        ESP_LOGE("FFT", "Not possible to initialize FFT. Error = %i", ret);
+        return 0.0;
     }
-
-    for (int i = 0; i < N; i++) {
-        float t = (float)i / SAMPLING_RATE;
-        wave[i] = composite_signal(t, &component);
-        //ESP_LOGI(TAG, "FFT for %f ", wave[i]);
-    }
-
 
     // Generate hann window
     dsps_wind_hann_f32(wind, N);
@@ -285,7 +273,7 @@ void app_main()
             maxM = mag;
         }
     }
-    ESP_LOGI(TAG, "THE MAX Index is %i", maxI);
+    ESP_LOGI("FFT", "THE MAX Index is %i", maxI);
     float maxF = maxI;
     maxF = maxF*(SAMPLING_RATE) / (float) (N*2); //max frequency retrival
     
@@ -299,34 +287,60 @@ void app_main()
     }
 
     // Show power spectrum in 64x10 window from -100 to 0 dB from 0..N/4 samples
-    ESP_LOGW(TAG, "Signal x1");
+    ESP_LOGW("FFT", "Signal x1");
     dsps_view(wave, N / 2, 64, 10,  -60, 40, '|');
-    ESP_LOGW(TAG, "FFT");
+    ESP_LOGW("FFT", "FFT");
     dsps_view(y1_cf, N / 2, 64, 10,  -60, 40, '|');
     //dsps_view(y2_cf, N / 2, 64, 10,  -60, 40, '|');
     
     //ESP_LOGW(TAG, "Signal x2");
     //dsps_view(y2_cf, N / 2, 64, 10,  -60, 40, '|');
     //ESP_LOGW(TAG, "Signals x1 and x2 on one plot");
-    dsps_view(sum_y, N / 2, 64, 10,  -60, 40, '|');
+    //dsps_view(sum_y, N / 2, 64, 10,  -60, 40, '|');
     
-    ESP_LOGI(TAG, "FFT for %i complex points take %i cycles", N, end_b - start_b);
-    ESP_LOGI(TAG, "The maximum frequency of the signal is %f, and the relative magnitude value is %f", maxF, maxM);
-    //ESP_LOGI(TAG, "End Example.");
-    //resampling of the signal 
+    ESP_LOGI("FFT", "FFT for %i complex points take %i cycles", N, end_b - start_b);
+    ESP_LOGI("FFT", "The maximum frequency of the signal is %f, and the relative magnitude value is %f", maxF, maxM);
+    ESP_LOGI("FFT","FFT calculation and max frequency retrieval is over");
+    return maxF;
+    
+}
+
+
+
+void app_main()
+{
+    ESP_ERROR_CHECK(nvs_flash_init());
+    ESP_ERROR_CHECK(esp_netif_init());
+    ESP_ERROR_CHECK(esp_event_loop_create_default());
+
+    /* This helper function configures Wi-Fi or Ethernet, as selected in menuconfig.
+     * Read "Establishing Wi-Fi or Ethernet Connection" section in
+     * examples/protocols/README.md for more information about this function.
+     */
+    ESP_ERROR_CHECK(example_connect());
+
+    //sample the signal and store it in wave[];
+    signal_sampling();
+
+    //the FFT is performed on wave[], stored in y_cf[] and the max frequency of the signal is returned as a float;
+    float maxF = perform_FFT();
+
+
+    //correctly evaluate how many samples of the signal are needed
     int newF= 2 * (int) ceil(maxF);
     ESP_LOGI(TAG, "Resampled at freq %i", newF);
     int dimension = newF* WINDOW_TIME ;
     
-    signal_resampling(newF,new_signal);
-    for (int i = 0; i < dimension; i++)
-    {
-        ESP_LOGI(TAG, "Resampled %f", new_signal[i]);
-    }
-    
+    //resample the signal and store the samples in new_signal[]
+    signal_resampling(maxF,new_signal,dimension);
 
+
+    float mean = signal_mean(new_signal,dimension);
+
+    sprintf(buffer, "%.2f", mean);
+    strcat(string,buffer);
+
+    mqtt_app_start();
 }
-
-//fare for per : l'indice del result è la frequenza, il valore è l'ampiezza. Onde evitare rumori prendere max frequenza sopra una certa ampiezza di threshold.
 
 //l aggregate sarà  una semplice media
