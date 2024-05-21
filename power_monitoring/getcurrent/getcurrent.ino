@@ -2,8 +2,9 @@
 #include <Adafruit_INA219.h>
 
 Adafruit_INA219 ina219;
-#define THP 200
-#define THC -50
+#define THPH 222  //the power during wifi comminication is at minimum greater than 220 mv
+#define THPL 200 // LOWER BOUND
+#define THC -40
 //The ESP32 power consumption delay is 190mV
 
 void setup(void) 
@@ -44,14 +45,14 @@ void loop(void)
   current_mA = ina219.getCurrent_mA();
   power_mW = ina219.getPower_mW();
   loadvoltage = busvoltage + (shuntvoltage / 1000);
-  if(power_mW>THP && current_mA<THC){
+// if(power_mW>THPL && power_mW<THPH && current_mA<THC){
       Serial.print("Bus Voltage:   "); Serial.print(busvoltage); Serial.println(" V");
     Serial.print("Shunt Voltage: "); Serial.print(shuntvoltage); Serial.println(" mV");
     Serial.print("Load Voltage:  "); Serial.print(loadvoltage); Serial.println(" V");
     Serial.print("Current:       "); Serial.print(current_mA); Serial.println(" mA");
     Serial.print("Power:         "); Serial.print(power_mW); Serial.println(" mW");
     Serial.println("");
-    }
+//    }
   
 
   delay(100);

@@ -1,0 +1,92 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x28 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3810,len:0x178c
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xcbc
+load:0x403cc700,len:0x2d98
+entry 0x403c9914
+[0;32mI (27) boot: ESP-IDF v5.2 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time May 17 2024 11:54:22[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (43) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (53) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (64) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (79) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (87) boot: End of partition table[0m
+[0;32mI (91) esp_image: segment 0: paddr=00010020 vaddr=3c0a0020 size=2d754h (186196) map[0m
+[0;32mI (133) esp_image: segment 1: paddr=0003d77c vaddr=3fc98500 size=0289ch ( 10396) load[0m
+[0;32mI (135) esp_image: segment 2: paddr=00040020 vaddr=42000020 size=9cae4h (641764) map[0m
+[0;32mI (253) esp_image: segment 3: paddr=000dcb0c vaddr=3fc9ad9c size=01e60h (  7776) load[0m
+[0;32mI (255) esp_image: segment 4: paddr=000de974 vaddr=40374000 size=144c8h ( 83144) load[0m
+[0;32mI (286) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (286) boot: Disabling RNG early entropy source...[0m
+[0;32mI (297) cpu_start: Multicore app[0m
+[0;32mI (307) cpu_start: Pro cpu start user code[0m
+[0;32mI (307) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (307) cpu_start: Application information:[0m
+[0;32mI (310) cpu_start: Project name:     fft2r[0m
+[0;32mI (315) cpu_start: App version:      2526c0a-dirty[0m
+[0;32mI (321) cpu_start: Compile time:     May 21 2024 17:55:25[0m
+[0;32mI (327) cpu_start: ELF file SHA256:  1fec408eb...[0m
+[0;32mI (332) cpu_start: ESP-IDF:          v5.2[0m
+[0;32mI (337) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (341) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (346) cpu_start: Chip rev:         v0.2[0m
+[0;32mI (351) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (358) heap_init: At 3FCA5C98 len 00043A78 (270 KiB): RAM[0m
+[0;32mI (364) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (370) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (377) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (384) spi_flash: detected chip: gd[0m
+[0;32mI (387) spi_flash: flash io: dio[0m
+[0;32mI (391) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (398) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (405) main_task: Started on CPU0[0m
+[0;32mI (415) main_task: Calling app_main()[0m
+[0;32mI (10415) main: Signal sampling START[0m
+[0;32mI (10445) signal_sampling: Signal sampling over [0m
+[0;32mI (20445) FFT: Start FFT.[0m
+[0;32mI (20455) FFT: THE MAX Index is 3[0m
+[0;33mW (20455) FFT: Signal x1[0m
+[0;32mI (20465) view: Data min[425] = -59.406433, Data max[0] = 0.000000[0m
+ ________________________________________________________________
+0                                                                |
+1                                                                |
+2                                                                |
+3                                                                |
+4      ||||||||||||||||                                          |
+5 |||||                |||||   |||||||||||||||||||||     |||||||||
+6|                          | |                     || ||        |
+7|                           |                       ||          |
+8|                           |                        |          |
+9                                                                |
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (20535) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
+[0;33mW (20535) FFT: FFT[0m
+[0;32mI (20545) view: Data min[494] = -152.615112, Data max[1] = 36.385506[0m
+ ________________________________________________________________
+0|                                                               |
+1|                                                               |
+2|                                                               |
+3|                                                               |
+4|                                                               |
+5|                                                               |
+6 |                                                              |
+7 |                                                              |
+8  |                                                             |
+9   ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (20615) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
+[0;32mI (20625) FFT: FFT for 1024 complex points take 130120 cycles[0m
+[0;32mI (20635) FFT: The maximum frequency of the signal is 5.859375, and the relative magnitude value is 2169.693115[0m
+[0;32mI (20645) FFT: FFT calculation and max frequency retrieval is over[0m
+[0;32mI (20645) main: The proper resampling frequency is 12[0m

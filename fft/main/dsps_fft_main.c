@@ -44,7 +44,7 @@
 static const char *TAG = "main";
 
 char buffer[10];
-char string[50]= "The average of the signal is: ";
+char string[100]= "The average of the signal is: ";
 
 #if CONFIG_BROKER_CERTIFICATE_OVERRIDDEN == 1
 static const uint8_t mqtt_eclipseprojects_io_pem_start[]  = "-----BEGIN CERTIFICATE-----\n" CONFIG_BROKER_CERTIFICATE_OVERRIDE "\n-----END CERTIFICATE-----";
@@ -64,7 +64,7 @@ extern const uint8_t mqtt_eclipseprojects_io_pem_end[]   asm("_binary_mqtt_eclip
 
 #define SAMPLING_RATE 4000 // Hz 5Khz is the max frequency at which we can sample signals of low frequency (< 4/5 hz) since the bins will be of around 5hz each (Fs/n)
 #define NUM_SAMPLES 1024 //SAMPLE NUMBER HAVE TO BE EXPRESSIBLE AS A POWER OF 2 ELSE FFT WON'T WORK
-#define TH 3 //threshold for magnitude, max frequency of the fft
+//#define TH 3 //threshold for magnitude, max frequency of the fft
 int N = NUM_SAMPLES;
 typedef struct {
     int num_sin_components;
@@ -120,7 +120,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     switch ((esp_mqtt_event_id_t)event_id) {
     case MQTT_EVENT_CONNECTED:
         ESP_LOGI("MQTT", "MQTT_EVENT_CONNECTED");
-        msg_id = esp_mqtt_client_subscribe(client, "/topic/qos0", 0);
+        msg_id = esp_mqtt_client_subscribe(client, "/topic/privIot", 0);
         ESP_LOGI("MQTT", "sent subscribe successful, msg_id=%d", msg_id);
         break;
 
@@ -130,7 +130,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
     case MQTT_EVENT_SUBSCRIBED:
         ESP_LOGI("MQTT", "MQTT_EVENT_SUBSCRIBED, msg_id=%d", event->msg_id);
-        msg_id = esp_mqtt_client_publish(client, "/topic/qos0", string, 0, 0, 0); //returns 0 on success, -1 else
+        msg_id = esp_mqtt_client_publish(client, "/topic/privIot", string, 0, 0, 0); //returns 0 on success, -1 else
         if(msg_id == 0){
             ESP_LOGI("MQTT", "sent publish successful, msg_id=%d", msg_id);
             publish_time = xTaskGetTickCount();
@@ -252,7 +252,7 @@ float perform_FFT(){
 
     // Convert two input vectors to one complex vector
     for (int i = 0 ; i < N ; i++) {
-        y_cf[i * 2] = wave[i] ;//* wind[i];
+        y_cf[i * 2] = wave[i] * wind[i];
         y_cf[i * 2 + 1] = 0; // I don't have a second vector as in the example
     }
     // FFT
@@ -270,7 +270,7 @@ float perform_FFT(){
     for (int i = 0; i < N; i++) 
     {
         float mag = sqrt( y_cf[i]*y_cf[i] + y_cf[i+1] * y_cf[i+1]);
-        if(mag>TH && mag>maxM){
+        if(mag>maxM){ //&& mag>TH
             maxI = i;
             maxM = mag;
         }
@@ -283,9 +283,9 @@ float perform_FFT(){
 
     for (int i = 0 ; i < N / 2 ; i++) {
         y1_cf[i] = 10 * log10f((y1_cf[i * 2 + 0] * y1_cf[i * 2 + 0] + y1_cf[i * 2 + 1] * y1_cf[i * 2 + 1]) / N);
-        y2_cf[i] = 10 * log10f((y2_cf[i * 2 + 0] * y2_cf[i * 2 + 0] + y2_cf[i * 2 + 1] * y2_cf[i * 2 + 1]) / N);
+        wave[i] = 10 * log10f((wave[i * 2 + 0] * wave[i * 2 + 0] + wave[i * 2 + 1] * wave[i * 2 + 1]) / N);
         // Simple way to show two power spectrums as one plot
-        sum_y[i] = fmax(y1_cf[i], y2_cf[i]);
+        //sum_y[i] = fmax(y1_cf[i], y2_cf[i]);
     }
 
     // Show power spectrum in 64x10 window from -100 to 0 dB from 0..N/4 samples
@@ -293,6 +293,7 @@ float perform_FFT(){
     dsps_view(wave, N / 2, 64, 10,  -60, 40, '|');
     ESP_LOGW("FFT", "FFT");
     dsps_view(y1_cf, N / 2, 64, 10,  -60, 40, '|');
+    //dsps_view(y2_cf, N / 2, 64, 10,  -60, 40, '|');
     
     
     ESP_LOGI("FFT", "FFT for %i complex points take %i cycles", N, end_b - start_b);
@@ -306,6 +307,35 @@ float perform_FFT(){
 
 void app_main()
 {
+    //vTaskDelay(1000);
+    //sample the signal and store it in wave[];
+    counter_init = xTaskGetTickCount();
+    ESP_LOGI(TAG, "Signal sampling START");
+    signal_sampling();
+    //vTaskDelay(1000);
+
+
+    //the FFT is performed on wave[], stored in y_cf[] and the max frequency of the signal is returned as a float;
+    float maxF = perform_FFT();
+
+
+    //correctly evaluate how many samples of the signal are needed
+    int newF= 2 * (int) ceil(maxF);
+    ESP_LOGI(TAG, "The proper resampling frequency is %i", newF);
+    int dimension = newF* WINDOW_TIME ;
+    
+    //vTaskDelay(1000);
+    
+    //resample the signal and store the samples in new_signal[]
+    signal_resampling(newF,new_signal,dimension);
+    //vTaskDelay(1000);
+
+    float mean = signal_mean(new_signal,dimension);
+    //printf("%2.7f",mean);
+
+    sprintf(buffer, "%.7f", mean);
+    strcat(string,buffer);
+
     ESP_ERROR_CHECK(nvs_flash_init());
     ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
@@ -316,34 +346,5 @@ void app_main()
      */
     ESP_ERROR_CHECK(example_connect());
 
-    vTaskDelay(1000);
-    //sample the signal and store it in wave[];
-    counter_init = xTaskGetTickCount();
-    signal_sampling();
-    vTaskDelay(1000);
-
-
-    //the FFT is performed on wave[], stored in y_cf[] and the max frequency of the signal is returned as a float;
-    float maxF = perform_FFT();
-
-
-    //correctly evaluate how many samples of the signal are needed
-    int newF= 2 * (int) ceil(maxF);
-    ESP_LOGI(TAG, "Resampled at freq %i", newF);
-    int dimension = newF* WINDOW_TIME ;
-    
-    vTaskDelay(1000);
-    
-    //resample the signal and store the samples in new_signal[]
-    signal_resampling(maxF,new_signal,dimension);
-    vTaskDelay(1000);
-
-    float mean = signal_mean(new_signal,dimension);
-
-    sprintf(buffer, "%.2f", mean);
-    strcat(string,buffer);
-
     mqtt_app_start();
 }
-
-//l aggregate sarà  una semplice medi
