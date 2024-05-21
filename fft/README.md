@@ -77,9 +77,10 @@ We determine the optimal frequency of the signal as:
 That will result in the index that has the highest magnitude in the resulting array.<br>
 Note that this is divided by 2N since the FFT result size is twice N, number of samples.<br>
 Why do I iterate just N times then ?<br>
-Note that for a real input signal (imaginary parts all zero) the second half of the FFT (bins from N / 2 + 1 to N - 1) contain no useful additional information (they have complex conjugate symmetry with the first N / 2 - 1 bins). The last useful bin (for practical aplications) is at N / 2 - 1. The bin at N / 2 represents energy at the Nyquist frequency, but this is in general not of any practical use, since anti-aliasing filters will typically attenuate any signals at and above Fs / 2.
+Note that for a real input signal (imaginary parts all zero) the second half of the FFT (bins from N / 2 + 1 to N - 1) contain no useful additional information (they have complex conjugate symmetry with the first N / 2 - 1 bins). The last useful bin (for practical aplications) is at N / 2 - 1. The bin at N / 2 represents energy at the Nyquist frequency, but this is in general not of any practical use, since anti-aliasing filters will typically attenuate any signals at and above Fs/2.<br>
 
-###Correct initial sampling rate
+### Correct initial sampling rate
+
 Since we are actually simulating the sampling of the signal, we actually already know what maximum frequency it will have.<br>
 This lets us choice an initial sampling frequency that will not yeld 0Hz as the optimal frequency as a result.<br>
 But why would the FFT return a spike in the first bin frequency?<br>
