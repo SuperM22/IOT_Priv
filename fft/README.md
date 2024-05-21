@@ -1,91 +1,30 @@
-# FFT Example 
+# Signal processor simulator 
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+This project demonstrates how to perform an FFT of an input signal, process the maximum frequency of the signal, re-sample the input signal at the optimal sampling frequency and transimts data of the signal through an MQTT server (SSL).
 
-This example demonstrates how to use FFT functionality from esp-dsp library. Example does the following steps:
-
-1. Initialize the library
-2. Initialize input signals with 1024 samples: one 0 dB, second with -20 dB
-3. Combine two signals as one complex input signal and apply window to input signals paar.
-4. Calculate FFT for 1024 complex samples
-5. Apply bit reverse operation for output complex vector
-6. Split one complex FFT output spectrum to two real signal spectrums 
-7. Show results on the plots
-8. Show execution time of FFT
-
-## How to use example
+## How to use this project
 
 ### Hardware required
 
-This example does not require any special hardware, and can be run on any common development board.
+This project was built to be run on an ESP32S3 v3 developement board.
 
-### Configure the project
+### Input the signal
 
-Under Component Config ---> DSP Library ---> DSP Optimization, it's possible to choose either the optimized or ANSI implementation, to compare them.
-
-### Build and flash
-
-Build the project and flash it to the board, then run monitor tool to view serial output (replace PORT with serial port name):
+The signal sampling is simulated inside the code.
+We assume that the signal will be a sum of sinusoids of the form of SUM(a_k*sin(f_k)).
+In order to inject the components of the signal into the code, before building the project, you can modify this instance:
 
 ```
-idf.py -p PORT flash monitor
+SignalComponent component = {
+    2, // Number of sine components
+    {3,5}, // Sine frequencies in HZ
+    {2,4}, // Sine amplitudes
+};
 ```
 
-(To exit the serial monitor, type ``Ctrl-]``.)
 
-See the Getting Started Guide for full steps to configure and use ESP-IDF to build projects.
+### MQTT SSL connection
 
-## Example output
-
-Here is an typical example console output. 
-
-```
-I (59) main: Start Example.
-W (89) main: Signal x1
-I (89) view: Data min[495] = -162.760925, Data max[164] = 23.938747
- ________________________________________________________________
-0                                                                |
-1                    |                                           |
-2                    |                                           |
-3                    |                                           |
-4                    |                                           |
-5                    |                                           |
-6                   | |                                          |
-7                   | |                                          |
-8                  || ||                                         |
-9||||||||||||||||||     ||||||||||||||||||||||||||||||||||||||||||
- 0123456789012345678901234567890123456789012345678901234567890123
-I (159) view: Plot: Length=512, min=-60.000000, max=40.000000
-W (169) main: Signal x2
-I (169) view: Data min[502] = -164.545135, Data max[205] = 3.857752
- ________________________________________________________________
-0                                                                |
-1                                                                |
-2                                                                |
-3                         |                                      |
-4                         |                                      |
-5                         |                                      |
-6                         |                                      |
-7                         ||                                     |
-8                        | |                                     |
-9||||||||||||||||||||||||   ||||||||||||||||||||||||||||||||||||||
- 0123456789012345678901234567890123456789012345678901234567890123
-I (249) view: Plot: Length=512, min=-60.000000, max=40.000000
-W (249) main: Signals x1 and x2 on one plot
-I (259) view: Data min[505] = -159.215271, Data max[164] = 23.938747
- ________________________________________________________________
-0                                                                |
-1                    |                                           |
-2                    |                                           |
-3                    |    |                                      |
-4                    |    |                                      |
-5                    |    |                                      |
-6                   | |   |                                      |
-7                   | |   ||                                     |
-8                  || || | |                                     |
-9||||||||||||||||||     |   ||||||||||||||||||||||||||||||||||||||
- 0123456789012345678901234567890123456789012345678901234567890123
-I (339) view: Plot: Length=512, min=-60.000000, max=40.000000
-I (339) main: FFT for 1024 complex points take 140472 cycles
-I (349) main: End Example.
-```
+The project connect to mqtts://mqtt.eclipseprojects.io:8883 and uses the pem certificate of the broker in order to connect to it.
+This configuration can be changed in fft/main/Kconfig.projbuild.
+In order to use an SSL connection you should retrieve the certificate of the server and put it inside the mqqt_eclipseprojects_io.pem file.
