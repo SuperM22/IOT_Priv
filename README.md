@@ -108,3 +108,28 @@ That is why in the code I'm initially sampling at 4KHz.
 After we perform the FFT we have the maximum frequency of the signal. We then proceed to get the correct sampling frequency that will give us all the information about the input signal, following the [Nyquist–Shannon sampling theorem](https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem).<br>
 Then I resample the signal, and process it mean value.
 The mean value is then transmitted over MQTT.
+
+### Network Data measurement
+In order to perform the amount of data transmitted to the network I have used [Wireshark](https://www.wireshark.org/download.html).<br>
+The correct way to do that is to connect the ESP32 and the pc on which we are using wireshark to the same WiFi access point.
+After this is done, when the ESP32 connects throughout the internet, it declares its ip in the code:
+```
+I (22285) example_common: - IPv4 address: 172.20.10.3
+```
+In normal cases you should be able to apply a filter in wireshark with that ip address and direcly check for the outgoing data.
+In my particular case there was a problem, and I could not see any traffic to this IP address.
+So I connected an MQTT app to the broker, on the same topic with the same kind of connection, and sent the same message that the ESP was sending.
+My ESP was actually receiving the messages but I still could not see any traffic on that IP.
+So I directly analysed the traffic of the app. All the informations are correct since the protocol used is TLS v1.2 and the destination port is 8883.
+And what comes out is that the packet that I send through the MQTT server, consisting in a single string:
+```
+TOPIC=/topic/privIot
+DATA=The average of the signal is: -0.0000001
+```
+actually weights 144 bytes (there are more than 1 since I purposely spammed the message in order to create a bigger number of packets): <br>
+![Schermata 2024-05-22 alle 10 15 25](https://github.com/SuperM22/IOT_Priv/assets/62383917/06c57a0d-f127-4b06-abfc-8dbea3bfadc9) <br>
+
+Since we are subscribed to the topic the packet is sent and then received.
+
+### Power consumption monitoring
+
