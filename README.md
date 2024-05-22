@@ -147,3 +147,34 @@ In those extimation power consumption is not considered, since in the code there
 
 ### Power consumption monitoring
 
+In order to correctly evaluate the power consumption we need:
+1. An arduino board (I've used an arduino mega2560)
+2. An INA219
+3. Breadboard and wires
+4. USBC and ducktape
+
+In order to perform the connection:
+- INA219 VCC to Arduino 5v
+- INA219 GND to Arduino GND
+- INA219 Scl to Arduino Scl
+- INA219 Sda to Arduino Sda
+- INA219 Vin+ to Arduino 5v
+- INA219 Vin- to ESP32 5v
+- ESP32 GND to Arduino GND
+
+To start the code you can inject the code you find in the power consumption folder into the arduino board and open the serial monitor (set the baud rate to 115200).
+To monitor the power consumption in determined points of the code (signal sampling and resampling), after alimenting the ESP32 with this circuit you can connect it through the USB cable and monitor it.
+Since the ESP32 has a mutual exclusive alimentation, in order to monitor it we can just tape the 5v of the usb cable we use it to connect to the PC.
+It is a really simple process, [here](https://community.octoprint.org/t/put-tape-on-the-5v-pin-why-and-how/13574) u can see how it is done.
+At this purpose I've introduced some logs and ```vTaskDelay(1000);``` right before and after the signal ampling and resampling.
+Here are the result of the powerconsumption measurement:
+- this is the power consumption when we initially oversample the signal:<br>
+
+![Schermata 2024-05-22 alle 11 31 42](https://github.com/SuperM22/IOT_Priv/assets/62383917/cf821fee-2fff-4ba6-92f2-78a9c4b67bb4)
+
+- this is while we resample the signal at an optimal sampling frequency:<br>
+
+![Schermata 2024-05-22 alle 11 33 14](https://github.com/SuperM22/IOT_Priv/assets/62383917/b7be4c8c-562b-47c6-a0cb-cbf3ae8aabce)
+
+Since I am simulating the sampling of the signal inside the code itself, it takes a really short time to be sampled, and an even shorter time to be resampled. This makes it really hard to monitor.
+
