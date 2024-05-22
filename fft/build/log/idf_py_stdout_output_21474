@@ -1,0 +1,136 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x28 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3810,len:0x178c
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xcbc
+load:0x403cc700,len:0x2d98
+entry 0x403c9914
+[0;32mI (27) boot: ESP-IDF v5.2 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time May 17 2024 11:54:22[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (43) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (53) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (64) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (79) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (87) boot: End of partition table[0m
+[0;32mI (91) esp_image: segment 0: paddr=00010020 vaddr=3c0a0020 size=2d4d4h (185556) map[0m
+[0;32mI (132) esp_image: segment 1: paddr=0003d4fc vaddr=3fc98500 size=02b1ch ( 11036) load[0m
+[0;32mI (135) esp_image: segment 2: paddr=00040020 vaddr=42000020 size=9c45ch (640092) map[0m
+[0;32mI (253) esp_image: segment 3: paddr=000dc484 vaddr=3fc9b01c size=01bc0h (  7104) load[0m
+[0;32mI (255) esp_image: segment 4: paddr=000de04c vaddr=40374000 size=144c8h ( 83144) load[0m
+[0;32mI (285) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (285) boot: Disabling RNG early entropy source...[0m
+[0;32mI (297) cpu_start: Multicore app[0m
+[0;32mI (307) cpu_start: Pro cpu start user code[0m
+[0;32mI (307) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (307) cpu_start: Application information:[0m
+[0;32mI (310) cpu_start: Project name:     fft2r[0m
+[0;32mI (315) cpu_start: App version:      c5bc666-dirty[0m
+[0;32mI (320) cpu_start: Compile time:     May 22 2024 15:19:54[0m
+[0;32mI (326) cpu_start: ELF file SHA256:  99c24c217...[0m
+[0;32mI (332) cpu_start: ESP-IDF:          v5.2[0m
+[0;32mI (336) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (341) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (346) cpu_start: Chip rev:         v0.2[0m
+[0;32mI (351) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (358) heap_init: At 3FCA5C70 len 00043AA0 (270 KiB): RAM[0m
+[0;32mI (364) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (370) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (376) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (383) spi_flash: detected chip: gd[0m
+[0;32mI (387) spi_flash: flash io: dio[0m
+[0;32mI (391) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (398) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (405) main_task: Started on CPU0[0m
+[0;32mI (415) main_task: Calling app_main()[0m
+[0;32mI (415) main: Signal sampling START[0m
+[0;32mI (455) signal_sampling: Signal sampling over [0m
+[0;32mI (455) FFT: Start FFT.[0m
+[0;32mI (475) FFT: THE MAX Index is 104[0m
+[0;33mW (475) FFT: FFT[0m
+[0;32mI (475) view: Data min[252] = -138.302597, Data max[41] = 36.105610[0m
+ ________________________________________________________________
+0     ||                                                         |
+1     ||                                                         |
+2     ||                                                         |
+3     ||                                                         |
+4    |||                                                         |
+5    || |                                                        |
+6    |  |                                                        |
+7    |  |                                                        |
+8   |    |                                                       |
+9|||      ||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (545) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
+[0;32mI (555) FFT: FFT for 1024 complex points take 129563 cycles[0m
+[0;32mI (555) FFT: The maximum frequency of the signal is 507.812500, and the relative magnitude value is 665.207275[0m
+[0;32mI (565) FFT: FFT calculation and max frequency retrieval is over[0m
+[0;32mI (575) main: The proper resampling frequency is 1016[0m
+[0;32mI (585) main: Signal resampling START[0m
+[0;32mI (625) signal_resampling: Signal resampling over [0m
+[0;32mI (625) signal_mean: Signal mean over [0m
+[0;32mI (645) example_connect: Start example_connect.[0m
+[0;32mI (645) pp: pp rom version: e7ae62f[0m
+[0;32mI (645) net80211: net80211 rom version: e7ae62f[0m
+I (665) wifi:wifi driver task: 3fcb5bd0, prio:23, stack:6656, core=0
+I (675) wifi:wifi firmware version: cc1dd81
+I (675) wifi:wifi certification version: v7.0
+I (675) wifi:config NVS flash: enabled
+I (675) wifi:config nano formating: disabled
+I (675) wifi:Init data frame dynamic rx buffer num: 32
+I (685) wifi:Init static rx mgmt buffer num: 5
+I (685) wifi:Init management short buffer num: 32
+I (695) wifi:Init dynamic tx buffer num: 32
+I (695) wifi:Init static tx FG buffer num: 2
+I (695) wifi:Init static rx buffer size: 1600
+I (705) wifi:Init static rx buffer num: 10
+I (705) wifi:Init dynamic rx buffer num: 32
+[0;32mI (715) wifi_init: rx ba win: 6[0m
+[0;32mI (715) wifi_init: tcpip mbox: 32[0m
+[0;32mI (715) wifi_init: udp mbox: 6[0m
+[0;32mI (725) wifi_init: tcp mbox: 6[0m
+[0;32mI (725) wifi_init: tcp tx win: 5760[0m
+[0;32mI (725) wifi_init: tcp rx win: 5760[0m
+[0;32mI (735) wifi_init: tcp mss: 1440[0m
+[0;32mI (735) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (745) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (745) phy_init: phy_version 620,ec7ec30,Sep  5 2023,13:49:13[0m
+I (785) wifi:mode : sta (48:27:e2:e2:ee:98)
+I (795) wifi:enable tsf
+[0;32mI (795) example_connect: Connecting to iPhone (22)...[0m
+[0;32mI (795) example_connect: Waiting for IP(s)[0m
+I (3205) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (3205) wifi:state: init -> auth (b0)
+I (3945) wifi:state: auth -> assoc (0)
+I (3945) wifi:Association refused temporarily, comeback time 196 (TUs)
+I (4155) wifi:state: assoc -> assoc (0)
+I (4165) wifi:Association refused temporarily, comeback time 196 (TUs)
+I (4365) wifi:state: assoc -> assoc (0)
+I (4365) wifi:Association refused temporarily, comeback time 196 (TUs)
+I (4565) wifi:state: assoc -> assoc (0)
+I (4575) wifi:Association refused temporarily, comeback time 196 (TUs)
+I (4745) wifi:state: assoc -> init (9a0)
+I (4755) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+[0;32mI (4755) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (7165) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+I (9575) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (9575) wifi:state: init -> auth (b0)
+I (10315) wifi:state: auth -> assoc (0)
+I (10315) wifi:state: assoc -> run (10)
+I (11175) wifi:connected with iPhone (22), aid = 3, channel 6, BW20, bssid = 52:21:2f:18:4c:95
+I (11175) wifi:security: WPA3-SAE, phy: bgn, rssi: -60
+I (11175) wifi:pm start, type: 1
+
+I (11175) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (11185) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (11225) wifi:<ba-add>idx:0 (ifx:0, 52:21:2f:18:4c:95), tid:0, ssn:23, winSize:64
+I (11305) wifi:AP's beacon interval = 102400 us, DTIM period = 1

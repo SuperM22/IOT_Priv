@@ -57,12 +57,12 @@ extern const uint8_t mqtt_eclipseprojects_io_pem_end[]   asm("_binary_mqtt_eclip
 
 #define _USE_MATH_DEFINES
 #define N_SAMPLES 1024
-
+#define TH 550
 
 //SIGNAL DEFINES
 #define WINDOW_TIME 5 //seconds
 
-#define SAMPLING_RATE 4000 // Hz 5Khz is the max frequency at which we can sample signals of low frequency (< 4/5 hz) since the bins will be of around 5hz each (Fs/n)
+#define SAMPLING_RATE 10000 // Hz 5Khz is the max frequency at which we can sample signals of low frequency (< 4/5 hz) since the bins will be of around 5hz each (Fs/n)
 #define NUM_SAMPLES 1024 //SAMPLE NUMBER HAVE TO BE EXPRESSIBLE AS A POWER OF 2 ELSE FFT WON'T WORK
 //#define TH 3 //threshold for magnitude, max frequency of the fft
 int N = NUM_SAMPLES;
@@ -208,7 +208,7 @@ float composite_signal(float t, SignalComponent *component) {
 
 SignalComponent component = {
     2, // Number of sine components
-    {3,5}, // Sine frequencies in HZ
+    {500,400}, // Sine frequencies in HZ
     {2,4}, // Sine amplitudes
 };
 
@@ -222,6 +222,9 @@ void signal_sampling(){
 }
 
 void signal_resampling(float newF,float array[],int dimension){
+        if(dimension > N_SAMPLES){
+            dimension = N_SAMPLES;
+        }
         for (int i = 0; i < dimension; i++) {
         float t = (float)i / newF;
         array[i] = composite_signal(t, &component);
@@ -268,10 +271,10 @@ float perform_FFT(){
     //RETRIEVE THE MAX FREQ OF THE SIGNAL
     int maxI = 0;
     float maxM = 0;
-    for (int i = 0; i < N; i++) 
+    for (int i = N-1; i > 0; i--) 
     {
         float mag = sqrt( y_cf[i]*y_cf[i] + y_cf[i+1] * y_cf[i+1]);
-        if(mag>maxM){ //&& mag>TH
+        if(mag>maxM && i>maxI && mag>TH){ //
             maxI = i;
             maxM = mag;
         }
@@ -284,12 +287,12 @@ float perform_FFT(){
 
     for (int i = 0 ; i < N / 2 ; i++) {
         y1_cf[i] = 10 * log10f((y1_cf[i * 2 + 0] * y1_cf[i * 2 + 0] + y1_cf[i * 2 + 1] * y1_cf[i * 2 + 1]) / N);
-        wave[i] = 10 * log10f((wave[i * 2 + 0] * wave[i * 2 + 0] + wave[i * 2 + 1] * wave[i * 2 + 1]) / N);
+        //wave[i] = 10 * log10f((wave[i * 2 + 0] * wave[i * 2 + 0] + wave[i * 2 + 1] * wave[i * 2 + 1]) / N);
     }
 
     // Show power spectrum in 64x10 window from -100 to 0 dB from 0..N/4 samples
-    ESP_LOGW("FFT", "Signal x1");
-    dsps_view(wave, N / 2, 64, 10,  -60, 40, '|');
+    //ESP_LOGW("FFT", "Signal x1");
+    //dsps_view(wave, N / 2, 64, 10,  -60, 40, '|');
     ESP_LOGW("FFT", "FFT");
     dsps_view(y1_cf, N / 2, 64, 10,  -60, 40, '|');
     //dsps_view(y2_cf, N / 2, 64, 10,  -60, 40, '|');

@@ -1,0 +1,58 @@
+[0;33m--- esp-idf-monitor 1.4.0 on /dev/cu.usbserial-0001 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+[0;33m0x42010d96: find_entry_from_task_handle_and_check_all_reset at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:153
+[0m
+[0;33m0x42010d93: find_entry_from_task_handle_and_check_all_reset at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:153
+0x42011296: esp_task_wdt_reset at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:712
+0x420112eb: idle_hook_cb at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:468
+0x42003d59: esp_vApplicationIdleHook at /Users/mimmo/esp/esp-idf/components/esp_system/freertos_hooks.c:47 (discriminator 1)
+0x4037dd71: prvIdleTask at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:4273 (discriminator 1)
+0x4037cb61: vPortTaskWrapper at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x400335fc: __muldf3 in ROM
+[0m
+[0;33m0x42010d96: find_entry_from_task_handle_and_check_all_reset at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:153
+[0m
+[0;33m0x42010d93: find_entry_from_task_handle_and_check_all_reset at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:153
+0x42011296: esp_task_wdt_reset at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:712
+0x420112eb: idle_hook_cb at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:468
+0x42003d59: esp_vApplicationIdleHook at /Users/mimmo/esp/esp-idf/components/esp_system/freertos_hooks.c:47 (discriminator 1)
+0x4037dd71: prvIdleTask at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:4273 (discriminator 1)
+0x4037cb61: vPortTaskWrapper at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40054e97: __extendsfdf2 in ROM
+[0m
+[0;33m0x42010d96: find_entry_from_task_handle_and_check_all_reset at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:153
+[0m
+[0;33m0x42010d93: find_entry_from_task_handle_and_check_all_reset at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:153
+0x42011296: esp_task_wdt_reset at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:712
+0x420112eb: idle_hook_cb at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:468
+0x42003d59: esp_vApplicationIdleHook at /Users/mimmo/esp/esp-idf/components/esp_system/freertos_hooks.c:47 (discriminator 1)
+0x4037dd71: prvIdleTask at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:4273 (discriminator 1)
+0x4037cb61: vPortTaskWrapper at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x4200a166: composite_signal at /Users/mimmo/UniProjects/IOT_Priv/fft/main/dsps_fft_main.c:203 (discriminator 1)
+[0m
+[0;33m0x42010d96: find_entry_from_task_handle_and_check_all_reset at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:153
+[0m
+[0;33m0x42010d93: find_entry_from_task_handle_and_check_all_reset at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:153
+0x42011296: esp_task_wdt_reset at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:712
+0x420112eb: idle_hook_cb at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:468
+0x42003d59: esp_vApplicationIdleHook at /Users/mimmo/esp/esp-idf/components/esp_system/freertos_hooks.c:47 (discriminator 1)
+0x4037dd71: prvIdleTask at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:4273 (discriminator 1)
+0x4037cb61: vPortTaskWrapper at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x40054e97: __extendsfdf2 in ROM
+[0m
+[0;33m0x42010d96: find_entry_from_task_handle_and_check_all_reset at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:153
+[0m
+[0;33m0x42010d93: find_entry_from_task_handle_and_check_all_reset at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:153
+0x42011296: esp_task_wdt_reset at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:712
+0x420112eb: idle_hook_cb at /Users/mimmo/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:468
+0x42003d59: esp_vApplicationIdleHook at /Users/mimmo/esp/esp-idf/components/esp_system/freertos_hooks.c:47 (discriminator 1)
+0x4037dd71: prvIdleTask at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:4273 (discriminator 1)
+0x4037cb61: vPortTaskWrapper at /Users/mimmo/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m0x400547c4: __adddf3 in ROM
+[0m
+[0m

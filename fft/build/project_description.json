@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "fft2r",
-    "project_version":    "5b2d6ba-dirty",
+    "project_version":    "c5bc666-dirty",
     "project_path":       "/Users/mimmo/UniProjects/IOT_Priv/fft",
     "idf_path":           "/Users/mimmo/esp/esp-idf",
     "build_dir":          "/Users/mimmo/UniProjects/IOT_Priv/fft/build",
