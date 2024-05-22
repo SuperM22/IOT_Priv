@@ -75,7 +75,7 @@ We determine the optimal frequency of the signal as:
     for (int i = 0; i < N; i++) 
     {
         float mag = sqrt( y_cf[i]*y_cf[i] + y_cf[i+1] * y_cf[i+1]);
-        if(mag>TH && mag>maxM){
+        if(mag>maxM){
             maxI = i;
             maxM = mag;
         }
