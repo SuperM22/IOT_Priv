@@ -68,8 +68,8 @@ extern const uint8_t mqtt_eclipseprojects_io_pem_end[]   asm("_binary_mqtt_eclip
 int N = NUM_SAMPLES;
 typedef struct {
     int num_sin_components;
-    double sin_frequencies[5]; // Maximum number of sine components
-    double sin_amplitudes[5]; // Maximum number of sine components
+    double sin_frequencies[5]; // IF YOU WANT TO INPUT MORE THAN FIVE SINE WAVES ENLARGE THE ARRAYS CAPABILITIES
+    double sin_amplitudes[5]; 
 } SignalComponent;
 
 __attribute__((aligned(16)))
@@ -91,13 +91,14 @@ float sum_y[NUM_SAMPLES / 2];
 
 
 __attribute__((aligned(16)))
-float new_signal[NUM_SAMPLES]; //Allocating this array inside the main gives a Rom overflow
+float new_signal[NUM_SAMPLES];
 
 
 //LATENCY
 static TickType_t counter_init;
 static TickType_t publish_time;
 TickType_t end_time;
+
 //SIGNAL AGGREGATION
 
 static void send_binary(esp_mqtt_client_handle_t client)
@@ -284,8 +285,6 @@ float perform_FFT(){
     for (int i = 0 ; i < N / 2 ; i++) {
         y1_cf[i] = 10 * log10f((y1_cf[i * 2 + 0] * y1_cf[i * 2 + 0] + y1_cf[i * 2 + 1] * y1_cf[i * 2 + 1]) / N);
         wave[i] = 10 * log10f((wave[i * 2 + 0] * wave[i * 2 + 0] + wave[i * 2 + 1] * wave[i * 2 + 1]) / N);
-        // Simple way to show two power spectrums as one plot
-        //sum_y[i] = fmax(y1_cf[i], y2_cf[i]);
     }
 
     // Show power spectrum in 64x10 window from -100 to 0 dB from 0..N/4 samples
@@ -307,6 +306,7 @@ float perform_FFT(){
 
 void app_main()
 {
+    //DECOMMENT ALL THE VTASKDELAYS IF U WANT TO PERFORM MEASUREMENT OF POWER CONSUMPTION
     //vTaskDelay(1000);
     //sample the signal and store it in wave[];
     counter_init = xTaskGetTickCount();
@@ -327,7 +327,9 @@ void app_main()
     //vTaskDelay(1000);
     
     //resample the signal and store the samples in new_signal[]
+    ESP_LOGI(TAG, "Signal resampling START");
     signal_resampling(newF,new_signal,dimension);
+
     //vTaskDelay(1000);
 
     float mean = signal_mean(new_signal,dimension);

@@ -1,0 +1,431 @@
+ tsf
+[0;3�45) example_connect: Connecting to iPhone (22)...[0m
+[0;32�ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x28 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3810,len:0x178c
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xcbc
+load:0x403cc700,len:0x2d98
+entry 0x403c9914
+[0;32mI (27) boot: ESP-IDF v5.2 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time May 17 2024 11:54:22[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (43) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (53) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (64) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (79) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (87) boot: End of partition table[0m
+[0;32mI (91) esp_image: segment 0: paddr=00010020 vaddr=3c0a0020 size=2d4f4h (185588) map[0m
+[0;32mI (132) esp_image: segment 1: paddr=0003d51c vaddr=3fc98500 size=02afch ( 11004) load[0m
+[0;32mI (135) esp_image: segment 2: paddr=00040020 vaddr=42000020 size=9c4cch (640204) map[0m
+[0;32mI (253) esp_image: segment 3: paddr=000dc4f4 vaddr=3fc9affc size=01be0h (  7136) load[0m
+[0;32mI (255) esp_image: segment 4: paddr=000de0dc vaddr=40374000 size=144c8h ( 83144) load[0m
+[0;32mI (285) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (285) boot: Disabling RNG early entropy source...[0m
+[0;32mI (297) cpu_start: Multicore app[0m
+[0;32mI (307) cpu_start: Pro cpu start user code[0m
+[0;32mI (307) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (307) cpu_start: Application information:[0m
+[0;32mI (310) cpu_start: Project name:     fft2r[0m
+[0;32mI (315) cpu_start: App version:      5dfe22c-dirty[0m
+[0;32mI (320) cpu_start: Compile time:     May 22 2024 11:08:00[0m
+[0;32mI (326) cpu_start: ELF file SHA256:  b6123a6cf...[0m
+[0;32mI (332) cpu_start: ESP-IDF:          v5.2[0m
+[0;32mI (336) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (341) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (346) cpu_start: Chip rev:         v0.2[0m
+[0;32mI (351) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (358) heap_init: At 3FCA5C70 len 00043AA0 (270 KiB): RAM[0m
+[0;32mI (364) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (370) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (376) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (384) spi_flash: detected chip: gd[0m
+[0;32mI (387) spi_flash: flash io: dio[0m
+[0;32mI (391) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (398) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (405) main_task: Started on CPU0[0m
+[0;32mI (415) main_task: Calling app_main()[0m
+[0;32mI (415) main: Signal sampling START[0m
+[0;32mI (455) signal_sampling: Signal sampling over [0m
+[0;32mI (455) FFT: Start FFT.[0m
+[0;32mI (465) FFT: THE MAX Index is 3[0m
+[0;33mW (475) FFT: Signal x1[0m
+[0;32mI (475) view: Data min[425] = -59.406433, Data max[0] = 0.000000[0m
+ ________________________________________________________________
+0                                                                |
+1                                                                |
+2                                                                |
+3                                                                |
+4      ||||||||||||||||                                          |
+5 |||||                |||||   |||||||||||||||||||||     |||||||||
+6|                          | |                     || ||        |
+7|                           |                       ||          |
+8|                           |                        |          |
+9                                                                |
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (545) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
+[0;33mW (545) FFT: FFT[0m
+[0;32mI (555) view: Data min[494] = -152.615112, Data max[1] = 36.385506[0m
+ ________________________________________________________________
+0|                                                               |
+1|                                                               |
+2|                                                               |
+3|                                                               |
+4|                                                               |
+5|                                                               |
+6 |                                                              |
+7 |                                                              |
+8  |                                                             |
+9   ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (625) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
+[0;32mI (635) FFT: FFT for 1024 complex points take 129999 cycles[0m
+[0;32mI (645) FFT: The maximum frequency of the signal is 5.859375, and the relative magnitude value is 2169.693115[0m
+[0;32mI (655) FFT: FFT calculation and max frequency retrieval is over[0m
+[0;32mI (655) main: The proper resampling frequency is 12[0m
+[0;32mI (665) main: Signal resampling START[0m
+[0;32mI (675) signal_resampling: Signal resampling over [0m
+[0;32mI (675) signal_mean: Signal mean over [0m
+[0;32mI (705) example_connect: Start example_connect.[0m
+[0;32mI (705) pp: pp rom version: e7ae62f[0m
+[0;32mI (705) net80211: net80211 rom version: e7ae62f[0m
+I (715) wifi:wifi driver task: 3fcb5ca8, prio:23, stack:6656, core=0
+I (725) wifi:wifi firmware version: cc1dd81
+I (725) wifi:wifi certification version: v7.0
+I (725) wifi:config NVS flash: enabled
+I (725) wifi:config nano formating: disabled
+I (725) wifi:Init data frame dynamic rx buffer num: 32
+I (735) wifi:Init static rx mgmt buffer num: 5
+I (735) wifi:Init management short buffer num: 32
+I (745) wifi:Init dynamic tx buffer num: 32
+I (745) wifi:Init static tx FG buffer num: 2
+I (745) wifi:Init static rx buffer size: 1600
+I (755) wifi:Init static rx buffer num: 10
+I (755) wifi:Init dynamic rx buffer num: 32
+[0;32mI (765) wifi_init: rx ba win: 6[0m
+[0;32mI (765) wifi_init: tcpip mbox: 32[0m
+[0;32mI (765) wifi_init: udp mbox: 6[0m
+[0;32mI (775) wifi_init: tcp mbox: 6[0m
+[0;32mI (775) wifi_init: tcp tx win: 5760[0m
+[0;32mI (775) wifi_init: tcp rx win: 5760[0m
+[0;32mI (785) wifi_init: tcp mss: 1440[0m
+[0;32mI (785) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (795) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (795) phy_init: phy_version 620,ec7ec30,Sep  5 2023,13:49:13[0m
+I (835) wifi:mode : sta (48:27:e2:e2:ee:98)
+I (835) wifi:enable tsf
+[0;32mI (845) example_connect: Connecting to iPhone (22)...[0m
+[0;32mI (845) example_connect: Waiting for IP(s)[0m
+[0;32mI (3255) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (5665) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (8075) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (10475) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (12885) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (15295) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (17705) example_connect: WiFi Connect failed 7 times, stop reconnect.[0m
+ESP_ERROR_CHECK failed: esp_err_t 0xffffffff (ESP_FAIL) at 0x4200a648
+file: "./main/dsps_fft_main.c" line 349
+func: app_main
+expression: example_connect()
+
+abort() was called at PC 0x4037c04b on core 0
+
+
+Backtrace: 0x40375a2a:0x3fca9940 0x4037c055:0x3fca9960 0x4038406d:0x3fca9980 0x4037c04b:0x3fca99f0 0x4200a648:0x3fca9a20 0x4209b4cb:0x3fca9a40 0x4037cb61:0x3fca9a70
+
+
+
+
+ELF file SHA256: b6123a6cf
+
+Rebooting...
+���ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x28 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403759a0
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3810,len:0x178c
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xcbc
+load:0x403cc700,len:0x2d98
+entry 0x403c9914
+[0;32mI (31) boot: ESP-IDF v5.2 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time May 17 2024 11:54:22[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (34) boot: chip revision: v0.2[0m
+[0;32mI (38) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (43) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (52) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (61) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (83) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (91) boot: End of partition table[0m
+[0;32mI (95) esp_image: segment 0: paddr=00010020 vaddr=3c0a0020 size=2d4f4h (185588) map[0m
+[0;32mI (137) esp_image: segment 1: paddr=0003d51c vaddr=3fc98500 size=02afch ( 11004) load[0m
+[0;32mI (139) esp_image: segment 2: paddr=00040020 vaddr=42000020 size=9c4cch (640204) map[0m
+[0;32mI (257) esp_image: segment 3: paddr=000dc4f4 vaddr=3fc9affc size=01be0h (  7136) load[0m
+[0;32mI (259) esp_image: segment 4: paddr=000de0dc vaddr=40374000 size=144c8h ( 83144) load[0m
+[0;32mI (290) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (290) boot: Disabling RNG early entropy source...[0m
+[0;32mI (301) cpu_start: Multicore app[0m
+[0;32mI (311) cpu_start: Pro cpu start user code[0m
+[0;32mI (311) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (312) cpu_start: Application information:[0m
+[0;32mI (314) cpu_start: Project name:     fft2r[0m
+[0;32mI (319) cpu_start: App version:      5dfe22c-dirty[0m
+[0;32mI (325) cpu_start: Compile time:     May 22 2024 11:08:00[0m
+[0;32mI (331) cpu_start: ELF file SHA256:  b6123a6cf...[0m
+[0;32mI (336) cpu_start: ESP-IDF:          v5.2[0m
+[0;32mI (341) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (346) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (350) cpu_start: Chip rev:         v0.2[0m
+[0;32mI (355) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (362) heap_init: At 3FCA5C70 len 00043AA0 (270 KiB): RAM[0m
+[0;32mI (368) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (375) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (381) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (388) spi_flash: detected chip: gd[0m
+[0;32mI (391) spi_flash: flash io: dio[0m
+[0;32mI (395) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (402) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (409) main_task: Started on CPU0[0m
+[0;32mI (419) main_task: Calling app_main()[0m
+[0;32mI (419) main: Signal sampling START[0m
+[0;32mI (459) signal_sampling: Signal sampling over [0m
+[0;32mI (459) FFT: Start FFT.[0m
+[0;32mI (469) FFT: THE MAX Index is 3[0m
+[0;33mW (479) FFT: Signal x1[0m
+[0;32mI (479) view: Data min[425] = -59.406433, Data max[0] = 0.000000[0m
+ ________________________________________________________________
+0                                                                |
+1                                                                |
+2                                                                |
+3                                                                |
+4      ||||||||||||||||                                          |
+5 |||||                |||||   |||||||||||||||||||||     |||||||||
+6|                          | |                     || ||        |
+7|                           |                       ||          |
+8|                           |                        |          |
+9                                                                |
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (549) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
+[0;33mW (549) FFT: FFT[0m
+[0;32mI (559) view: Data min[494] = -152.615112, Data max[1] = 36.385506[0m
+ ________________________________________________________________
+0|                                                               |
+1|                                                               |
+2|                                                               |
+3|                                                               |
+4|                                                               |
+5|                                                               |
+6 |                                                              |
+7 |                                                              |
+8  |                                                             |
+9   ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (629) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
+[0;32mI (639) FFT: FFT for 1024 complex points take 129999 cycles[0m
+[0;32mI (649) FFT: The maximum frequency of the signal is 5.859375, and the relative magnitude value is 2169.693115[0m
+[0;32mI (659) FFT: FFT calculation and max frequency retrieval is over[0m
+[0;32mI (659) main: The proper resampling frequency is 12[0m
+[0;32mI (669) main: Signal resampling START[0m
+[0;32mI (679) signal_resampling: Signal resampling over [0m
+[0;32mI (679) signal_mean: Signal mean over [0m
+[0;32mI (709) example_connect: Start example_connect.[0m
+[0;32mI (709) pp: pp rom version: e7ae62f[0m
+[0;32mI (709) net80211: net80211 rom version: e7ae62f[0m
+I (719) wifi:wifi driver task: 3fcb5ca8, prio:23, stack:6656, core=0
+I (729) wifi:wifi firmware version: cc1dd81
+I (729) wifi:wifi certification version: v7.0
+I (729) wifi:config NVS flash: enabled
+I (729) wifi:config nano formating: disabled
+I (729) wifi:Init data frame dynamic rx buffer num: 32
+I (739) wifi:Init static rx mgmt buffer num: 5
+I (739) wifi:Init management short buffer num: 32
+I (749) wifi:Init dynamic tx buffer num: 32
+I (749) wifi:Init static tx FG buffer num: 2
+I (749) wifi:Init static rx buffer size: 1600
+I (759) wifi:Init static rx buffer num: 10
+I (759) wifi:Init dynamic rx buffer num: 32
+[0;32mI (769) wifi_init: rx ba win: 6[0m
+[0;32mI (769) wifi_init: tcpip mbox: 32[0m
+[0;32mI (769) wifi_init: udp mbox: 6[0m
+[0;32mI (779) wifi_init: tcp mbox: 6[0m
+[0;32mI (779) wifi_init: tcp tx win: 5760[0m
+[0;32mI (779) wifi_init: tcp rx win: 5760[0m
+[0;32mI (789) wifi_init: tcp mss: 1440[0m
+[0;32mI (789) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (799) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (799) phy_init: phy_version 620,ec7ec30,Sep  5 2023,13:49:13[0m
+I (839) wifi:mode : sta (48:27:e2:e2:ee:98)
+I (839) wifi:enable tsf
+[0;32mI (849) example_connect: Connecting to iPhone (22)...[0m
+[0;32mI (849) example_connect: Waiting for IP(s)[0m
+[0;32mI (3259) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (5669) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (8079) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (10479) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (12889) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (15299) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (17709) example_connect: WiFi Connect failed 7 times, stop reconnect.[0m
+ESP_ERROR_CHECK failed: esp_err_t 0xffffffff (ESP_FAIL) at 0x4200a648
+file: "./main/dsps_fft_main.c" line 349
+func: app_main
+expression: example_connect()
+
+abort() was called at PC 0x4037c04b on core 0
+
+
+Backtrace: 0x40375a2a:0x3fca9940 0x4037c055:0x3fca9960 0x4038406d:0x3fca9980 0x4037c04b:0x3fca99f0 0x4200a648:0x3fca9a20 0x4209b4cb:0x3fca9a40 0x4037cb61:0x3fca9a70
+
+
+
+
+ELF file SHA256: b6123a6cf
+
+Rebooting...
+���ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x28 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403759a0
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3810,len:0x178c
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xcbc
+load:0x403cc700,len:0x2d98
+entry 0x403c9914
+[0;32mI (31) boot: ESP-IDF v5.2 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time May 17 2024 11:54:22[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (34) boot: chip revision: v0.2[0m
+[0;32mI (38) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (43) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (52) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (61) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (83) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (91) boot: End of partition table[0m
+[0;32mI (95) esp_image: segment 0: paddr=00010020 vaddr=3c0a0020 size=2d4f4h (185588) map[0m
+[0;32mI (137) esp_image: segment 1: paddr=0003d51c vaddr=3fc98500 size=02afch ( 11004) load[0m
+[0;32mI (139) esp_image: segment 2: paddr=00040020 vaddr=42000020 size=9c4cch (640204) map[0m
+[0;32mI (257) esp_image: segment 3: paddr=000dc4f4 vaddr=3fc9affc size=01be0h (  7136) load[0m
+[0;32mI (259) esp_image: segment 4: paddr=000de0dc vaddr=40374000 size=144c8h ( 83144) load[0m
+[0;32mI (290) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (290) boot: Disabling RNG early entropy source...[0m
+[0;32mI (301) cpu_start: Multicore app[0m
+[0;32mI (311) cpu_start: Pro cpu start user code[0m
+[0;32mI (311) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (312) cpu_start: Application information:[0m
+[0;32mI (314) cpu_start: Project name:     fft2r[0m
+[0;32mI (319) cpu_start: App version:      5dfe22c-dirty[0m
+[0;32mI (325) cpu_start: Compile time:     May 22 2024 11:08:00[0m
+[0;32mI (331) cpu_start: ELF file SHA256:  b6123a6cf...[0m
+[0;32mI (336) cpu_start: ESP-IDF:          v5.2[0m
+[0;32mI (341) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (346) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (350) cpu_start: Chip rev:         v0.2[0m
+[0;32mI (355) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (362) heap_init: At 3FCA5C70 len 00043AA0 (270 KiB): RAM[0m
+[0;32mI (368) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (375) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (381) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (388) spi_flash: detected chip: gd[0m
+[0;32mI (391) spi_flash: flash io: dio[0m
+[0;32mI (395) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (402) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (409) main_task: Started on CPU0[0m
+[0;32mI (419) main_task: Calling app_main()[0m
+[0;32mI (419) main: Signal sampling START[0m
+[0;32mI (459) signal_sampling: Signal sampling over [0m
+[0;32mI (459) FFT: Start FFT.[0m
+[0;32mI (469) FFT: THE MAX Index is 3[0m
+[0;33mW (479) FFT: Signal x1[0m
+[0;32mI (479) view: Data min[425] = -59.406433, Data max[0] = 0.000000[0m
+ ________________________________________________________________
+0                                                                |
+1                                                                |
+2                                                                |
+3                                                                |
+4      ||||||||||||||||                                          |
+5 |||||                |||||   |||||||||||||||||||||     |||||||||
+6|                          | |                     || ||        |
+7|                           |                       ||          |
+8|                           |                        |          |
+9                                                                |
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (549) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
+[0;33mW (549) FFT: FFT[0m
+[0;32mI (559) view: Data min[494] = -152.615112, Data max[1] = 36.385506[0m
+ ________________________________________________________________
+0|                                                               |
+1|                                                               |
+2|                                                               |
+3|                                                               |
+4|                                                               |
+5|                                                               |
+6 |                                                              |
+7 |                                                              |
+8  |                                                             |
+9   ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+ 0123456789012345678901234567890123456789012345678901234567890123
+[0;32mI (629) view: Plot: Length=512, min=-60.000000, max=40.000000[0m
+[0;32mI (639) FFT: FFT for 1024 complex points take 129999 cycles[0m
+[0;32mI (649) FFT: The maximum frequency of the signal is 5.859375, and the relative magnitude value is 2169.693115[0m
+[0;32mI (659) FFT: FFT calculation and max frequency retrieval is over[0m
+[0;32mI (659) main: The proper resampling frequency is 12[0m
+[0;32mI (669) main: Signal resampling START[0m
+[0;32mI (679) signal_resampling: Signal resampling over [0m
+[0;32mI (679) signal_mean: Signal mean over [0m
+[0;32mI (709) example_connect: Start example_connect.[0m
+[0;32mI (709) pp: pp rom version: e7ae62f[0m
+[0;32mI (709) net80211: net80211 rom version: e7ae62f[0m
+I (719) wifi:wifi driver task: 3fcb5ca8, prio:23, stack:6656, core=0
+I (729) wifi:wifi firmware version: cc1dd81
+I (729) wifi:wifi certification version: v7.0
+I (729) wifi:config NVS flash: enabled
+I (729) wifi:config nano formating: disabled
+I (729) wifi:Init data frame dynamic rx buffer num: 32
+I (739) wifi:Init static rx mgmt buffer num: 5
+I (739) wifi:Init management short buffer num: 32
+I (749) wifi:Init dynamic tx buffer num: 32
+I (749) wifi:Init static tx FG buffer num: 2
+I (749) wifi:Init static rx buffer size: 1600
+I (759) wifi:Init static rx buffer num: 10
+I (759) wifi:Init dynamic rx buffer num: 32
+[0;32mI (769) wifi_init: rx ba win: 6[0m
+[0;32mI (769) wifi_init: tcpip mbox: 32[0m
+[0;32mI (769) wifi_init: udp mbox: 6[0m
+[0;32mI (779) wifi_init: tcp mbox: 6[0m
+[0;32mI (779) wifi_init: tcp tx win: 5760[0m
+[0;32mI (779) wifi_init: tcp rx win: 5760[0m
+[0;32mI (789) wifi_init: tcp mss: 1440[0m
+[0;32mI (789) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (799) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (799) phy_init: phy_version 620,ec7ec30,Sep  5 2023,13:49:13[0m
+I (849) wifi:mode : sta (48:27:e2:e2:ee:98)
+I (849) wifi:enable tsf
+[0;32mI (849) example_connect: Connecting to iPhone (22)...[0m
+[0;32mI (849) example_connect: Waiting for IP(s)[0m
+[0;32mI (3259) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (5669) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (8079) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (10489) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (12889) example_connect: Wi-Fi disconnected, trying to reconnect...[0m
+[0;32mI (15299) example_connect: Wi-Fi disconnected, trying to reconnect...[0m

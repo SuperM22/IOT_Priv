@@ -1,5 +1,6 @@
 # IOT_Priv
 Individual project for IOT Algorithms and Services course, Master's degree in ECS La Sapienza, Rome.
+This project was made by [me](https://www.linkedin.com/in/domenico-lattari-0947b9225/)
 
 # Signal processor simulator 
 
