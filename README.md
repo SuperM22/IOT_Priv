@@ -11,7 +11,8 @@ This project demonstrates how to perform an FFT of an input signal, process the 
 2. Clean the project build (idf.py clean or manually delete the build folder).
 3. Correctly setup the Wi-Fi connection and the flash size of your device (idf.py menuconfig in the fft folder): Serial flasher config -> Flash size (8MB), Example Connection -> Input your access point id and password.
 4. Connect your device.
-5. Run idf.py build flash monitor.
+5. Run idf.py build flash monitor. <br>
+To stop monitoring press ```Ctrl+T + Ctrl+X ``` inside the terminal window.
 
 ## Project setup
 
@@ -130,6 +131,19 @@ actually weights 144 bytes (there are more than 1 since I purposely spammed the 
 ![Schermata 2024-05-22 alle 10 15 25](https://github.com/SuperM22/IOT_Priv/assets/62383917/06c57a0d-f127-4b06-abfc-8dbea3bfadc9) <br>
 
 Since we are subscribed to the topic the packet is sent and then received.
+
+### System latency evaluation
+The latency evaluation of the system is calculated by  getting the ticks at specific points inside the code by using xTaskGetTickCount(), and then getting the final time of the application by:
+```
+end_time = publish_time-counter_init;
+end_time = (unsigned int) (end_time * portTICK_PERIOD_MS);
+ESP_LOGI("MQTT","The total latency is %ld milliseconds",end_time);
+```
+The timer is started before the generation of the signal and ended as soon as we publish the data on the MQTT server. <br>
+The total latency of the system varies due to some coiches in the code:
+- if we connect to the WiFi before starting the timer (so we do not consider the wifi connection time), the total latency is around 2050ms.
+- if we consider the wifi connection, the total latency incrases to 20 seconds.
+In those extimation power consumption is not considered, since in the code there are some ```vTaskDelay(1000);``` in order to perform more accurate power consumption readings.
 
 ### Power consumption monitoring
 
