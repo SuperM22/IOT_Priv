@@ -2,9 +2,10 @@
 Individual project for IOT Algorithms and Services course, Master's degree in ECS La Sapienza, Rome.
 This project was made by [me](https://www.linkedin.com/in/domenico-lattari-0947b9225/)
 
-# Signal processor simulator 
+# Signal processing 
 
 This project demonstrates how to perform an FFT of an input signal, process the maximum frequency of the signal, re-sample the input signal at the optimal sampling frequency and transimts data of the signal through an MQTT server (SSL). This project was built to be run on an ESP32S3 v3 developement board.
+It's also included power consumption monitoring (oversampling vs optimal sampling frequency), network usage monitoring and latency monitoring of the whole system.
 
 ## How to run
 
